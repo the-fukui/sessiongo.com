@@ -9,6 +9,7 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    versioning-strategy: "increase"
     labels:
       - "dependencies"
       - "root"
@@ -17,6 +18,7 @@ updates:
     directory: "/packages/web" # Location of package manifests
     schedule:
       interval: "daily"
+    versioning-strategy: "increase"
     labels:
       - "dependencies"
       - "web"
