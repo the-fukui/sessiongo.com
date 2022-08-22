@@ -8,7 +8,6 @@ questions:
   path:
     message: 'Please enter page path.'
     initial: '/'
-    required: false
 ---
 
 # `packages/web/pages{{ inputs.path }}/{{ inputs.name }}.tsx`
