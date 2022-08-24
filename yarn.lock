@@ -426,13 +426,21 @@
     "@scaffdog/types" "2.0.2"
     zod "^3.11.6"
 
-"@scaffdog/core@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@scaffdog/core/-/core-2.0.2.tgz#e076fcc972c8c6c1b3066803b16ad88d62ff1def"
-  integrity sha512-Scs+5izWgZkWz9vr179wE6zZSa+GJyDye85e8gaR3zIEGumXsOZrFdQf0vcfi5ev+9vjoDubjrI9GEy3Xk5ttw==
+"@scaffdog/config@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@scaffdog/config/-/config-2.0.3.tgz#2acf904cb0d9c64ce0cc49829bfdc528b6c8cf31"
+  integrity sha512-CP1CgmDWj/8p2tZXycMN5mGFprG2DDCtDN/5hhkzLRYqlGcrmrO24vLwr0TNAa0s8GW45cMyAXOXMGfNAff4Pw==
   dependencies:
-    "@scaffdog/engine" "2.0.2"
-    "@scaffdog/types" "2.0.2"
+    "@scaffdog/types" "2.0.3"
+    zod "^3.11.6"
+
+"@scaffdog/core@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@scaffdog/core/-/core-2.0.3.tgz#9781c13ca1d7da36c03902d2ec3efa79425ce2eb"
+  integrity sha512-x4SkiPtQoqRuRObun9e4OCl1IodFHO+rZ4iUXlIzjYbnoWotNY1pQ+vX+FtvGiZutN+B0iSaZTH7+B8STBMv9g==
+  dependencies:
+    "@scaffdog/engine" "2.0.3"
+    "@scaffdog/types" "2.0.3"
     mdast-util-to-string "^2.0.0"
     remark-parse "^9.0.0"
     unified "^9.2.1"
@@ -450,6 +458,18 @@
     is-plain-object "^5.0.0"
     safe-eval "^0.4.1"
 
+"@scaffdog/engine@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@scaffdog/engine/-/engine-2.0.3.tgz#a4fe5bdb76f4f001a75fa717be18fa933b2c3eaa"
+  integrity sha512-k/J3m7nJm6GU/ZlyPAiz1FBI9BDLLVttr+S3iOK8L0+M227VkrC1uMGQKYjFiobwtzagzb3kG+qJUnFyLktSIw==
+  dependencies:
+    "@scaffdog/error" "2.0.3"
+    "@scaffdog/types" "2.0.3"
+    change-case "^4.1.2"
+    dayjs "^1.10.4"
+    is-plain-object "^5.0.0"
+    safe-eval "^0.4.1"
+
 "@scaffdog/error@2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@scaffdog/error/-/error-2.0.2.tgz#0568b8bb8cb6811bd9268bc86e7fe824d9775271"
@@ -459,10 +479,24 @@
     chalk "^4.1.0"
     string-length "4.0.2"
 
+"@scaffdog/error@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@scaffdog/error/-/error-2.0.3.tgz#15e8226971e6106f25a97ec4003f09b2e289eedd"
+  integrity sha512-risqADj3e+QucXXc5sCVhcferMCVqsbuYi8qaA6qix/Qdc3oRrgluPf3N3WvkMcbtOwkUYtKkyxjhaX3H20odQ==
+  dependencies:
+    "@scaffdog/types" "2.0.3"
+    chalk "^4.1.0"
+    string-length "4.0.2"
+
 "@scaffdog/types@2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@scaffdog/types/-/types-2.0.2.tgz#6984c0cb16b989377181e6520cab526223df8313"
   integrity sha512-tJyl5lny0QRluk7v96knCPXcI3uay2eb+4mEcvIO8svmFq+VqcE/USn3b7in9jBdJ7ytysFXqFPQaCB+ZAqOLg==
+
+"@scaffdog/types@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@scaffdog/types/-/types-2.0.3.tgz#0d6fe764f3da0f9afca4b65263beb13287105e53"
+  integrity sha512-/xF8H6DpOUuzdt1ls7j55vv4q+E8vTQ373OilFq4GrgV6dyEZyFtBXabJTitauUWl2Jvn308rWhDbCTRCBMExA==
 
 "@sindresorhus/is@^4.0.0":
   version "4.6.0"
@@ -3641,16 +3675,16 @@ safe-eval@^0.4.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-scaffdog@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/scaffdog/-/scaffdog-2.0.2.tgz#b84850e66c1603e1b5606eb98f75d6dd91ff50c7"
-  integrity sha512-2zV4dtjUAun728cemwJ3Mx1B/I0xZp1Iru5TGcLKl8ELDp9r+Awpvm7gM+fC6CSAa+SfxqDmV9vonW9czil5FA==
+scaffdog@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/scaffdog/-/scaffdog-2.0.3.tgz#9f2692b10a30772bf8fc54ee2f7b730a25ce671a"
+  integrity sha512-kjcCCUnuyB7vas1MPffaxXYKFOFEnfmqEuacnetfapiSEyc96XlGzj9kQoPUmfh6mGEktBmGTy6BcL87Qtr7Gg==
   dependencies:
-    "@scaffdog/config" "2.0.2"
-    "@scaffdog/core" "2.0.2"
-    "@scaffdog/engine" "2.0.2"
-    "@scaffdog/error" "2.0.2"
-    "@scaffdog/types" "2.0.2"
+    "@scaffdog/config" "2.0.3"
+    "@scaffdog/core" "2.0.3"
+    "@scaffdog/engine" "2.0.3"
+    "@scaffdog/error" "2.0.3"
+    "@scaffdog/types" "2.0.3"
     ansi-escapes "^4.3.2"
     chalk "^4.1.0"
     cli-truncate "^2.1.0"
