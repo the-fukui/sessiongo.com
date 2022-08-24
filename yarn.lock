@@ -418,14 +418,6 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.4.tgz#0c8b74c50f29ee44f423f7416829c0bf8bb5eb27"
   integrity sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==
 
-"@scaffdog/config@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@scaffdog/config/-/config-2.0.2.tgz#930eebf112329ea185f2a9f5b6f7412763a98f29"
-  integrity sha512-Jbo99zIijEj9O1fQgspoRnwGJdvZx3GMSJMBPcBimMm9PYdFYn+9khLQ8FVjG0+krOumTyrJaiiwCv0KrB/wOA==
-  dependencies:
-    "@scaffdog/types" "2.0.2"
-    zod "^3.11.6"
-
 "@scaffdog/config@2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@scaffdog/config/-/config-2.0.3.tgz#2acf904cb0d9c64ce0cc49829bfdc528b6c8cf31"
@@ -446,18 +438,6 @@
     unified "^9.2.1"
     unist-util-visit-parents "^3.1.1"
 
-"@scaffdog/engine@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@scaffdog/engine/-/engine-2.0.2.tgz#7a42f62552ae617f0a88b6f8c491ed98743d4ce2"
-  integrity sha512-P2edw17+e45gIm9yfTOYU3Z4/Lm3QR0W/oDoA7e175YNyJaTgcYzdFSbeJOuwCgCIkS+1L8nzIb+J7VHXm7bLg==
-  dependencies:
-    "@scaffdog/error" "2.0.2"
-    "@scaffdog/types" "2.0.2"
-    change-case "^4.1.2"
-    dayjs "^1.10.4"
-    is-plain-object "^5.0.0"
-    safe-eval "^0.4.1"
-
 "@scaffdog/engine@2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@scaffdog/engine/-/engine-2.0.3.tgz#a4fe5bdb76f4f001a75fa717be18fa933b2c3eaa"
@@ -470,15 +450,6 @@
     is-plain-object "^5.0.0"
     safe-eval "^0.4.1"
 
-"@scaffdog/error@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@scaffdog/error/-/error-2.0.2.tgz#0568b8bb8cb6811bd9268bc86e7fe824d9775271"
-  integrity sha512-846XmO87LyT62NmyV9dz6aTYTLgVq25FZ0+gGkSn5PdF4r8eZwgcEjXOXRTa4yCU0kgVgVV5Q3c7/b1VEFVtTg==
-  dependencies:
-    "@scaffdog/types" "2.0.2"
-    chalk "^4.1.0"
-    string-length "4.0.2"
-
 "@scaffdog/error@2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@scaffdog/error/-/error-2.0.3.tgz#15e8226971e6106f25a97ec4003f09b2e289eedd"
@@ -487,11 +458,6 @@
     "@scaffdog/types" "2.0.3"
     chalk "^4.1.0"
     string-length "4.0.2"
-
-"@scaffdog/types@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@scaffdog/types/-/types-2.0.2.tgz#6984c0cb16b989377181e6520cab526223df8313"
-  integrity sha512-tJyl5lny0QRluk7v96knCPXcI3uay2eb+4mEcvIO8svmFq+VqcE/USn3b7in9jBdJ7ytysFXqFPQaCB+ZAqOLg==
 
 "@scaffdog/types@2.0.3":
   version "2.0.3"
@@ -3395,14 +3361,14 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prettier-plugin-scaffdog@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-scaffdog/-/prettier-plugin-scaffdog-2.0.2.tgz#b3e4005f32c97ad587ba6684774c1a59581b8a27"
-  integrity sha512-U//moyPa5kF8uwCSi11mCihuka9XIkZKgDeY9Q7UrQQSRCVItadvtmSz+O5aOxJonsEHjnj6SHKzkyK6iwXFNg==
+prettier-plugin-scaffdog@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-scaffdog/-/prettier-plugin-scaffdog-2.0.3.tgz#89d71822507a3410f0a78c226a5929c09ce46317"
+  integrity sha512-6OUsUElArcX+IyuPnlUUk2EvFXzt1R3zAd3Ng/W7x6vy7kSva1Emy41QolaQllnjqFRTJ5rOHqM35peAFErKLA==
   dependencies:
-    "@scaffdog/config" "2.0.2"
-    "@scaffdog/engine" "2.0.2"
-    "@scaffdog/types" "2.0.2"
+    "@scaffdog/config" "2.0.3"
+    "@scaffdog/engine" "2.0.3"
+    "@scaffdog/types" "2.0.3"
     minimatch "^5.0.0"
     prettier "2.7.1"
 
