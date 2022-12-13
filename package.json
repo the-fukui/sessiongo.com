@@ -31,6 +31,9 @@
       "eslint --fix",
       "prettier --ignore-path .prettierignore --write --cache"
     ],
+    "*.{json}": [
+      "prettier --ignore-path .prettierignore --write --cache"
+    ],
     "*.{css,less,sass,scss}": [
       "stylelint --fix"
     ]
