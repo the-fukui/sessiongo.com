@@ -5,20 +5,20 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "daily"
-    versioning-strategy: "increase"
+      interval: 'weekly'
+    versioning-strategy: 'increase'
     labels:
-      - "dependencies"
-      - "root"
+      - 'dependencies'
+      - 'root'
 
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/packages/web" # Location of package manifests
+  - package-ecosystem: 'npm' # See documentation for possible values
+    directory: '/packages/web' # Location of package manifests
     schedule:
-      interval: "daily"
-    versioning-strategy: "increase"
+      interval: 'weekly'
+    versioning-strategy: 'increase'
     labels:
-      - "dependencies"
-      - "web"
+      - 'dependencies'
+      - 'web'
