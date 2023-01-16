@@ -13,18 +13,15 @@ questions:
 # `packages/web/pages{{ inputs.path }}/{{ inputs.name }}.tsx`
 
 ```tsx
+import Component from '@web/components/pages/{{ inputs.name }}'
+
 import type { GetStaticPropsContext } from 'next'
-import React from 'react'
 
-const Presenter: React.FC<PresenterProps<typeof Container>> = ({}) => (
-  <div></div>
-)
+export const page = (serverProps: InferSSRProps<typeof getStaticProps>) => {
+  /** Next.js依存層 */
 
-const Container = (props: PageContainerProps<typeof getStaticProps>) => {
-  /** Logic here */
-
-  const presenterProps = {}
-  return { ...props, ...presenterProps }
+  const pageProps = {}
+  return { ...serverProps, ...pageProps }
 }
 
 export const getStaticProps = async ({}: GetStaticPropsContext) => {
@@ -39,8 +36,37 @@ export const getStaticProps = async ({}: GetStaticPropsContext) => {
 }
 
 export default function {{ inputs.name | pascal }}(
-  props: PageContainerProps<typeof getStaticProps>,
+  serverProps: InferSSRProps<typeof getStaticProps>,
 ) {
-  return <Presenter {...Container(props)} />
+  return <Component {...page(serverProps)} />
 }
+```
+
+# `packages/web/components/pages{{ inputs.path }}{{ inputs.name }}/index.tsx`
+
+```tsx
+import { page } from '@web/pages{{ inputs.path }}{{ inputs.name }}'
+
+import React from 'react'
+
+// import style from './index.module.scss'
+
+const Presenter: React.FC<ReturnType<typeof Container>> = () => <div></div>
+
+const Container = (pageProps: ReturnType<typeof page>) => {
+  /** Logic here */
+
+  const containerProps = {}
+  return { ...pageProps, ...containerProps }
+}
+
+export default function {{ inputs.name | pascal }}(pageProps: ReturnType<typeof page>) {
+  return <Presenter {...Container(pageProps)} />
+}
+```
+
+# `packages/web/components/pages{{ inputs.path }}{{ inputs.name }}/index.module.scss`
+
+```scss
+
 ```

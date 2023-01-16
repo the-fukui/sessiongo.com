@@ -5,35 +5,39 @@ output: '.'
 ignore: []
 questions:
   name: 'Please enter component name.'
+  path:
+    message: 'Please enter component path.'
+    initial: '/'
 ---
 
-# `packages/web/components/{{ inputs.name | pascal }}/index.tsx`
+# `packages/web/components{{ inputs.path }}{{ inputs.name }}/index.tsx`
 
 ```tsx
 import React from 'react'
-import style from './index.module.scss'
 
-type ContainerProps = {
-    className?: string
+// import style from './index.module.scss'
+
+type Props = {
+  className?: string
 }
 
-const Presenter: React.FC<PresenterProps<typeof Container>> = ({className}) => (
+const Presenter: React.FC<ReturnType<typeof Container>> = ({ className }) => (
   <div className={`${className}`}></div>
 )
 
-const Container = (props: ContainerProps) => {
+const Container = (props: Props) => {
   /** Logic here */
 
-  const presenterProps = {}
-  return { ...props, ...presenterProps }
+  const containerProps = {}
+  return { ...props, ...containerProps }
 }
 
-export default function {{ inputs.name | pascal }}(props: ContainerProps) {
+export default function {{ inputs.name | pascal }}(props: Props) {
   return <Presenter {...Container(props)} />
 }
 ```
 
-# `packages/web/components/{{ inputs.name | pascal }}/index.scss`
+# `packages/web/components{{ inputs.path }}{{ inputs.name }}/index.module.scss`
 
 ```scss
 
