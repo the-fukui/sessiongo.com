@@ -1,6 +1,15 @@
 {
-  "plugins": ["stylelint-order"],
-  "extends": ["stylelint-config-standard"],
+  "overrides": [
+    {
+      "files": ["*.scss"],
+      "customSyntax": "postcss-scss"
+    }
+  ],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss",
+    "stylelint-config-recess-order"
+  ],
   "rules": {
     "selector-pseudo-class-no-unknown": [
       true,
@@ -9,12 +18,6 @@
       }
     ],
     "no-invalid-position-at-import-rule": null,
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": ["mixin", "include", "extend"]
-      }
-    ],
     "no-empty-source": null
   },
   "ignoreFiles": ["**/node_modules/**"]
