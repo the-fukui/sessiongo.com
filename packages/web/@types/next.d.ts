@@ -3,7 +3,7 @@ type GetSSRResult<TProps> =
   | { redirect: any }
   | { notFound: true }
 type GetSSRFn<TProps extends any> = (args: any) => Promise<GetSSRResult<TProps>>
-type inferSSRProps<TFn extends GetSSRFn<any>> = TFn extends GetSSRFn<
+type InferSSRProps<TFn extends GetSSRFn<any>> = TFn extends GetSSRFn<
   infer TProps
 >
   ? NonNullable<TProps>
