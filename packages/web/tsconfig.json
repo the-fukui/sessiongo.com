@@ -6,5 +6,8 @@
     "**/*.tsx",
     "../shared/@types/*.d.ts"
   ],
+  "compilerOptions": {
+    "types": ["vitest/importMeta"]
+  },
   "exclude": ["node_modules"]
 }
