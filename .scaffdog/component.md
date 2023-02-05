@@ -13,8 +13,6 @@ questions:
 # `packages/web/components{{ inputs.path }}{{ inputs.name }}/index.tsx`
 
 ```tsx
-import React from 'react'
-
 // import style from './index.module.scss'
 
 type Props = {

@@ -45,11 +45,9 @@ export default function {{ inputs.name | pascal }}(
 # `packages/web/components/pages{{ inputs.path }}{{ inputs.name }}/index.tsx`
 
 ```tsx
-import { page } from '@web/pages{{ inputs.path }}{{ inputs.name }}'
-
-import React from 'react'
-
 // import style from './index.module.scss'
+
+import { page } from '@web/pages{{ inputs.path }}{{ inputs.name }}'
 
 const Presenter: React.FC<ReturnType<typeof Container>> = () => <div></div>
 
