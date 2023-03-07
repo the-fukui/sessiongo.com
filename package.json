@@ -1,11 +1,64 @@
 {
-  "name": "sessiongo.com",
+  "name": "next-yarn-workspace-template",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "the-fukui <account@the-fukui.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   },
-  "author": "",
-  "license": "ISC"
+  "packageManager": "yarn@3.0.2",
+  "scripts": {
+    "preinstall": "sh env.sh",
+    "env": "sh env.sh",
+    "generate:env-type": "gen-env-types -o packages/shared/@types/env.d.ts .env",
+    "scaffold": "scaffdog generate",
+    "web": "yarn workspace web dev",
+    "web:build": "yarn workspace web build",
+    "web:start": "yarn workspace web start",
+    "web:lint": "yarn workspace web lint",
+    "web:lint:fix": "yarn workspace web lint --fix",
+    "web:lint:style": "stylelint './packages/web/{styles,components}/**/*.{css,scss,sass}'",
+    "web:lint:style:fix": "stylelint --fix './packages/web/{styles,components}/**/*.{css,scss,sass}'",
+    "web:format": "prettier --write --cache --ignore-path ./packages/web/.gitignore './packages/web/**/*.{js,jsx,ts,tsx,json}'",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,yml,yaml}": [
+      "eslint --fix",
+      "prettier --ignore-path .prettierignore --write --cache"
+    ],
+    "*.{json}": [
+      "prettier --ignore-path .prettierignore --write --cache"
+    ],
+    "*.{css,less,sass,scss}": [
+      "stylelint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.7.0",
+    "gen-env-types": "^1.3.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "postcss-scss": "^4.0.6",
+    "prettier": "^2.8.4",
+    "prettier-plugin-scaffdog": "^2.5.0",
+    "scaffdog": "^2.5.0",
+    "stylelint": "^15.2.0",
+    "stylelint-config-recess-order": "^4.0.0",
+    "stylelint-config-standard": "^30.0.1",
+    "stylelint-config-standard-scss": "^7.0.1",
+    "typescript": "^4.9.5"
+  },
+  "volta": {
+    "node": "18.13.0",
+    "yarn": "3.4.1"
+  }
 }
