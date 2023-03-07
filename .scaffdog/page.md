@@ -47,7 +47,7 @@ export default function {{ inputs.name | pascal }}(
 ```tsx
 // import style from './index.module.scss'
 
-import { page } from '@web/pages{{ inputs.path }}{{ inputs.name }}'
+import type { page } from '@web/pages{{ inputs.path }}{{ inputs.name }}'
 
 const Presenter: React.FC<ReturnType<typeof Container>> = () => <div></div>
 
