@@ -1,10 +1,10 @@
 // import style from './index.module.scss'
-import InputAutoComplete from '@web/features/event/components/InputAutoComplete'
+import InputPlaceAutoComplete from '@web/features/event/components/InputPlaceAutoComplete'
 import type { page } from '@web/pages/events/create'
 
 const Presenter: React.FC<ReturnType<typeof Container>> = () => (
   <div>
-    <InputAutoComplete />
+    <InputPlaceAutoComplete />
   </div>
 )
 
