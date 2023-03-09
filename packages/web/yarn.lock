@@ -4738,6 +4738,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"type-fest@npm:^3.6.1":
+  version: 3.6.1
+  resolution: "type-fest@npm:3.6.1"
+  checksum: f7e39bf6b74a883661ec8642707f49c33cfcdc6221e1ba36b1d329c1cf301d87351b3ca0839b894cbfe47dc62140c0ce47e69c88f76800b678e0b67b7fe826e6
+  languageName: node
+  linkType: hard
+
 "typed-array-length@npm:^1.0.4":
   version: 1.0.4
   resolution: "typed-array-length@npm:1.0.4"
@@ -5006,6 +5013,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     sass: ^1.58.3
+    type-fest: ^3.6.1
     vite-tsconfig-paths: ^4.0.5
     vitest: ^0.29.2
   languageName: unknown
