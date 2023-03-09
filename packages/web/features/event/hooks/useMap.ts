@@ -1,7 +1,8 @@
 import { getGeolocation } from '@web/features/event/api/geolocation'
+import { getPlaceAddress } from '@web/features/event/utils/googleMap'
 
 import { Loader } from '@googlemaps/js-api-loader'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const DEFAULT_CENTER = {
   lat: 35.66, // 緯度経度
@@ -16,6 +17,8 @@ export const useMap = () => {
   const mapInstanceRef = useRef<google.maps.Map>()
   const autocompleteInstanceRef = useRef<google.maps.places.Autocomplete>()
 
+  const [address, setAddress] = useState<string>('')
+
   const setupMap = () => {
     if (!mapRef.current) return
     const map = new window.google.maps.Map(mapRef.current, {
@@ -25,6 +28,7 @@ export const useMap = () => {
       streetViewControl: false,
       rotateControl: false,
       fullscreenControl: false,
+      scrollwheel: false,
     })
     mapInstanceRef.current = map
   }
@@ -48,7 +52,6 @@ export const useMap = () => {
     if (!mapInstanceRef.current || !autocompleteInstanceRef.current) return
 
     const place = autocompleteInstanceRef.current.getPlace()
-    console.log({ place })
 
     // 場所名のみをテキストボックスに表示
     if (inputRef.current) inputRef.current.value = place.name || ''
@@ -56,6 +59,10 @@ export const useMap = () => {
     // Autocompleteした場所にマップを移動
     const latLng = place.geometry?.location
     if (latLng) mapInstanceRef.current.panTo(latLng)
+
+    // 住所を取得
+    const address = getPlaceAddress(place)
+    setAddress(address)
   }
 
   useEffect(() => {
@@ -80,5 +87,5 @@ export const useMap = () => {
     })
   }, [])
 
-  return { mapRef, inputRef }
+  return { mapRef, inputRef, address }
 }
