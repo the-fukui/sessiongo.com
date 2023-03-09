@@ -1,3 +1,5 @@
+import { getGeolocation } from '@web/features/event/api/geolocation'
+
 import { Loader } from '@googlemaps/js-api-loader'
 import { useEffect, useRef } from 'react'
 
@@ -5,8 +7,10 @@ const DEFAULT_CENTER = {
   lat: 35.66, // 緯度経度
   lng: 139.74,
 }
+const DEFAULT_ZOOM = 11
 
 export const useMap = () => {
+  const geolocationRef = useRef<google.maps.LatLngLiteral>(DEFAULT_CENTER)
   const mapRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const mapInstanceRef = useRef<google.maps.Map>()
@@ -15,8 +19,8 @@ export const useMap = () => {
   const setupMap = () => {
     if (!mapRef.current) return
     const map = new window.google.maps.Map(mapRef.current, {
-      center: DEFAULT_CENTER,
-      zoom: 15,
+      center: geolocationRef.current,
+      zoom: DEFAULT_ZOOM,
       mapTypeControl: false,
       streetViewControl: false,
       rotateControl: false,
@@ -31,7 +35,7 @@ export const useMap = () => {
       inputRef.current,
       {
         componentRestrictions: { country: 'jp' },
-        // fields: ['name', 'geometry', 'formatted_address'],
+        fields: ['name', 'geometry', 'formatted_address', 'address_components'],
       },
     )
 
@@ -43,9 +47,13 @@ export const useMap = () => {
   const onPlaceChanged = () => {
     if (!mapInstanceRef.current || !autocompleteInstanceRef.current) return
 
-    // Autocompleteした場所にマップを移動
     const place = autocompleteInstanceRef.current.getPlace()
     console.log({ place })
+
+    // 場所名のみをテキストボックスに表示
+    if (inputRef.current) inputRef.current.value = place.name || ''
+
+    // Autocompleteした場所にマップを移動
     const latLng = place.geometry?.location
     if (latLng) mapInstanceRef.current.panTo(latLng)
   }
@@ -56,7 +64,16 @@ export const useMap = () => {
       libraries: ['places'],
     })
 
-    loader.load().then(() => {
+    Promise.all([
+      getGeolocation(), // IPから座標を取得
+      loader.load(), // Google Maps APIを読み込み
+    ]).then(([geolocation]) => {
+      // IPから取得した座標を設定
+      geolocationRef.current = {
+        lat: geolocation.lat,
+        lng: geolocation.lon,
+      }
+
       console.log('google map loaded')
       setupMap()
       setupAutocomplete()

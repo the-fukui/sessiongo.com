@@ -25,7 +25,7 @@ export const getPlaceAddress = (place: google.maps.places.PlaceResult) => {
       component.types.includes('administrative_area_level_7'),
   )
 
-  if (!adminiStrativeArea) return ''
+  if (!adminiStrativeArea) return place.formatted_address
 
   // 都道府県名以降を取得
   const address =
