@@ -1,4 +1,3 @@
-import { IconMapMarker } from '@web/features/event/components/IconMapMarker'
 import { useMap } from '@web/features/event/hooks/useMap'
 
 import { TextInput } from '@mantine/core'
@@ -19,7 +18,6 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
     <TextInput label="開催地" ref={inputRef} />
     <div className={style.mapContainer}>
       <div ref={mapRef} className={style.map} />
-      <IconMapMarker className={style.mapMarker} />
       <div className={style.mapAddress}>{address}</div>
     </div>
   </div>

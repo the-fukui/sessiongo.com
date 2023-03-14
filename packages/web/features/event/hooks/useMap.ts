@@ -29,7 +29,10 @@ export const useMap = () => {
       rotateControl: false,
       fullscreenControl: false,
       scrollwheel: false,
+      clickableIcons: false,
+      draggable: false,
     })
+
     mapInstanceRef.current = map
   }
 
@@ -38,8 +41,13 @@ export const useMap = () => {
     const autocomplete = new window.google.maps.places.Autocomplete(
       inputRef.current,
       {
-        componentRestrictions: { country: 'jp' },
-        fields: ['name', 'geometry', 'formatted_address', 'address_components'],
+        fields: [
+          'name',
+          'geometry',
+          'formatted_address',
+          'address_components',
+          'place_id',
+        ],
       },
     )
 
@@ -48,17 +56,34 @@ export const useMap = () => {
     autocomplete.addListener('place_changed', onPlaceChanged)
   }
 
+  const addMarker = (latLng: google.maps.LatLngLiteral) => {
+    if (!mapInstanceRef.current) return
+
+    new window.google.maps.Marker({
+      position: latLng,
+      map: mapInstanceRef.current,
+    })
+  }
+
   const onPlaceChanged = () => {
     if (!mapInstanceRef.current || !autocompleteInstanceRef.current) return
 
     const place = autocompleteInstanceRef.current.getPlace()
+
+    if (!place) return
 
     // 場所名のみをテキストボックスに表示
     if (inputRef.current) inputRef.current.value = place.name || ''
 
     // Autocompleteした場所にマップを移動
     const latLng = place.geometry?.location
-    if (latLng) mapInstanceRef.current.panTo(latLng)
+    if (latLng) {
+      mapInstanceRef.current.panTo(latLng)
+      mapInstanceRef.current.setZoom(15)
+    }
+
+    // マーカーを追加
+    if (latLng) addMarker(latLng.toJSON())
 
     // 住所を取得
     const address = getPlaceAddress(place)
