@@ -13,24 +13,27 @@ export const getPlaceName = (place: google.maps.places.PlaceResult) => {
 export const getPlaceAddress = (place: google.maps.places.PlaceResult) => {
   if (!place.formatted_address || !place.address_components) return ''
 
-  // 都道府県名を取得
-  const adminiStrativeArea = place.address_components.find(
-    (component) =>
-      component.types.includes('administrative_area_level_1') ||
-      component.types.includes('administrative_area_level_2') ||
-      component.types.includes('administrative_area_level_3') ||
-      component.types.includes('administrative_area_level_4') ||
-      component.types.includes('administrative_area_level_5') ||
-      component.types.includes('administrative_area_level_6') ||
-      component.types.includes('administrative_area_level_7'),
+  // 国名コンポーネントを取得
+  const country = place.address_components.findLast((component) =>
+    component.types.includes('country'),
   )
 
-  if (!adminiStrativeArea) return place.formatted_address
+  // 郵便番号コンポーネントを取得
+  const postalCode = place.address_components.findLast((component) =>
+    component.types.includes('postal_code'),
+  )
 
-  // 都道府県名以降を取得
-  const address =
-    adminiStrativeArea.long_name +
-      place.formatted_address.split(adminiStrativeArea.long_name)[1] || ''
+  if (!country || !postalCode) return place.formatted_address
+
+  // 国名と郵便番号を除いた住所を取得
+  const address = place.formatted_address
+    .replace(country.long_name, '')
+    .replace(postalCode.long_name, '')
+    .replace(/〒/g, '') // 郵便番号記号を除去
+    .trim()
+    .replace(/^[,、。.]/, '') // 最初のカンマ、句点を除去
+    .replace(/[,、。.]$/, '') // 最後のカンマ、句点を除去
+    .trim()
 
   return address
 }

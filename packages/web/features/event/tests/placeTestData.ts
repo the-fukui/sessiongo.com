@@ -1178,6 +1178,884 @@ export const kiwi = {
   utc_offset_minutes: 540,
 } as unknown as google.maps.places.PlaceResult
 
+export const mcNeills = {
+  address_components: [
+    {
+      long_name: '140',
+      short_name: '140',
+      types: ['street_number'],
+    },
+    {
+      long_name: 'Capel Street',
+      short_name: 'Capel St',
+      types: ['route'],
+    },
+    {
+      long_name: 'North City',
+      short_name: 'North City',
+      types: ['neighborhood', 'political'],
+    },
+    {
+      long_name: 'Dublin',
+      short_name: 'Dublin',
+      types: ['locality', 'political'],
+    },
+    {
+      long_name: 'County Dublin',
+      short_name: 'D',
+      types: ['administrative_area_level_1', 'political'],
+    },
+    {
+      long_name: 'アイルランド',
+      short_name: 'IE',
+      types: ['country', 'political'],
+    },
+    {
+      long_name: 'D01 F9R2',
+      short_name: 'D01 F9R2',
+      types: ['postal_code'],
+    },
+  ],
+  adr_address:
+    '<span class="street-address">140 Capel Street</span>, <span class="extended-address">North City</span>, <span class="locality">Dublin</span>, <span class="postal-code">D01 F9R2</span> <span class="country-name">アイルランド</span>',
+  business_status: 'OPERATIONAL',
+  current_opening_hours: {
+    open_now: true,
+    periods: [
+      {
+        close: {
+          date: '2023-03-19',
+          day: 0,
+          time: '2300',
+        },
+        open: {
+          date: '2023-03-19',
+          day: 0,
+          time: '1230',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-20',
+          day: 1,
+          time: '2330',
+        },
+        open: {
+          date: '2023-03-20',
+          day: 1,
+          time: '1030',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-14',
+          day: 2,
+          time: '2330',
+        },
+        open: {
+          date: '2023-03-14',
+          day: 2,
+          time: '1030',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-15',
+          day: 3,
+          time: '2330',
+        },
+        open: {
+          date: '2023-03-15',
+          day: 3,
+          time: '1030',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-16',
+          day: 4,
+          time: '2330',
+        },
+        open: {
+          date: '2023-03-16',
+          day: 4,
+          time: '1030',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-18',
+          day: 6,
+          time: '0030',
+        },
+        open: {
+          date: '2023-03-17',
+          day: 5,
+          time: '1030',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-19',
+          day: 0,
+          time: '0030',
+        },
+        open: {
+          date: '2023-03-18',
+          day: 6,
+          time: '1030',
+        },
+      },
+    ],
+    weekday_text: [
+      '月曜日: 10時30分～23時30分',
+      '火曜日: 10時30分～23時30分',
+      '水曜日: 10時30分～23時30分',
+      '木曜日: 10時30分～23時30分',
+      '金曜日: 10時30分～0時30分',
+      '土曜日: 10時30分～0時30分',
+      '日曜日: 12時30分～23時00分',
+    ],
+  },
+  formatted_address: '140 Capel St, North City, Dublin, D01 F9R2 アイルランド',
+  formatted_phone_number: '(01) 872 8713',
+  geometry: {
+    location: {
+      lat: 53.3477628,
+      lng: -6.2686698,
+    },
+    viewport: {
+      south: 53.3462202697085,
+      west: -6.269855480291502,
+      north: 53.3489182302915,
+      east: -6.267157519708498,
+    },
+  },
+  icon: 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png',
+  icon_background_color: '#FF9E67',
+  icon_mask_base_uri:
+    'https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet',
+  international_phone_number: '+353 1 872 8713',
+  name: "McNeill's Pub",
+  opening_hours: {
+    open_now: true,
+    periods: [
+      {
+        close: {
+          day: 0,
+          time: '2300',
+          hours: 23,
+          minutes: 0,
+        },
+        open: {
+          day: 0,
+          time: '1230',
+          hours: 12,
+          minutes: 30,
+        },
+      },
+      {
+        close: {
+          day: 1,
+          time: '2330',
+          hours: 23,
+          minutes: 30,
+        },
+        open: {
+          day: 1,
+          time: '1030',
+          hours: 10,
+          minutes: 30,
+        },
+      },
+      {
+        close: {
+          day: 2,
+          time: '2330',
+          hours: 23,
+          minutes: 30,
+        },
+        open: {
+          day: 2,
+          time: '1030',
+          hours: 10,
+          minutes: 30,
+        },
+      },
+      {
+        close: {
+          day: 3,
+          time: '2330',
+          hours: 23,
+          minutes: 30,
+        },
+        open: {
+          day: 3,
+          time: '1030',
+          hours: 10,
+          minutes: 30,
+        },
+      },
+      {
+        close: {
+          day: 4,
+          time: '2330',
+          hours: 23,
+          minutes: 30,
+        },
+        open: {
+          day: 4,
+          time: '1030',
+          hours: 10,
+          minutes: 30,
+        },
+      },
+      {
+        close: {
+          day: 6,
+          time: '0030',
+          hours: 0,
+          minutes: 30,
+        },
+        open: {
+          day: 5,
+          time: '1030',
+          hours: 10,
+          minutes: 30,
+        },
+      },
+      {
+        close: {
+          day: 0,
+          time: '0030',
+          hours: 0,
+          minutes: 30,
+        },
+        open: {
+          day: 6,
+          time: '1030',
+          hours: 10,
+          minutes: 30,
+        },
+      },
+    ],
+    weekday_text: [
+      '月曜日: 10時30分～23時30分',
+      '火曜日: 10時30分～23時30分',
+      '水曜日: 10時30分～23時30分',
+      '木曜日: 10時30分～23時30分',
+      '金曜日: 10時30分～0時30分',
+      '土曜日: 10時30分～0時30分',
+      '日曜日: 12時30分～23時00分',
+    ],
+  },
+  photos: [
+    {
+      height: 1200,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/110863338551000546812">J. Mcneills</a>',
+      ],
+      width: 1600,
+    },
+    {
+      height: 3968,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/110863338551000546812">J. Mcneills</a>',
+      ],
+      width: 2976,
+    },
+    {
+      height: 809,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/110863338551000546812">J. Mcneills</a>',
+      ],
+      width: 1440,
+    },
+    {
+      height: 3072,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/100352845631825571286">Gerard Lawless</a>',
+      ],
+      width: 4080,
+    },
+    {
+      height: 4032,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/105407751036742199195">Stefania Carta</a>',
+      ],
+      width: 3024,
+    },
+    {
+      height: 3024,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/101113096532875145939">Suman Chatterjee, PhD</a>',
+      ],
+      width: 4032,
+    },
+    {
+      height: 3600,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/117907875863203308936">Tomáš Pavlůsek</a>',
+      ],
+      width: 3000,
+    },
+    {
+      height: 1600,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/110863338551000546812">J. Mcneills</a>',
+      ],
+      width: 1200,
+    },
+    {
+      height: 4080,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/106252119063061891580">Killian Mullen</a>',
+      ],
+      width: 3072,
+    },
+    {
+      height: 3024,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/107171445631407099241">Fabian Zulley</a>',
+      ],
+      width: 3024,
+    },
+  ],
+  place_id: 'ChIJs8XZf4IOZ0gR3o1S_7PIVdI',
+  plus_code: {
+    compound_code: '8PXJ+4G アイルランド ダブリン',
+    global_code: '9C5M8PXJ+4G',
+  },
+  price_level: 1,
+  rating: 4.7,
+  reference: 'ChIJs8XZf4IOZ0gR3o1S_7PIVdI',
+  reviews: [
+    {
+      author_name: 'Michael Meotti',
+      author_url:
+        'https://www.google.com/maps/contrib/118109076427664300663/reviews',
+      language: 'ja',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a-/ACB-R5QpaReGtYNmLKkua4_a40WUQTYoCfB9G9UHSYOhaBY=s128-c0x00000000-cc-rp-mo-ba7',
+      rating: 5,
+      relative_time_description: '5 か月前',
+      text: '本当の近所のパブで、おそらく私たちだけがそこにいました。一杯飲みに行って、結局約4時間滞在しました。音楽は9時30分に始まりました。よくできていて、素晴らしい経験のための良い音レベルであり、会話をかき消すことはありませんでした。 19:00～20:30の静かな時間帯に席を選ぶのがいいかもしれません。',
+      time: 1665050260,
+    },
+    {
+      author_name: 'Carsten',
+      author_url:
+        'https://www.google.com/maps/contrib/109453234322645209805/reviews',
+      language: 'ja',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a-/ACB-R5THf9uQnYvCyJ89_-E1pnaNULupzEgw7sLktxaoHg=s128-c0x00000000-cc-rp-mo-ba5',
+      rating: 5,
+      relative_time_description: '2 か月前',
+      text: 'どうやってこのパブに出くわしたか覚えていませんが、この地元のパブはおそらく唯一の観光客でした。素晴らしい雰囲気、リーズナブルな価格、素晴らしいバーテンダー。次の夜、私たちは仕方なく戻ってきました。',
+      time: 1671088263,
+    },
+    {
+      author_name: 'Onkar Bhamra',
+      author_url:
+        'https://www.google.com/maps/contrib/106013031684765366023/reviews',
+      language: 'ja',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a/AGNmyxaBE6Zj26ac9C7bPrnc9M8zvmzzquzpD7lfThbu=s128-c0x00000000-cc-rp-mo-ba5',
+      rating: 5,
+      relative_time_description: '2 か月前',
+      text: 'ブリリアントパブ！バーの後ろにいるフレンドリーなスタッフ、素晴らしいライブミュージック、素晴らしい雰囲気！まともなギネスのパイントが必要な場合は、特にこのバーに来るように言われましたが、がっかりしませんでした。ギネスは正しく注いだ！\n\nスペースが少し狭い場合があり、バーの座席は限られています。なんとかバーに着席できた場合は、次に進む前に、その場所に数瓶滞在する価値があります。\n\nここにいる間、素敵な若者のグループに会いました。良いクレイクで、私が去った唯一の理由は、閉店時間だったからです！私が再びダブリンにいることがあれば、必ずこの場所を再び訪れるでしょう！',
+      time: 1673547526,
+    },
+    {
+      author_name: 'Stuart Saint',
+      author_url:
+        'https://www.google.com/maps/contrib/109174182815126900189/reviews',
+      language: 'ja',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a-/ACB-R5TFJIEHPLh1x4n4OIg73tBHRooiwAbGUe6KdbLnqg=s128-c0x00000000-cc-rp-mo-ba5',
+      rating: 5,
+      relative_time_description: '7 か月前',
+      text: 'ここの本当に美味しいパイント、私の新しいお気に入りです。かなり窮屈で非常に古い内装で、天気が悪いときにパブに必要なものはすべて揃っています。天気が良ければ、外に座って世界の様子を眺めることができます。',
+      time: 1660133159,
+    },
+    {
+      author_name: 'Suman Chatterjee, PhD',
+      author_url:
+        'https://www.google.com/maps/contrib/101113096532875145939/reviews',
+      language: 'ja',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a-/ACB-R5QmN--XIuypLof0IBggvKAdxR8pMS_hu81EvopZdQ=s128-c0x00000000-cc-rp-mo-ba5',
+      rating: 4,
+      relative_time_description: '5 か月前',
+      text: 'パブはアイルランド音楽とビールに最適でした。\nここの人々はフレンドリーで親切です。こういうパブを見るのはとても気持ちがいいです。',
+      time: 1664614622,
+    },
+  ],
+  types: ['bar', 'restaurant', 'food', 'point_of_interest', 'establishment'],
+  url: 'https://maps.google.com/?cid=15156240796393573854',
+  user_ratings_total: 696,
+  utc_offset: 0,
+  vicinity: '140 Capel Street, Dublin',
+  website: 'https://www.facebook.com/mcneillspub',
+  html_attributions: [],
+  utc_offset_minutes: 0,
+} as unknown as google.maps.places.PlaceResult
+
+export const jamesJoyce = {
+  address_components: [
+    {
+      long_name: 'No No',
+      short_name: 'No No',
+      types: ['subpremise'],
+    },
+    {
+      long_name: '70',
+      short_name: '70',
+      types: ['street_number'],
+    },
+    {
+      long_name: '和平東路三段',
+      short_name: '和平東路三段',
+      types: ['route'],
+    },
+    {
+      long_name: '虎嘯里',
+      short_name: '虎嘯里',
+      types: ['administrative_area_level_4', 'political'],
+    },
+    {
+      long_name: 'Da’an District',
+      short_name: 'Da’an District',
+      types: ['administrative_area_level_3', 'political'],
+    },
+    {
+      long_name: 'Taipei City',
+      short_name: 'Taipei City',
+      types: ['administrative_area_level_1', 'political'],
+    },
+    {
+      long_name: '台湾',
+      short_name: 'TW',
+      types: ['country', 'political'],
+    },
+    {
+      long_name: '106',
+      short_name: '106',
+      types: ['postal_code'],
+    },
+  ],
+  adr_address:
+    'No No, <span class="street-address">No. 70和平東路三段虎嘯里</span> <span class="locality">Da’an District</span>, <span class="region">Taipei City</span>, <span class="country-name">台湾</span> <span class="postal-code">106</span>',
+  business_status: 'OPERATIONAL',
+  current_opening_hours: {
+    open_now: true,
+    periods: [
+      {
+        close: {
+          date: '2023-03-20',
+          day: 1,
+          time: '0200',
+        },
+        open: {
+          date: '2023-03-19',
+          day: 0,
+          time: '1800',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-20',
+          day: 1,
+          time: '2359',
+          truncated: true,
+        },
+        open: {
+          date: '2023-03-20',
+          day: 1,
+          time: '1800',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-14',
+          day: 2,
+          time: '0200',
+        },
+        open: {
+          date: '2023-03-14',
+          day: 2,
+          time: '0000',
+          truncated: true,
+        },
+      },
+      {
+        close: {
+          date: '2023-03-15',
+          day: 3,
+          time: '0200',
+        },
+        open: {
+          date: '2023-03-14',
+          day: 2,
+          time: '1800',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-16',
+          day: 4,
+          time: '0200',
+        },
+        open: {
+          date: '2023-03-15',
+          day: 3,
+          time: '1800',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-17',
+          day: 5,
+          time: '0200',
+        },
+        open: {
+          date: '2023-03-16',
+          day: 4,
+          time: '1800',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-18',
+          day: 6,
+          time: '0300',
+        },
+        open: {
+          date: '2023-03-17',
+          day: 5,
+          time: '1800',
+        },
+      },
+      {
+        close: {
+          date: '2023-03-19',
+          day: 0,
+          time: '0300',
+        },
+        open: {
+          date: '2023-03-18',
+          day: 6,
+          time: '1800',
+        },
+      },
+    ],
+    weekday_text: [
+      '月曜日: 18時00分～2時00分',
+      '火曜日: 18時00分～2時00分',
+      '水曜日: 18時00分～2時00分',
+      '木曜日: 18時00分～2時00分',
+      '金曜日: 18時00分～3時00分',
+      '土曜日: 18時00分～3時00分',
+      '日曜日: 18時00分～2時00分',
+    ],
+  },
+  formatted_address:
+    'No No, No. 70和平東路三段 Da’an District, Taipei City, 台湾 106',
+  formatted_phone_number: '02 2736 8001',
+  geometry: {
+    location: {
+      lat: 25.0243206,
+      lng: 121.5504573,
+    },
+    viewport: {
+      south: 25.0230105697085,
+      west: 121.5491106197085,
+      north: 25.0257085302915,
+      east: 121.5518085802915,
+    },
+  },
+  icon: 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png',
+  icon_background_color: '#FF9E67',
+  icon_mask_base_uri:
+    'https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet',
+  international_phone_number: '+886 2 2736 8001',
+  name: 'James Joyce Irish Bar-Anhe 安和酒吧',
+  opening_hours: {
+    open_now: true,
+    periods: [
+      {
+        close: {
+          day: 1,
+          time: '0200',
+          hours: 2,
+          minutes: 0,
+          nextDate: 1679248800000,
+        },
+        open: {
+          day: 0,
+          time: '1800',
+          hours: 18,
+          minutes: 0,
+          nextDate: 1679220000000,
+        },
+      },
+      {
+        close: {
+          day: 2,
+          time: '0200',
+          hours: 2,
+          minutes: 0,
+          nextDate: 1679335200000,
+        },
+        open: {
+          day: 1,
+          time: '1800',
+          hours: 18,
+          minutes: 0,
+          nextDate: 1679306400000,
+        },
+      },
+      {
+        close: {
+          day: 3,
+          time: '0200',
+          hours: 2,
+          minutes: 0,
+          nextDate: 1678816800000,
+        },
+        open: {
+          day: 2,
+          time: '1800',
+          hours: 18,
+          minutes: 0,
+          nextDate: 1679392800000,
+        },
+      },
+      {
+        close: {
+          day: 4,
+          time: '0200',
+          hours: 2,
+          minutes: 0,
+          nextDate: 1678903200000,
+        },
+        open: {
+          day: 3,
+          time: '1800',
+          hours: 18,
+          minutes: 0,
+          nextDate: 1678874400000,
+        },
+      },
+      {
+        close: {
+          day: 5,
+          time: '0200',
+          hours: 2,
+          minutes: 0,
+          nextDate: 1678989600000,
+        },
+        open: {
+          day: 4,
+          time: '1800',
+          hours: 18,
+          minutes: 0,
+          nextDate: 1678960800000,
+        },
+      },
+      {
+        close: {
+          day: 6,
+          time: '0300',
+          hours: 3,
+          minutes: 0,
+          nextDate: 1679079600000,
+        },
+        open: {
+          day: 5,
+          time: '1800',
+          hours: 18,
+          minutes: 0,
+          nextDate: 1679047200000,
+        },
+      },
+      {
+        close: {
+          day: 0,
+          time: '0300',
+          hours: 3,
+          minutes: 0,
+          nextDate: 1679166000000,
+        },
+        open: {
+          day: 6,
+          time: '1800',
+          hours: 18,
+          minutes: 0,
+          nextDate: 1679133600000,
+        },
+      },
+    ],
+    weekday_text: [
+      '月曜日: 18時00分～2時00分',
+      '火曜日: 18時00分～2時00分',
+      '水曜日: 18時00分～2時00分',
+      '木曜日: 18時00分～2時00分',
+      '金曜日: 18時00分～3時00分',
+      '土曜日: 18時00分～3時00分',
+      '日曜日: 18時00分～2時00分',
+    ],
+  },
+  photos: [
+    {
+      height: 904,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/114771491574521256457">James Joyce Irish Bar-Anhe 安和酒吧</a>',
+      ],
+      width: 1270,
+    },
+    {
+      height: 4032,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/102687916625829451991">陳品妍</a>',
+      ],
+      width: 3024,
+    },
+    {
+      height: 2268,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/103454007384699894148">BG Berlin</a>',
+      ],
+      width: 4032,
+    },
+    {
+      height: 4032,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/104954677389728362821">Jimmy Wang</a>',
+      ],
+      width: 3024,
+    },
+    {
+      height: 3072,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/112652847529836114148">Julian Kadar</a>',
+      ],
+      width: 4080,
+    },
+    {
+      height: 3265,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/103454007384699894148">BG Berlin</a>',
+      ],
+      width: 4898,
+    },
+    {
+      height: 1773,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/105412765693296168010">J T</a>',
+      ],
+      width: 1330,
+    },
+    {
+      height: 4032,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/114618530341699791683">黃晉寬</a>',
+      ],
+      width: 3024,
+    },
+    {
+      height: 969,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/103454007384699894148">BG Berlin</a>',
+      ],
+      width: 1600,
+    },
+    {
+      height: 1512,
+      html_attributions: [
+        '<a href="https://maps.google.com/maps/contrib/114674901484744860096">葉立斌（Being Who）</a>',
+      ],
+      width: 2688,
+    },
+  ],
+  place_id: 'ChIJRQDmvEqrQjQRFVLOsJ2Ufc8',
+  plus_code: {
+    compound_code: '2HF2+P5 台湾 台北市 大安区',
+    global_code: '7QQ32HF2+P5',
+  },
+  rating: 4.3,
+  reference: 'ChIJRQDmvEqrQjQRFVLOsJ2Ufc8',
+  reviews: [
+    {
+      author_name: 'Pei Wen Paisley Lin',
+      author_url:
+        'https://www.google.com/maps/contrib/110922375705248602225/reviews',
+      language: 'ja',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a/AGNmyxYSTg_pNmKioPeQuGwdQt8k9AveiFXePHh4TnuF=s128-c0x00000000-cc-rp-mo',
+      rating: 5,
+      relative_time_description: '1 年前',
+      text: '空間は快適で、雰囲気は充実しており、ヨーロッパに戻ったような気分です。仕事帰りにビール🍻を飲んだり、バーテンダーデートをするのもいいですね。 CP値が非常に高く、いつもウィスキーサワーのバーテンダーを注文しています ビール好きの友達もビール好きです。ビールのオプションでもバーテンダーでも、彼らは非常に豊富で、ゲストがさまざまなワインを選択して試すのにも役立ちます👍🏽 ビッグプッシュは台北への巡礼者にとって必見の場所です',
+      time: 1641848020,
+    },
+    {
+      author_name: '黃晉寬',
+      author_url:
+        'https://www.google.com/maps/contrib/114618530341699791683/reviews',
+      language: 'ja',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a-/ACB-R5RvzdgemlHHif_3tRjV4oN7CHkDn8CKzn9-N5bBCA=s128-c0x00000000-cc-rp-mo-ba4',
+      rating: 4,
+      relative_time_description: '9 か月前',
+      text: 'もちろん、ラテン系の友達が多いのは、私たちが聴いているバンドがラテン系のバンドだからかもしれませんが、バーテンダーは1人しかいませんが、待ち時間が長すぎず、音楽を聴くのに非常に適していますたまには、いいところ！ !',
+      time: 1654969396,
+    },
+    {
+      author_name: 'J T',
+      author_url:
+        'https://www.google.com/maps/contrib/105412765693296168010/reviews',
+      language: 'ja',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a/AGNmyxZJQ48bsQrUFB6LF407qhKVKzjWDsHVPfUGTNMdlw=s128-c0x00000000-cc-rp-mo-ba4',
+      rating: 5,
+      relative_time_description: '1 年前',
+      text: 'バーテンダーはとてもいい人です. どんなワインが飲みたいかを私は本当に調整しました. 彼はまた、友人と遊ぶことができるワインを勧めました. Jagerbungもとても気に入っています.装飾が大好き',
+      time: 1641832132,
+    },
+    {
+      author_name: 'Austin Tseng',
+      author_url:
+        'https://www.google.com/maps/contrib/109448344611257186202/reviews',
+      language: 'ja',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a-/ACB-R5R9EFUKapGVuj-n53A6csjENYhaaztXPhrH4yDxfQ=s128-c0x00000000-cc-rp-mo-ba6',
+      rating: 5,
+      relative_time_description: '7 か月前',
+      text: 'アイリッシュ🇮🇪バー、毎週土曜の夜9時半からライブバンドあり、雰囲気がとても良く、外国人も多い！',
+      time: 1659200969,
+    },
+    {
+      author_name: 'Huimin Chen',
+      author_url:
+        'https://www.google.com/maps/contrib/109745436064372148256/reviews',
+      language: 'ja',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a-/ACB-R5T_TQwDyCxzwMr5ho0NAHKtjSCdtBS-uS9mokKlkJE=s128-c0x00000000-cc-rp-mo',
+      rating: 5,
+      relative_time_description: '1 年前',
+      text: '大好きなお店はとても居心地が良く居心地が良く、たまたま団体公演に出逢えたのがすごかったです。ギネス生ビールを見つけるのは本当に難しいです。',
+      time: 1643550084,
+    },
+  ],
+  types: ['bar', 'point_of_interest', 'establishment'],
+  url: 'https://maps.google.com/?cid=14951269742937002517',
+  user_ratings_total: 178,
+  utc_offset: 480,
+  vicinity: 'No No, No. 70, 和平東路三段, Da’an District',
+  website: 'https://www.facebook.com/anhebar',
+  html_attributions: [],
+  utc_offset_minutes: 480,
+} as unknown as google.maps.places.PlaceResult
 export const fieldExpectedResults = {
   placeName: 'Irish PUB field',
   placeAddress: '京都府京都市中京区元法然寺町６８３ 錦ビル 烏丸 2F・3F',
@@ -1186,4 +2064,14 @@ export const fieldExpectedResults = {
 export const kiwiExpectedResults = {
   placeName: 'CRAFT BEER HOUSE KIWI',
   placeAddress: '東京都杉並区高井戸東２丁目２６−２',
+} as const
+
+export const mcNeillsExpectedResults = {
+  placeName: "McNeill's Pub",
+  placeAddress: '140 Capel St, North City, Dublin',
+} as const
+
+export const jamesJoyceExpectedResults = {
+  placeName: 'James Joyce Irish Bar-Anhe 安和酒吧',
+  placeAddress: 'No No, No. 70和平東路三段 Da’an District, Taipei City',
 } as const
