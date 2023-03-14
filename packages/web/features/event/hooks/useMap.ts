@@ -1,17 +1,13 @@
-import { getGeolocation } from '@web/features/event/api/geolocation'
+import { useGeolocation } from '@web/features/event/hooks/useGeolocation'
 import { getPlaceAddress } from '@web/features/event/utils/googleMap'
 
 import { Loader } from '@googlemaps/js-api-loader'
 import { useEffect, useRef, useState } from 'react'
 
-const DEFAULT_CENTER = {
-  lat: 35.66, // 緯度経度
-  lng: 139.74,
-}
 const DEFAULT_ZOOM = 11
 
 export const useMap = () => {
-  const geolocationRef = useRef<google.maps.LatLngLiteral>(DEFAULT_CENTER)
+  const geolocation = useGeolocation()
   const mapRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const mapInstanceRef = useRef<google.maps.Map>()
@@ -22,7 +18,7 @@ export const useMap = () => {
   const setupMap = () => {
     if (!mapRef.current) return
     const map = new window.google.maps.Map(mapRef.current, {
-      center: geolocationRef.current,
+      center: geolocation,
       zoom: DEFAULT_ZOOM,
       mapTypeControl: false,
       streetViewControl: false,
@@ -91,26 +87,20 @@ export const useMap = () => {
   }
 
   useEffect(() => {
+    if (!geolocation) return
+
     const loader = new Loader({
       apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
       libraries: ['places'],
     })
 
-    Promise.all([
-      getGeolocation(), // IPから座標を取得
-      loader.load(), // Google Maps APIを読み込み
-    ]).then(([geolocation]) => {
-      // IPから取得した座標を設定
-      geolocationRef.current = {
-        lat: geolocation.lat,
-        lng: geolocation.lon,
-      }
-
+    // Google Maps APIを読み込み
+    loader.load().then(() => {
       console.log('google map loaded')
       setupMap()
       setupAutocomplete()
     })
-  }, [])
+  }, [geolocation])
 
   return { mapRef, inputRef, address }
 }
