@@ -451,6 +451,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/dates@npm:^6.0.2":
+  version: 6.0.2
+  resolution: "@mantine/dates@npm:6.0.2"
+  dependencies:
+    "@mantine/utils": 6.0.2
+  peerDependencies:
+    "@mantine/core": 6.0.2
+    "@mantine/hooks": 6.0.2
+    dayjs: ">=1.0.0"
+    react: ">=16.8.0"
+  checksum: 33c8498b8f1bf3c0625e3f49fa0fe88a3d4a9fe57ce52f2d15bd7415eb7df6ac7a836d6e2417b1cefd072e78e7abcb56edf5b23473077471fe2a640fb659d02a
+  languageName: node
+  linkType: hard
+
+"@mantine/form@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "@mantine/form@npm:6.0.1"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+    klona: ^2.0.5
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 28e5917455c3fb06fdf278afb749cee049d45c113af3c3b608de2238962807847d0ba311b39aeace6aea74a1adaeb50899b8208e645ed26549fd2263d8f7ac68
+  languageName: node
+  linkType: hard
+
 "@mantine/hooks@npm:^6.0.1":
   version: 6.0.1
   resolution: "@mantine/hooks@npm:6.0.1"
@@ -509,6 +535,15 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
   checksum: 5ad728689c675f0d6e1046e7e7a42f0c3c432cf1a4069c4a1f92879b6b95c6d3c1fc92e72a333fe214435281c7702e9a47629da8dd973a24bfe0538a40a6ad23
+  languageName: node
+  linkType: hard
+
+"@mantine/utils@npm:6.0.2":
+  version: 6.0.2
+  resolution: "@mantine/utils@npm:6.0.2"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: c3a8f4515e59d70c5f01d311831ce036db81821381d9d1529e88c59154e9e8df4ae26aaceb1f4461d45bbfcbdd0dc303e34a56ad8c809f96c1222e63ce714eff
   languageName: node
   linkType: hard
 
@@ -1569,6 +1604,13 @@ __metadata:
   version: 1.0.8
   resolution: "damerau-levenshtein@npm:1.0.8"
   checksum: d240b7757544460ae0586a341a53110ab0a61126570ef2d8c731e3eab3f0cb6e488e2609e6a69b46727635de49be20b071688698744417ff1b6c1d7ccd03e0de
+  languageName: node
+  linkType: hard
+
+"dayjs@npm:^1.11.7":
+  version: 1.11.7
+  resolution: "dayjs@npm:1.11.7"
+  checksum: 5003a7c1dd9ed51385beb658231c3548700b82d3548c0cfbe549d85f2d08e90e972510282b7506941452c58d32136d6362f009c77ca55381a09c704e9f177ebb
   languageName: node
   linkType: hard
 
@@ -3061,6 +3103,13 @@ __metadata:
     array-includes: ^3.1.3
     object.assign: ^4.1.2
   checksum: dcee22e6382ee5a6bd4187333a44b6420d9d079838119a07055d6e88d137dd0afadc97a2246152b0b65006bd5fc393112dc0cef01956a01a66c1713913953c66
+  languageName: node
+  linkType: hard
+
+"klona@npm:^2.0.5":
+  version: 2.0.6
+  resolution: "klona@npm:2.0.6"
+  checksum: ac9ee3732e42b96feb67faae4d27cf49494e8a3bf3fa7115ce242fe04786788e0aff4741a07a45a2462e2079aa983d73d38519c85d65b70ef11447bbc3c58ce7
   languageName: node
   linkType: hard
 
@@ -5002,12 +5051,15 @@ __metadata:
     "@emotion/server": ^11.10.0
     "@googlemaps/js-api-loader": ^1.15.1
     "@mantine/core": ^6.0.1
+    "@mantine/dates": ^6.0.2
+    "@mantine/form": ^6.0.1
     "@mantine/hooks": ^6.0.1
     "@mantine/next": ^6.0.1
     "@types/google.maps": ^3.52.2
     "@types/node": 18.14.6
     "@types/react": 18.0.28
     "@types/react-dom": 18.0.11
+    dayjs: ^1.11.7
     eslint-config-next: 13.2.3
     next: ^13.2.3
     react: ^18.2.0
