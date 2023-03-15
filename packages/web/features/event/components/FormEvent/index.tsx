@@ -5,6 +5,8 @@ import { useEventForm } from '@web/features/event/hooks/useEventForm'
 
 import {
   Button,
+  FileInput,
+  Image,
   MultiSelect,
   SegmentedControl,
   TextInput,
@@ -38,6 +40,8 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
   setFieldValue,
   startTimeRef,
   endTimeRef,
+  onImageChange,
+  imagePreview,
 }) => (
   <form className={`${className}`} onSubmit={onSubmit}>
     <TextInput withAsterisk label={'タイトル'} {...getInputProps('title')} />
@@ -80,6 +84,28 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
       data={eventFeatureOptions}
       {...getInputProps('feature')}
     />
+    <FileInput
+      label={'画像'}
+      placeholder={'画像を選択'}
+      accept="image/jpeg, image/png, image/gif, image/bmp, image/webp"
+      {...getInputProps('images')}
+      onChange={(file) => {
+        onImageChange(file)
+        getInputProps('images').onChange(file)
+      }}
+    />
+    {imagePreview && (
+      <Image
+        src={imagePreview}
+        alt={'アップロード画像のプレビュー'}
+        height={500}
+        fit="contain"
+      />
+    )}
+
+    <br />
+    <br />
+
     <Button type="submit">作成</Button>
   </form>
 )
@@ -87,8 +113,15 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
 const Container = (props: Props) => {
   /** Logic here */
 
-  const { getInputProps, onSubmit, startTimeRef, endTimeRef, setFieldValue } =
-    useEventForm()
+  const {
+    getInputProps,
+    onSubmit,
+    startTimeRef,
+    endTimeRef,
+    setFieldValue,
+    onImageChange,
+    imagePreview,
+  } = useEventForm()
 
   const containerProps = {
     getInputProps,
@@ -96,6 +129,8 @@ const Container = (props: Props) => {
     setFieldValue,
     startTimeRef,
     endTimeRef,
+    onImageChange,
+    imagePreview,
   }
   return { ...props, ...containerProps }
 }
