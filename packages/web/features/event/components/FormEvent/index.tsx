@@ -3,7 +3,13 @@ import InputPlaceAutoComplete from '@web/features/event/components/InputPlaceAut
 import { EVENT_FEATURE, EVENT_TYPE } from '@web/features/event/constants'
 import { useEventForm } from '@web/features/event/hooks/useEventForm'
 
-import { Button, MultiSelect, SegmentedControl, TextInput } from '@mantine/core'
+import {
+  Button,
+  MultiSelect,
+  SegmentedControl,
+  TextInput,
+  Textarea,
+} from '@mantine/core'
 import { DatePickerInput, DatesProvider, TimeInput } from '@mantine/dates'
 import 'dayjs/locale/ja'
 
@@ -35,9 +41,11 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
 }) => (
   <form className={`${className}`} onSubmit={onSubmit}>
     <TextInput withAsterisk label={'タイトル'} {...getInputProps('title')} />
-    <TextInput
+    <Textarea
       withAsterisk
       label={'説明文'}
+      autosize
+      minRows={3}
       {...getInputProps('description')}
     />
     <DatesProvider settings={{ locale: 'ja', firstDayOfWeek: 0 }}>

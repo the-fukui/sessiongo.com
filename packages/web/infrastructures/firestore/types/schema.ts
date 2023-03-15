@@ -21,4 +21,5 @@ export interface Event extends BaseDocument {
 
   placeID: string //google map API placeID
   feature: EventFeature[]
+  images: string[] // url set
 }
