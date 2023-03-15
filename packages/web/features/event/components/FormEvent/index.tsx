@@ -6,9 +6,11 @@ import { useEventForm } from '@web/features/event/hooks/useEventForm'
 import {
   Button,
   FileInput,
+  Group,
   Image,
   MultiSelect,
   SegmentedControl,
+  Text,
   TextInput,
   Textarea,
 } from '@mantine/core'
@@ -44,6 +46,8 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
   imagePreview,
 }) => (
   <form className={`${className}`} onSubmit={onSubmit}>
+    <SegmentedControl data={eventTypeOptions} {...getInputProps('type')} />
+
     <TextInput withAsterisk label={'タイトル'} {...getInputProps('title')} />
     <Textarea
       withAsterisk
@@ -53,26 +57,29 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
       {...getInputProps('description')}
     />
     <DatesProvider settings={{ locale: 'ja', firstDayOfWeek: 0 }}>
-      <DatePickerInput
-        withAsterisk
-        label={'開催日'}
-        placeholder={'日時を選択'}
-        valueFormat="YYYY年M月D日"
-        {...getInputProps('startDate')}
-      />
-      <TimeInput
-        withAsterisk
-        ref={startTimeRef}
-        onClick={() => startTimeRef.current?.showPicker()}
-        {...getInputProps('startTime')}
-      />
-      <TimeInput
-        ref={endTimeRef}
-        onClick={() => endTimeRef.current?.showPicker()}
-        {...getInputProps('endTime')}
-      />
+      <Group align="end">
+        <DatePickerInput
+          withAsterisk
+          label={'開催日'}
+          placeholder={'日時を選択'}
+          valueFormat="YYYY年M月D日"
+          {...getInputProps('startDate')}
+        />
+        <TimeInput
+          label={'開始時刻'}
+          withAsterisk
+          ref={startTimeRef}
+          onClick={() => startTimeRef.current?.showPicker()}
+          {...getInputProps('startTime')}
+        />
+        <TimeInput
+          label={'終了時刻'}
+          ref={endTimeRef}
+          onClick={() => endTimeRef.current?.showPicker()}
+          {...getInputProps('endTime')}
+        />
+      </Group>
     </DatesProvider>
-    <SegmentedControl data={eventTypeOptions} {...getInputProps('type')} />
     <InputPlaceAutoComplete
       getInputProps={() => getInputProps('placeID')}
       setFieldValue={(placeID: string) => setFieldValue('placeID', placeID)}

@@ -15,9 +15,9 @@ export const useMap = ({ onPlaceID }: Props = { onPlaceID: () => {} }) => {
   const mapRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const mapInstanceRef = useRef<google.maps.Map>()
+  const markerRef = useRef<google.maps.Marker>()
+  const infoWindowRef = useRef<google.maps.InfoWindow>()
   const autocompleteInstanceRef = useRef<google.maps.places.Autocomplete>()
-
-  const [address, setAddress] = useState<string>('')
 
   const setupMap = () => {
     if (!mapRef.current) return
@@ -30,7 +30,6 @@ export const useMap = ({ onPlaceID }: Props = { onPlaceID: () => {} }) => {
       fullscreenControl: false,
       scrollwheel: false,
       clickableIcons: false,
-      draggable: false,
     })
 
     mapInstanceRef.current = map
@@ -56,13 +55,42 @@ export const useMap = ({ onPlaceID }: Props = { onPlaceID: () => {} }) => {
     autocomplete.addListener('place_changed', onPlaceChanged)
   }
 
-  const addMarker = (latLng: google.maps.LatLngLiteral) => {
+  const showMarker = (latLng: google.maps.LatLngLiteral) => {
     if (!mapInstanceRef.current) return
 
-    new window.google.maps.Marker({
+    // 既存のマーカーがあれば削除
+    if (markerRef.current) {
+      markerRef.current.setMap(null)
+      markerRef.current = undefined
+    }
+
+    const marker = new window.google.maps.Marker({
       position: latLng,
       map: mapInstanceRef.current,
     })
+    markerRef.current = marker
+  }
+
+  const showInfoWindow = (
+    latLng: google.maps.LatLngLiteral,
+    content: string,
+  ) => {
+    if (!mapInstanceRef.current) return
+
+    // 既存のウィンドウがあれば削除
+    if (infoWindowRef.current) {
+      infoWindowRef.current.close()
+      infoWindowRef.current = undefined
+    }
+
+    const infoWindow = new window.google.maps.InfoWindow({
+      content,
+      position: latLng,
+      pixelOffset: new window.google.maps.Size(0, -40),
+    })
+
+    infoWindow.open(mapInstanceRef.current)
+    infoWindowRef.current = infoWindow
   }
 
   const onPlaceChanged = () => {
@@ -75,6 +103,9 @@ export const useMap = ({ onPlaceID }: Props = { onPlaceID: () => {} }) => {
     // 場所名のみをテキストボックスに表示
     if (inputRef.current) inputRef.current.value = place.name || ''
 
+    // 住所を取得
+    const address = getPlaceAddress(place)
+
     // Autocompleteした場所にマップを移動
     const latLng = place.geometry?.location
     if (latLng) {
@@ -83,11 +114,9 @@ export const useMap = ({ onPlaceID }: Props = { onPlaceID: () => {} }) => {
     }
 
     // マーカーを追加
-    if (latLng) addMarker(latLng.toJSON())
-
-    // 住所を取得
-    const address = getPlaceAddress(place)
-    setAddress(address)
+    if (latLng) showMarker(latLng.toJSON())
+    // 住所表示ウィンドウを追加
+    if (latLng && address) showInfoWindow(latLng.toJSON(), address)
 
     // placeIDを親コンポーネントに渡す
     if (place.place_id && onPlaceID) onPlaceID(place.place_id)
@@ -109,10 +138,11 @@ export const useMap = ({ onPlaceID }: Props = { onPlaceID: () => {} }) => {
     })
 
     return () => {
+      console.log('unmount')
       // Google Maps APIをアンマウント時にアンロード
       loader.deleteScript()
     }
   }, [geolocation])
 
-  return { mapRef, inputRef, address }
+  return { mapRef, inputRef }
 }
