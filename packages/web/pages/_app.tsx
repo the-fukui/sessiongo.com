@@ -1,4 +1,4 @@
-import Layout from '@web/components/layout'
+import Layout from '@web/components/Layout'
 
 import { MantineProvider } from '@mantine/core'
 import type { AppProps } from 'next/app'

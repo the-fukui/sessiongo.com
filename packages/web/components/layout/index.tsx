@@ -1,4 +1,6 @@
 // import style from './index.module.scss'
+import NavigationBottom from '@web/components/NavigationBottom'
+
 import { AppShell } from '@mantine/core'
 
 type Props = {
@@ -9,7 +11,11 @@ type Props = {
 const Presenter: React.FC<ReturnType<typeof Container>> = ({
   className,
   children,
-}) => <AppShell className={className}>{children}</AppShell>
+}) => (
+  <AppShell className={className} footer={<NavigationBottom />}>
+    {children}
+  </AppShell>
+)
 
 const Container = (props: Props) => {
   /** Logic here */
