@@ -9,6 +9,7 @@ interface BaseDocument {
 export interface Event extends BaseDocument {
   title: string
   description: string
+  host: string
   status: EventStatus
   type: EventType
   startAt: Timestamp

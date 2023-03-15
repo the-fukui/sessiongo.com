@@ -20,6 +20,7 @@ export const useEventForm = () => {
     initialValues: {
       title: '',
       description: '',
+      host: '',
       status: 'DRAFT',
       type: 'SESSION',
       rrule: null,

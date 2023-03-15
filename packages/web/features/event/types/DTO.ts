@@ -9,6 +9,7 @@ import type {
 export interface CreateEventDTO {
   title: string
   description: string
+  host: string
   status: EventStatus
   type: EventType
   startAt: number

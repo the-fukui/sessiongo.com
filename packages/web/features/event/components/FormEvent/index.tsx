@@ -10,7 +10,6 @@ import {
   Image,
   MultiSelect,
   SegmentedControl,
-  Text,
   TextInput,
   Textarea,
 } from '@mantine/core'
@@ -46,18 +45,21 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
   imagePreview,
 }) => (
   <form className={`${className}`} onSubmit={onSubmit}>
-    <SegmentedControl data={eventTypeOptions} {...getInputProps('type')} />
-
-    <TextInput withAsterisk label={'タイトル'} {...getInputProps('title')} />
-    <Textarea
-      withAsterisk
-      label={'説明文'}
-      autosize
-      minRows={3}
-      {...getInputProps('description')}
+    <SegmentedControl
+      mb={'lg'}
+      data={eventTypeOptions}
+      {...getInputProps('type')}
     />
+    <TextInput
+      mb={'lg'}
+      withAsterisk
+      label={'タイトル'}
+      {...getInputProps('title')}
+    />
+    <TextInput mb={'lg'} label={'主催者・ホスト'} {...getInputProps('host')} />
+
     <DatesProvider settings={{ locale: 'ja', firstDayOfWeek: 0 }}>
-      <Group align="end">
+      <Group align="end" mb={'lg'}>
         <DatePickerInput
           withAsterisk
           label={'開催日'}
@@ -81,35 +83,46 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
       </Group>
     </DatesProvider>
     <InputPlaceAutoComplete
+      mb={'lg'}
       getInputProps={() => getInputProps('placeID')}
       setFieldValue={(placeID: string) => setFieldValue('placeID', placeID)}
     />
     <MultiSelect
+      mb={'lg'}
       label={'イベントの特徴'}
       searchable
       limit={20}
       data={eventFeatureOptions}
       {...getInputProps('feature')}
     />
-    <FileInput
-      label={'画像'}
-      placeholder={'画像を選択'}
-      accept="image/jpeg, image/png, image/gif, image/bmp, image/webp"
-      {...getInputProps('images')}
-      onChange={(file) => {
-        onImageChange(file)
-        getInputProps('images').onChange(file)
-      }}
+    <Textarea
+      mb={'lg'}
+      withAsterisk
+      label={'説明文'}
+      autosize
+      minRows={3}
+      {...getInputProps('description')}
     />
-    {imagePreview && (
-      <Image
-        src={imagePreview}
-        alt={'アップロード画像のプレビュー'}
-        height={500}
-        fit="contain"
+    <Group mb={'lg'}>
+      <FileInput
+        label={'画像'}
+        placeholder={'画像を選択'}
+        accept="image/jpeg, image/png, image/gif, image/bmp, image/webp"
+        {...getInputProps('images')}
+        onChange={(file) => {
+          onImageChange(file)
+          getInputProps('images').onChange(file)
+        }}
       />
-    )}
-
+      {imagePreview && (
+        <Image
+          src={imagePreview}
+          alt={'アップロード画像のプレビュー'}
+          height={500}
+          fit="contain"
+        />
+      )}
+    </Group>
     <br />
     <br />
 

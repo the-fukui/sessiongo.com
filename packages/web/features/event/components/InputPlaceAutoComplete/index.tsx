@@ -1,6 +1,7 @@
 import { useMap } from '@web/features/event/hooks/useMap'
 
-import { Box, Group, TextInput } from '@mantine/core'
+import type { MantineStyleSystemProps } from '@mantine/core'
+import { Box, Stack, TextInput } from '@mantine/core'
 
 // import style from './index.module.scss'
 
@@ -17,15 +18,16 @@ type Props = {
   className?: string
   getInputProps: () => InputAttributes
   setFieldValue: (value: any) => void
-}
+} & MantineStyleSystemProps
 
 const Presenter: React.FC<ReturnType<typeof Container>> = ({
   className,
   mapRef,
   inputRef,
   inputProps,
+  ...styleProps
 }) => (
-  <Group className={`${className}`}>
+  <Stack spacing={'xs'} className={`${className}`} {...styleProps}>
     <TextInput
       w={'100%'}
       withAsterisk
@@ -33,10 +35,13 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
       ref={inputRef}
       {...inputProps}
     />
-    <Box w={'100%'} h={300} pos={'relative'}>
-      <Box ref={mapRef} w={'100%'} h={'100%'} />
-    </Box>
-  </Group>
+    <Box
+      ref={mapRef}
+      w={'100%'}
+      h={300}
+      sx={(theme) => ({ borderRadius: theme.radius.sm })}
+    />
+  </Stack>
 )
 
 const Container = (props: Props) => {
