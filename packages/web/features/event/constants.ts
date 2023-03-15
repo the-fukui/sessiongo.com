@@ -5,12 +5,13 @@ export const EVENT_FEATURE = {
   NO_SMOKING: '店内・開催場所が禁煙🚭',
   CLOSED: 'クローズドセッション👥',
   SESSION_LIVE: 'セッションライブ🎤',
+  DONATION: '投げ銭お願いします🙏',
 } as const
 
 export const EVENT_STATUS = {
   PUBLIC: '公開',
   DRAFT: '下書き',
-  PRIVATE: '非公開',
+  // PRIVATE: '非公開',
 } as const
 
 export const EVENT_TYPE = {

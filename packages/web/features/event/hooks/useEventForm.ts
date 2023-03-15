@@ -7,7 +7,7 @@ import { useRef } from 'react'
 interface CreateEventFormInputs extends Omit<CreateEventDTO, 'startAt'> {
   startDate: Date
   startTime: string
-  endTime: string
+  endTime: Date
 }
 
 export const useEventForm = () => {

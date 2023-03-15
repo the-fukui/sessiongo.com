@@ -4,7 +4,7 @@ import type {
   EventType,
 } from '@web/features/event/types/constants'
 
-// 時刻はUnixtime(milliseconds)で指定する
+// 時刻はUnixtime(seconds)で指定する
 
 export interface CreateEventDTO {
   title: string

@@ -4,8 +4,18 @@ import { TextInput } from '@mantine/core'
 
 import style from './index.module.scss'
 
+type InputAttributes = {
+  value: any
+  onChange: any
+  checked?: any
+  error?: any
+  onFocus?: any
+  onBlur?: any
+}
+
 type Props = {
   className?: string
+  getInputProps: () => InputAttributes
 }
 
 const Presenter: React.FC<ReturnType<typeof Container>> = ({
@@ -13,9 +23,16 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
   mapRef,
   inputRef,
   address,
+  getInputProps,
 }) => (
   <div className={`${className}`}>
-    <TextInput label="開催地" ref={inputRef} />
+    <TextInput
+      withAsterisk
+      label="開催地"
+      ref={inputRef}
+      {...getInputProps()}
+      // @TODO google mapと競合している
+    />
     <div className={style.mapContainer}>
       <div ref={mapRef} className={style.map} />
       <div className={style.mapAddress}>{address}</div>
@@ -25,7 +42,6 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
 
 const Container = (props: Props) => {
   /** Logic here */
-
   const { mapRef, inputRef, address } = useMap()
 
   const containerProps = {
