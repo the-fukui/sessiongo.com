@@ -16,6 +16,7 @@ type InputAttributes = {
 type Props = {
   className?: string
   getInputProps: () => InputAttributes
+  setFieldValue: (value: any) => void
 }
 
 const Presenter: React.FC<ReturnType<typeof Container>> = ({
@@ -23,16 +24,10 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
   mapRef,
   inputRef,
   address,
-  getInputProps,
+  inputProps,
 }) => (
   <div className={`${className}`}>
-    <TextInput
-      withAsterisk
-      label="開催地"
-      ref={inputRef}
-      {...getInputProps()}
-      // @TODO google mapと競合している
-    />
+    <TextInput withAsterisk label="開催地" ref={inputRef} {...inputProps} />
     <div className={style.mapContainer}>
       <div ref={mapRef} className={style.map} />
       <div className={style.mapAddress}>{address}</div>
@@ -42,12 +37,19 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
 
 const Container = (props: Props) => {
   /** Logic here */
-  const { mapRef, inputRef, address } = useMap()
+  const onPlaceID = props.setFieldValue
+
+  const { mapRef, inputRef, address } = useMap({ onPlaceID })
+
+  // Google Map SDKと競合するので、inputPropsからvalueを除外し、setFieldValueで値を更新する
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { value, ...inputProps } = props.getInputProps()
 
   const containerProps = {
     mapRef,
     inputRef,
     address,
+    inputProps,
   }
   return { ...props, ...containerProps }
 }

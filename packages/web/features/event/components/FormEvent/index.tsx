@@ -29,6 +29,7 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
   className,
   getInputProps,
   onSubmit,
+  setFieldValue,
   startTimeRef,
   endTimeRef,
 }) => (
@@ -60,7 +61,10 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
       />
     </DatesProvider>
     <SegmentedControl data={eventTypeOptions} {...getInputProps('type')} />
-    <InputPlaceAutoComplete getInputProps={() => getInputProps('placeID')} />
+    <InputPlaceAutoComplete
+      getInputProps={() => getInputProps('placeID')}
+      setFieldValue={(placeID: string) => setFieldValue('placeID', placeID)}
+    />
     <MultiSelect
       label={'イベントの特徴'}
       searchable
@@ -75,11 +79,13 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
 const Container = (props: Props) => {
   /** Logic here */
 
-  const { getInputProps, onSubmit, startTimeRef, endTimeRef } = useEventForm()
+  const { getInputProps, onSubmit, startTimeRef, endTimeRef, setFieldValue } =
+    useEventForm()
 
   const containerProps = {
     getInputProps,
     onSubmit,
+    setFieldValue,
     startTimeRef,
     endTimeRef,
   }

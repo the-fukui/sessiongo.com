@@ -11,9 +11,11 @@ interface CreateEventFormInputs extends Omit<CreateEventDTO, 'startAt'> {
 }
 
 export const useEventForm = () => {
-  const { getInputProps, onSubmit: _onSubmit } = useForm<CreateEventFormInputs>(
-    {},
-  )
+  const {
+    getInputProps,
+    onSubmit: _onSubmit,
+    setFieldValue,
+  } = useForm<CreateEventFormInputs>({})
 
   const startDateRef = useRef<HTMLInputElement>(null)
   const startTimeRef = useRef<HTMLInputElement>(null)
@@ -24,6 +26,7 @@ export const useEventForm = () => {
   return {
     getInputProps,
     onSubmit,
+    setFieldValue,
     startDateRef,
     startTimeRef,
     endTimeRef,

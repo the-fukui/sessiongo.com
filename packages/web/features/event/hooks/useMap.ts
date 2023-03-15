@@ -4,9 +4,13 @@ import { getPlaceAddress } from '@web/features/event/utils/googleMap'
 import { Loader } from '@googlemaps/js-api-loader'
 import { useEffect, useRef, useState } from 'react'
 
+interface Props {
+  onPlaceID?: (placeID: string) => void
+}
+
 const DEFAULT_ZOOM = 11
 
-export const useMap = () => {
+export const useMap = ({ onPlaceID }: Props = { onPlaceID: () => {} }) => {
   const geolocation = useGeolocation()
   const mapRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -84,6 +88,9 @@ export const useMap = () => {
     // 住所を取得
     const address = getPlaceAddress(place)
     setAddress(address)
+
+    // placeIDを親コンポーネントに渡す
+    if (place.place_id && onPlaceID) onPlaceID(place.place_id)
   }
 
   useEffect(() => {
@@ -100,6 +107,11 @@ export const useMap = () => {
       setupMap()
       setupAutocomplete()
     })
+
+    return () => {
+      // Google Maps APIをアンマウント時にアンロード
+      loader.deleteScript()
+    }
   }, [geolocation])
 
   return { mapRef, inputRef, address }
