@@ -1,4 +1,5 @@
 import FormEvent from './components/FormEvent'
 
-export * from './types/constants'
 export { FormEvent }
+export { mockEvents } from './mocks/events'
+export * from './types/constants'

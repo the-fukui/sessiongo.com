@@ -25,6 +25,8 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
   mapRef,
   inputRef,
   inputProps,
+  getInputProps,
+  setFieldValue,
   ...styleProps
 }) => (
   <Stack spacing={'xs'} className={`${className}`} {...styleProps}>
