@@ -1,9 +1,10 @@
 // import style from './index.module.scss'
+import { GridEvent } from '@web/features/event'
 import type { page } from '@web/pages/events/index'
 
 const Presenter: React.FC<ReturnType<typeof Container>> = ({ events }) => (
   <div>
-    <pre>{JSON.stringify(events, null, 2)}</pre>
+    <GridEvent events={events} />
   </div>
 )
 
