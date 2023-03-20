@@ -7,6 +7,7 @@ interface BaseDocument {
   updatedAt: Timestamp
 }
 export interface Event extends BaseDocument {
+  ID: string
   title: string
   description: string
   host: string

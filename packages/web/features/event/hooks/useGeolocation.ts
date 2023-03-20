@@ -1,4 +1,4 @@
-import { getGeolocation } from '@web/features/event/api/geolocation'
+import { getGeolocation } from '@web/features/event/api/client/geolocation'
 
 import { useEffect, useState } from 'react'
 

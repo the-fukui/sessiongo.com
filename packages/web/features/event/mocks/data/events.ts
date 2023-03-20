@@ -4,6 +4,7 @@ import { Timestamp } from 'firebase/firestore'
 
 const events: Event[] = [
   {
+    ID: '1',
     createdAt: new Timestamp(1677649200, 0),
     updatedAt: new Timestamp(1677649200, 0),
     title: 'アイリッシュ音楽セッション🎻',
@@ -22,6 +23,7 @@ const events: Event[] = [
     images: ['https://images.unsplash.com/photo-1558981001-792f6c0d5068'],
   },
   {
+    ID: '2',
     createdAt: new Timestamp(1677649300, 0),
     updatedAt: new Timestamp(1677649300, 0),
     title: 'アイリッシュ音楽ライブ🎤',
@@ -39,6 +41,7 @@ const events: Event[] = [
     images: ['https://images.unsplash.com/photo-1524601868979-155e242657d6'],
   },
   {
+    ID: '3',
     createdAt: new Timestamp(1677649400, 0),
     updatedAt: new Timestamp(1677649400, 0),
     title: 'アイリッシュ音楽ワークショップ🎼',
@@ -57,6 +60,7 @@ const events: Event[] = [
     images: ['https://images.unsplash.com/photo-1526040786856-7f6d41284a56'],
   },
   {
+    ID: '4',
     createdAt: new Timestamp(1677649500, 0),
     updatedAt: new Timestamp(1677649500, 0),
     title: 'アイリッシュ音楽とダンス🕺',
@@ -79,6 +83,7 @@ const events: Event[] = [
     images: ['https://images.unsplash.com/photo-1516802273409-68526ee1bdd6'],
   },
   {
+    ID: '5',
     createdAt: new Timestamp(1677649600, 0),
     updatedAt: new Timestamp(1677649600, 0),
     title: 'アイリッシュ音楽ジャムセッション🎶',

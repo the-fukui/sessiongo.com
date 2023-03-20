@@ -19,3 +19,14 @@ export interface CreateEventDTO {
   feature: EventFeature[]
   images: string[] // url set
 }
+
+export interface ListEventDTO {
+  ID: string
+  title: string
+  host: string
+  type: EventType
+  startAt: number
+  duration: number
+  placeID: string //google map API placeID
+  images: string[]
+}
