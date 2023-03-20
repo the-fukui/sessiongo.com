@@ -1,6 +1,6 @@
 import FormEvent from './components/FormEvent'
 
-export { listEvents as serverListEvents } from './api/server/events'
+export { listEventsOfMonth as serverListEventsOfMonth } from './api/server/events'
 
 export { FormEvent }
 export { mockEvents } from './mocks/events'

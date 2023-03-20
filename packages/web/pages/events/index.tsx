@@ -1,5 +1,5 @@
 import Component from '@web/components/pages/events/index'
-import { serverListEvents } from '@web/features/event'
+import { serverListEventsOfMonth } from '@web/features/event'
 
 import type { GetStaticPropsContext } from 'next'
 
@@ -11,7 +11,7 @@ export const page = (serverProps: InferSSRProps<typeof getStaticProps>) => {
 }
 
 export const getStaticProps = async ({}: GetStaticPropsContext) => {
-  const events = await serverListEvents()
+  const events = await serverListEventsOfMonth()
 
   return {
     props: {

@@ -5508,6 +5508,15 @@ resolve@^2.0.0-next.4:
   languageName: node
   linkType: hard
 
+"rrule@npm:^2.7.2":
+  version: 2.7.2
+  resolution: "rrule@npm:2.7.2"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: 9fae4c4ecacd81792b8722ae09b32eb0516148de776860f83caa9f2d97d8aa0fc18e6bb2ea62bd14c336b963252e2def1c212f1bf21310aee9124df4c1d2afc2
+  languageName: node
+  linkType: hard
+
 "run-async@npm:^2.4.0":
   version: 2.4.1
   resolution: "run-async@npm:2.4.1"
@@ -6515,6 +6524,7 @@ resolve@^2.0.0-next.4:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.8.0
+    rrule: ^2.7.2
     sass: ^1.58.3
     type-fest: ^3.6.1
     vite-tsconfig-paths: ^4.0.7
