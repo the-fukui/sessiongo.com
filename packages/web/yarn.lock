@@ -1547,10 +1547,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/google.maps@npm:^3.52.2":
-  version: 3.52.2
-  resolution: "@types/google.maps@npm:3.52.2"
-  checksum: 9ee6d0265fb68e3359d15bb8c0c629fb2340700e7f16fce4f68a4e69ca66f5c7aeec61b960a5527f92f88268f74ef48ac86a754f0e5ebd776aa42c36929bebc0
+"@types/google.maps@npm:^3.52.3":
+  version: 3.52.3
+  resolution: "@types/google.maps@npm:3.52.3"
+  checksum: 75e4f2f77ecc76d2f2afab4b7043d95050efdecd90b3b49472579afcff299afb3e18203e8157fdee31c478f64a76f108f6fb93127523ff567e5c8e603517a977
   languageName: node
   linkType: hard
 
@@ -6502,7 +6502,7 @@ resolve@^2.0.0-next.4:
     "@mantine/form": ^6.0.1
     "@mantine/hooks": ^6.0.2
     "@mantine/next": ^6.0.2
-    "@types/google.maps": ^3.52.2
+    "@types/google.maps": ^3.52.3
     "@types/node": 18.14.6
     "@types/react": 18.0.28
     "@types/react-dom": 18.0.11
