@@ -1,17 +1,19 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-let initialized = false
 export const useMock = () => {
+  const [isMockReady, setIsMockReady] = useState<boolean>(
+    process.env.NODE_ENV === 'production',
+  ) // productionでは最初からready
+
   useEffect(() => {
-    if (initialized) return
-    initialized = true
-    if (process.env.NODE_ENV === 'development') {
-      console.log('initial mock')
-      import('@web/mock/index').then(({ worker }) =>
-        worker.start({
-          onUnhandledRequest: 'bypass',
-        }),
-      )
-    }
+    import('@web/mock/index')
+      .then(({ initMocks }) => {
+        return initMocks()
+      })
+      .then(() => {
+        setIsMockReady(true)
+      })
   }, [])
+
+  return { isMockReady }
 }

@@ -1,7 +1,7 @@
 // ip-apiから座標を取得する
 // http://ip-api.com/json/
 
-interface Response {
+export interface Response {
   lat: number
   lon: number
 }
@@ -11,6 +11,7 @@ interface Coordinates {
 }
 
 export const getGeolocation = async (): Promise<Coordinates> => {
+  console.log('fetch geolocation')
   const url = new URL('http://ip-api.com/json/')
   url.searchParams.append('fields', 'lat,lon')
 

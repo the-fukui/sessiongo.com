@@ -7,7 +7,13 @@ import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useMock()
+  const { isMockReady } = useMock()
+  console.log({ isMockReady })
+
+  if (!isMockReady) {
+    return <div>Loading mock...</div>
+  }
+
   return (
     <MantineProvider
       withGlobalStyles
