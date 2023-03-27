@@ -998,17 +998,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/dates@npm:^6.0.2":
-  version: 6.0.2
-  resolution: "@mantine/dates@npm:6.0.2"
+"@mantine/dates@npm:^6.0.4":
+  version: 6.0.4
+  resolution: "@mantine/dates@npm:6.0.4"
   dependencies:
-    "@mantine/utils": 6.0.2
+    "@mantine/utils": 6.0.4
   peerDependencies:
-    "@mantine/core": 6.0.2
-    "@mantine/hooks": 6.0.2
+    "@mantine/core": 6.0.4
+    "@mantine/hooks": 6.0.4
     dayjs: ">=1.0.0"
     react: ">=16.8.0"
-  checksum: 33c8498b8f1bf3c0625e3f49fa0fe88a3d4a9fe57ce52f2d15bd7415eb7df6ac7a836d6e2417b1cefd072e78e7abcb56edf5b23473077471fe2a640fb659d02a
+  checksum: 6142b63dc76932bd57114c9cfe86b84da21cdfd8564773ea644bef409de25991a2ae81120eb7fa4b955f7196a44fcbc21f59859be2b0d042ed6819841b63ff52
   languageName: node
   linkType: hard
 
@@ -1082,6 +1082,15 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
   checksum: c3a8f4515e59d70c5f01d311831ce036db81821381d9d1529e88c59154e9e8df4ae26aaceb1f4461d45bbfcbdd0dc303e34a56ad8c809f96c1222e63ce714eff
+  languageName: node
+  linkType: hard
+
+"@mantine/utils@npm:6.0.4":
+  version: 6.0.4
+  resolution: "@mantine/utils@npm:6.0.4"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 3a2f4d62d1ae78defcb293cb3454abbae0ca8a7b790ccce664f5d386973acfcc8542484717f3f38ba690f0f49689f0a1e3a18a77f4b14cfbdc227581566ac12b
   languageName: node
   linkType: hard
 
@@ -6518,7 +6527,7 @@ resolve@^2.0.0-next.4:
     "@emotion/server": ^11.10.0
     "@googlemaps/js-api-loader": ^1.15.1
     "@mantine/core": ^6.0.2
-    "@mantine/dates": ^6.0.2
+    "@mantine/dates": ^6.0.4
     "@mantine/form": ^6.0.2
     "@mantine/hooks": ^6.0.2
     "@mantine/next": ^6.0.2
