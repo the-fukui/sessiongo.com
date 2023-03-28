@@ -2,7 +2,7 @@ import type { Event } from '@web/infrastructures/firestore/types/schema'
 import dayjs from '@web/utils/dayjs'
 
 import events from '../../mocks/data/events'
-import type { ListEventDTO } from '../../types/DTO'
+import type { GetEventDTO, ListEventDTO } from '../../types/DTO'
 import { getRecurrenceOfMonth } from '../../utils/calendar'
 
 interface GetEventsParams {
@@ -21,6 +21,39 @@ const transformEventToListEventDTO = (event: Event): ListEventDTO => {
     placeID: event.placeID,
     images: event.images,
   }
+}
+
+const transformEventToGetEventDTO = (event: Event): GetEventDTO => {
+  return {
+    ID: event.ID,
+    title: event.title,
+    description: event.description,
+    host: event.host,
+    status: event.status,
+    type: event.type,
+    startAt: event.startAt,
+    duration: event.duration,
+    placeID: event.placeID,
+    feature: event.feature,
+    images: event.images,
+  }
+}
+
+/**
+ * 指定IDのイベントを取得する
+ */
+export const getEvent = async (ID: string): Promise<GetEventDTO | null> => {
+  // @TODO: fetch events from firestore
+  const event = events.find((event) => event.ID === ID)
+  if (!event) {
+    console.log("Can't find event:", ID)
+    return null
+  }
+  const response = event
+
+  const getEventDTO = transformEventToGetEventDTO(response)
+
+  return getEventDTO
 }
 
 /**
