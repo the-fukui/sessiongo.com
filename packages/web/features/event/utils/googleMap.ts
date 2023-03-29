@@ -37,3 +37,34 @@ export const getPlaceAddress = (place: google.maps.places.PlaceResult) => {
 
   return address
 }
+
+/**
+ * PlaceIDからPlace情報を取得する
+ */
+export const getPlace = async (
+  placeID: string,
+): Promise<
+  Pick<google.maps.places.PlaceResult, 'formatted_address' | 'name' | 'url'>
+> => {
+  const placeDetailsAPI = new URL(
+    'https://maps.googleapis.com/maps/api/place/details/json',
+  )
+
+  placeDetailsAPI.searchParams.append('place_id', placeID)
+  placeDetailsAPI.searchParams.append('fields', 'name,formatted_address,url')
+  placeDetailsAPI.searchParams.append('key', process.env.GOOGLE_MAPS_API_KEY)
+
+  const response = await fetch(placeDetailsAPI.toString())
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch place details')
+  }
+
+  const json = await response.json()
+
+  if (json.status !== 'OK') {
+    throw new Error('Failed to fetch place details')
+  }
+
+  return json.result
+}

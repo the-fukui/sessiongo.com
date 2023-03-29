@@ -4,6 +4,11 @@ import dayjs from '@web/utils/dayjs'
 import events from '../../mocks/data/events'
 import type { GetEventDTO, ListEventDTO } from '../../types/DTO'
 import { getRecurrenceOfMonth } from '../../utils/calendar'
+import {
+  getPlace,
+  getPlaceAddress,
+  getPlaceName,
+} from './../../utils/googleMap'
 
 interface GetEventsParams {
   year?: number
@@ -23,7 +28,14 @@ const transformEventToListEventDTO = (event: Event): ListEventDTO => {
   }
 }
 
-const transformEventToGetEventDTO = (event: Event): GetEventDTO => {
+const transformEventToGetEventDTO = async (
+  event: Event,
+): Promise<GetEventDTO> => {
+  const place = await getPlace(event.placeID)
+  const placeName = getPlaceName(place)
+  const placeAddress = getPlaceAddress(place)
+  const placeMapURL = place.url || ''
+
   return {
     ID: event.ID,
     title: event.title,
@@ -33,7 +45,9 @@ const transformEventToGetEventDTO = (event: Event): GetEventDTO => {
     type: event.type,
     startAt: event.startAt,
     duration: event.duration,
-    placeID: event.placeID,
+    placeName,
+    placeAddress,
+    placeMapURL,
     feature: event.feature,
     images: event.images,
   }
@@ -51,7 +65,7 @@ export const getEvent = async (ID: string): Promise<GetEventDTO | null> => {
   }
   const response = event
 
-  const getEventDTO = transformEventToGetEventDTO(response)
+  const getEventDTO = await transformEventToGetEventDTO(response)
 
   return getEventDTO
 }

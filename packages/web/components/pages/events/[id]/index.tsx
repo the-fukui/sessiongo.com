@@ -5,6 +5,9 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({ event }) => (
   <div>
     <h1>{event.title}</h1>
     <p>{event.description}</p>
+    <p>{event.placeName}</p>
+    <p>{event.placeAddress}</p>
+    <a href={event.placeMapURL}>{event.placeMapURL}</a>
   </div>
 )
 

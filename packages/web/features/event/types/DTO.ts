@@ -29,7 +29,9 @@ export interface GetEventDTO {
   type: EventType
   startAt: number
   duration: number
-  placeID: string //google map API placeID
+  placeName: string
+  placeAddress: string
+  placeMapURL: string
   feature: EventFeature[]
   images: string[] // url set
 }
