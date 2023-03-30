@@ -72,7 +72,7 @@ export const getEvent = async (ID: string): Promise<GetEventDTO | null> => {
 
 /**
  * 指定の月のイベント一覧を取得する
- * 取得範囲はタイムゾーンを考慮して、UTC基準で指定の月±12時間分取得する
+ * 取得範囲はタイムゾーンを考慮して、UTC基準で指定の月±1日分取得する
  * 現地時間で溢れた分はフロントで切り捨てる
  */
 export const listEventsOfMonth = async ({
@@ -91,14 +91,14 @@ export const listEventsOfMonth = async ({
           .startOf('month')
           .month(month - 1)
           .year(year)
-          .subtract(12, 'hour')
+          .subtract(1, 'day')
           .unix(),
         rangeEndAt: dayjs()
           .utc()
           .startOf('month')
           .month(month)
           .year(year)
-          .add(12, 'hour')
+          .add(1, 'day')
           .unix(),
       })
     })

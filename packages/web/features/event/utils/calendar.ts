@@ -14,7 +14,8 @@ interface getRecurrenceOfMonthProps<T extends RecurrenceItem> {
 }
 
 /** rruleを解析し、指定した範囲にイベントを複製して一覧を返す
- * 複製するイベントはstartAtを上書きする
+ * 範囲は日付単位
+ * 複製するイベントはstartAtの日付を上書きする
  * rangeはUnixtime(seconds)
  */
 export const getRecurrenceOfMonth = <T extends RecurrenceItem>({
@@ -35,15 +36,25 @@ export const getRecurrenceOfMonth = <T extends RecurrenceItem>({
   )
 
   const rule = rrulestr(rrule)
-  const recurrence = rule.between(
+  const recurringDates = rule.between(
     dayjs.unix(rangeStartAt).toDate(),
     dayjs.unix(rangeEndAt).toDate(),
   )
 
-  return recurrence.map((date) => {
+  return recurringDates.map((date) => {
+    const recurringDate = dayjs(date)
     return {
       ...item,
-      startAt: dayjs(date).unix(),
+      // 日時を上書き
+      /**
+       * @TODO UTCの日付で上書きしてるのでバグりそう
+       * どうせなら時刻系はUTC ISOで統一しても良いかも
+       */
+      startAt: dayjs(item.startAt)
+        .set('year', recurringDate.year())
+        .set('month', recurringDate.month())
+        .set('date', recurringDate.date())
+        .unix(),
     }
   })
 }
