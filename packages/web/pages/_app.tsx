@@ -21,6 +21,17 @@ function MyApp({ Component, pageProps }: AppProps) {
       theme={{
         /** Put your mantine theme override here */
         colorScheme: 'light',
+        colors: {
+          'shikkuri-white': [
+            '#F4F5F7',
+            '#D9DCE1',
+            '#C1C5CD',
+            '#ADB1B9',
+            '#9B9FA7',
+            '#8B8F97',
+            '#7D8188',
+          ],
+        },
       }}
     >
       <Layout>

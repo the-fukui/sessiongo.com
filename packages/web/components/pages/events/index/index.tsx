@@ -1,9 +1,10 @@
 // import style from './index.module.scss'
-import { GridEvent } from '@web/features/event'
+import { CalendarEvent, GridEvent } from '@web/features/event'
 import type { page } from '@web/pages/events/index'
 
 const Presenter: React.FC<ReturnType<typeof Container>> = ({ events }) => (
   <div>
+    <CalendarEvent eventDates={[]} onDateChange={(date) => console.log(date)} />
     <GridEvent events={events} />
   </div>
 )
