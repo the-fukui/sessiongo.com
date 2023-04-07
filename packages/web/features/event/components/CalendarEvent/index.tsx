@@ -6,13 +6,12 @@ import { DatePicker, DatesProvider } from '@mantine/dates'
 
 type Props = {
   className?: string
-  eventDates: Date[]
-  onDateChange: (date: Date) => void
+  eventDates: number[] // unixtime(seconds)
+  onDateChange: (date: number) => void // unixtime(seconds)
   date?: Date
 }
 
 const Presenter: React.FC<ReturnType<typeof Container>> = ({
-  className,
   onDateChange,
   date = dayjs().toDate(),
   getDayProps,
@@ -20,7 +19,7 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
   <DatesProvider settings={{ locale: 'ja', firstDayOfWeek: 0 }}>
     <DatePicker
       value={date}
-      onChange={onDateChange}
+      onChange={(date) => onDateChange(dayjs(date).unix())}
       getDayProps={getDayProps}
       size="xl"
       styles={{
@@ -34,11 +33,8 @@ const Presenter: React.FC<ReturnType<typeof Container>> = ({
 const Container = (props: Props) => {
   /** Logic here */
 
-  const eventDays = [
-    dayjs().set('date', 3),
-    dayjs().set('date', 9),
-    dayjs().set('date', 15),
-  ].map((date) => date.format('MMDD'))
+  const { eventDates } = props
+  const eventDays = eventDates.map((date) => dayjs.unix(date).format('MMDD'))
 
   // カレンダースタイル
   const getDayProps = (date: Date): Partial<DayProps> => {
