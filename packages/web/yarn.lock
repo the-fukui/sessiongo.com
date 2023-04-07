@@ -1012,15 +1012,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/form@npm:^6.0.2":
-  version: 6.0.2
-  resolution: "@mantine/form@npm:6.0.2"
+"@mantine/form@npm:^6.0.6":
+  version: 6.0.6
+  resolution: "@mantine/form@npm:6.0.6"
   dependencies:
     fast-deep-equal: ^3.1.3
     klona: ^2.0.5
   peerDependencies:
     react: ">=16.8.0"
-  checksum: 43126fc981f5536e5893a635b02c58666ac268d0619b4fc31515a9bb29ae363efde1c3dbb912f1c4cfe3f8201d3f511551b71c7e8efb29a1f16141ad0f71cbd5
+  checksum: ebe9f4780de9e5e55d0eeddbd988186f79058aa4162563bea27334087ae74909800bfaac575d59dc17f621f5c16ee0942191cc72b8cd9c8cffe4b7252fa6c8b2
   languageName: node
   linkType: hard
 
@@ -6542,7 +6542,7 @@ resolve@^2.0.0-next.4:
     "@googlemaps/js-api-loader": ^1.15.1
     "@mantine/core": ^6.0.4
     "@mantine/dates": ^6.0.5
-    "@mantine/form": ^6.0.2
+    "@mantine/form": ^6.0.6
     "@mantine/hooks": ^6.0.2
     "@mantine/next": ^6.0.4
     "@types/google.maps": ^3.52.3
