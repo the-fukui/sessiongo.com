@@ -31,7 +31,7 @@
   "devDependencies": {
     "@types/google.maps": "^3.52.3",
     "@types/node": "18.14.6",
-    "@types/react": "18.0.29",
+    "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
     "eslint-config-next": "13.2.4",
     "msw": "^1.1.0",
