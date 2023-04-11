@@ -1,14 +1,10 @@
 import type { Event } from '@web/infrastructures/firestore/types/schema'
 import dayjs from '@web/utils/dayjs'
 
-import events from '../../mocks/data/events'
-import type { GetEventDTO, ListEventDTO } from '../../types/DTO'
-import { getRecurrenceOfMonth } from '../../utils/calendar'
-import {
-  getPlace,
-  getPlaceAddress,
-  getPlaceName,
-} from './../../utils/googleMap'
+import events from '../mocks/data/events'
+import type { GetEventDTO, ListEventDTO } from '../types/DTO'
+import { getRecurrenceOfMonth } from '../utils/calendar'
+import { getPlace, getPlaceAddress, getPlaceName } from '../utils/googleMap'
 
 interface GetEventsParams {
   year?: number

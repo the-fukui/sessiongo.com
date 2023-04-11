@@ -15,17 +15,14 @@ type PresenterProps<T> = ReturnType<T>
 type _NextApiRequest = import('next').NextApiRequest
 type _NextApiResponse<T> = import('next').NextApiResponse<T>
 type APIErrorMessage = { Error: { Message: string } }
-interface NextApiRequest<T extends NextApiRequest['query'], K extends Object>
-  extends _NextApiRequest {
-  query: T
-  body: K
+
+interface NextApiRequest<
+  Query extends _NextApiRequest['query'] = _NextApiRequest['query'],
+  Body = any,
+> extends _NextApiRequest {
+  query: Query
+  body: Body
 }
 
-type NextApiHandler<
-  T extends _NextApiRequest['query'],
-  K extends Object,
-  P extends any,
-> = (
-  req: NextApiRequest<T, K>,
-  res: _NextApiResponse<P | APIErrorMessage>,
-) => void | Promise<void>
+interface NextApiResponse<Response extends any>
+  extends _NextApiResponse<Response | APIErrorMessage> {}
