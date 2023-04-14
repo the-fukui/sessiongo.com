@@ -19,6 +19,7 @@ const transformEventToListEventDTO = (event: Event): ListEventDTO => {
     type: event.type,
     startAt: event.startAt,
     duration: event.duration,
+    features: event.features,
     placeID: event.placeID,
     images: event.images,
   }
@@ -44,7 +45,7 @@ const transformEventToGetEventDTO = async (
     placeName,
     placeAddress,
     placeMapURL,
-    feature: event.feature,
+    feature: event.features,
     images: event.images,
   }
 }

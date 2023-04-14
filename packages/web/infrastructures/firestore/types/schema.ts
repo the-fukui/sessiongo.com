@@ -24,6 +24,6 @@ export interface Event extends BaseDocument {
   rruleEndAt: number | null // unixtime(seconds)
 
   placeID: string //google map API placeID
-  feature: EventFeature[]
+  features: EventFeature[]
   images: string[] // url set
 }

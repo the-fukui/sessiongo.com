@@ -17,7 +17,7 @@ const events: Event[] = [
     rruleStartAt: 1677652800,
     rruleEndAt: 1680258400,
     placeID: 'ChIJN1t_tDeuEmsRUsoyG83frY4',
-    feature: ['BEGINNERS_ARE_WELCOME', 'NO_SMOKING'],
+    features: ['BEGINNERS_ARE_WELCOME', 'NO_SMOKING'],
     images: ['https://images.unsplash.com/photo-1558981001-792f6c0d5068'],
   },
   {
@@ -35,7 +35,7 @@ const events: Event[] = [
     rruleStartAt: null,
     rruleEndAt: null,
     placeID: 'ChIJKYPfMzauEmsR9pSfG83frY4',
-    feature: ['SPECIAL_OFFERS_AVAILABLE', 'SESSION_LIVE'],
+    features: ['SPECIAL_OFFERS_AVAILABLE', 'SESSION_LIVE'],
     images: ['https://images.unsplash.com/photo-1524601868979-155e242657d6'],
   },
   {
@@ -54,7 +54,7 @@ const events: Event[] = [
     rruleStartAt: 1677660000,
     rruleEndAt: 1680265600,
     placeID: 'ChIJMYPfMzauEmsR9pSfG83frY4',
-    feature: ['ADVANCED_NOTIFICATION_REQUIRED', 'DONATION'],
+    features: ['ADVANCED_NOTIFICATION_REQUIRED', 'DONATION'],
     images: ['https://images.unsplash.com/photo-1526040786856-7f6d41284a56'],
   },
   {
@@ -73,7 +73,7 @@ const events: Event[] = [
     rruleStartAt: null,
     rruleEndAt: null,
     placeID: 'ChIJLYPfMzauEmsR9pSfG83frY4',
-    feature: [
+    features: [
       'BEGINNERS_ARE_WELCOME',
       'SPECIAL_OFFERS_AVAILABLE',
       'NO_SMOKING',
@@ -96,7 +96,7 @@ const events: Event[] = [
     rruleStartAt: 1677667200,
     rruleEndAt: 1680272800,
     placeID: 'ChIJPYPfMzauEmsR9pSfG83frY4',
-    feature: ['SESSION_LIVE', 'DONATION'],
+    features: ['SESSION_LIVE', 'DONATION'],
     images: ['https://images.unsplash.com/photo-1551309981-7b2ff0e04dfb'],
   },
 ]

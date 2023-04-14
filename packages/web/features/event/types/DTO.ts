@@ -43,6 +43,7 @@ export interface ListEventDTO {
   type: EventType
   startAt: number
   duration: number
+  features: EventFeature[]
   placeID: string //google map API placeID
   images: string[]
 }

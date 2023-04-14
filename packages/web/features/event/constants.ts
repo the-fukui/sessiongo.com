@@ -3,7 +3,7 @@ export const EVENT_FEATURE = {
   ADVANCED_NOTIFICATION_REQUIRED: '参加者は事前連絡が必要🙋',
   SPECIAL_OFFERS_AVAILABLE: '参加者に特別メニュー割引あり🤩',
   NO_SMOKING: '店内・開催場所が禁煙🚭',
-  CLOSED: 'クローズドセッション👥',
+  CLOSED: 'クローズドセッション🔒',
   SESSION_LIVE: 'セッションライブ🎤',
   DONATION: '投げ銭お願いします🙏',
 } as const

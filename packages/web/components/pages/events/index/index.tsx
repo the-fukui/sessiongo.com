@@ -5,8 +5,10 @@ import type { page } from '@web/pages/events/index'
 const Presenter: React.FC<ReturnType<typeof Container>> = ({
   Calendar,
   Grid,
+  SelectFeature,
 }) => (
   <div>
+    <SelectFeature />
     <Calendar />
     <Grid />
   </div>
@@ -16,11 +18,12 @@ const Container = (pageProps: ReturnType<typeof page>) => {
   /** Logic here */
 
   const { events } = pageProps
-  const { Calendar, Grid } = useEventCalendar(events)
+  const { Calendar, Grid, SelectFeature } = useEventCalendar(events)
 
   const containerProps = {
     Calendar,
     Grid,
+    SelectFeature,
   }
   return { ...pageProps, ...containerProps }
 }
