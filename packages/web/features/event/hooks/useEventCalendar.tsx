@@ -8,10 +8,15 @@ import SelectEventFeature from '../components/SelectEventFeature'
 import type { EVENT_FEATURE } from '../constants'
 import type { ListEventDTO } from '../types/DTO'
 
+type Props = {
+  events: ListEventDTO[]
+  onMonthChange: (date: number) => void // unixtime(seconds)
+}
+
 /**
  * 与えられたイベント一覧を表示するカレンダーとグリッドと特徴一覧のコンポーネントを返す
  */
-export const useEventCalendar = (events: ListEventDTO[]) => {
+export const useEventCalendar = ({ events, onMonthChange }: Props) => {
   const [selectedDate, setSelectedDate] = useState(() => dayjs().unix())
   const [selectedFeatures, setSelectedFeatures] = useState<
     (keyof typeof EVENT_FEATURE)[]
@@ -42,14 +47,15 @@ export const useEventCalendar = (events: ListEventDTO[]) => {
   }, [filteredEvents, selectedDate])
 
   return {
-    Calendar: () => (
+    Calendar: (
       <CalendarEvent
         eventDates={filteredEventDates}
-        onDateChange={setSelectedDate}
+        onDateSelect={setSelectedDate}
+        onMonthSelect={onMonthChange}
       />
     ),
-    Grid: () => <GridEvent events={selectedEvents} />,
-    SelectFeature: () => (
+    Grid: <GridEvent events={selectedEvents} />,
+    SelectFeature: (
       <SelectEventFeature
         selected={selectedFeatures}
         onSelect={setSelectedFeatures}

@@ -19,6 +19,9 @@ const handler = async (
     month: month && parseInt(month) > 0 ? parseInt(month) : undefined,
   })
 
+  // add delay
+  // await new Promise((resolve) => setTimeout(resolve, 1000))
+
   res.status(200).json(events)
 }
 

@@ -1,5 +1,5 @@
 import Component from '@web/components/pages/events/index'
-import type { ListEventDTO } from '@web/features/event'
+import { getEvents } from '@web/features/event'
 
 import type { GetStaticPropsContext } from 'next'
 
@@ -11,9 +11,7 @@ export const page = (serverProps: InferSSRProps<typeof getStaticProps>) => {
 }
 
 export const getStaticProps = async ({}: GetStaticPropsContext) => {
-  const events = (await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/events`,
-  ).then((res) => res.json())) as ListEventDTO[]
+  const events = await getEvents()
 
   return {
     props: {
