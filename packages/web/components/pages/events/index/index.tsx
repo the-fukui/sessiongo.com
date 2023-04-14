@@ -25,9 +25,10 @@ const Container = (pageProps: ReturnType<typeof page>) => {
 
   // カレンダーの表示月がわかった際にAPIを叩く
   const onMonthChange = async (date: number) => {
+    setEvents([])
+
     const year = dayjs.unix(date).get('year')
     const month = dayjs.unix(date).get('month') + 1
-    console.log({ year, month })
     const events = await getEvents({ year, month })
     setEvents(events)
   }

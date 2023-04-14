@@ -93,8 +93,9 @@ export const listEventsOfMonth = async ({
         rangeEndAt: dayjs()
           .utc()
           .startOf('month')
-          .month(month)
+          .month(month - 1)
           .year(year)
+          .add(1, 'month')
           .add(1, 'day')
           .unix(),
       })
