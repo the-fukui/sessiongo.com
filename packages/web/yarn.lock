@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 6
+  version: 4
   cacheKey: 8
 
 "@babel/code-frame@npm:^7.0.0":
@@ -224,169 +224,169 @@ __metadata:
 "@esbuild/android-arm64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/android-arm64@npm:0.16.17"
-  conditions: os=android & cpu=arm64
+  checksum: ee4b4684d62ae62d9fbe18016b3de9a95dbd126f520420a76fbcf3e30e1360ceb486fff6a751d57df546809962c13315d990c8355ddcf49d7ed21be4fee6cec8
   languageName: node
   linkType: hard
 
 "@esbuild/android-arm@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/android-arm@npm:0.16.17"
-  conditions: os=android & cpu=arm
+  checksum: ae8902e6decc03d89d45721779d893a89042f6051c1aacb4245571521f5128000f839fe5af07ee023c080c20427d9d80e72f1e0655c12b5ddabc08a45a581113
   languageName: node
   linkType: hard
 
 "@esbuild/android-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/android-x64@npm:0.16.17"
-  conditions: os=android & cpu=x64
+  checksum: 00cdb62241f26782ce3dd9a686b63850851f0e428ee67b032da7aa3f43ccd1164505e690ea39931096df2b1275ad330e947dce53ef7d9fa7713ff02020781d7f
   languageName: node
   linkType: hard
 
 "@esbuild/darwin-arm64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/darwin-arm64@npm:0.16.17"
-  conditions: os=darwin & cpu=arm64
+  checksum: f2f833ed47915fd32d93d1e986dd52b34b748502434c15f629595055788af33fc22c2d99879974484034c409b30ff5a23488d4c8d80ae0c34ff83a55b4220fc2
   languageName: node
   linkType: hard
 
 "@esbuild/darwin-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/darwin-x64@npm:0.16.17"
-  conditions: os=darwin & cpu=x64
+  checksum: 3b7a8ba3dc15640691682cd160bdf4caf1e19c9c114d1a047a6fb68f23fc04af53b6b1ec3b51f19f354c3aba94fcd11e9a4c49544a715c0fcd3c4dfc3f23bc29
   languageName: node
   linkType: hard
 
 "@esbuild/freebsd-arm64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/freebsd-arm64@npm:0.16.17"
-  conditions: os=freebsd & cpu=arm64
+  checksum: a2a758ec6b353bed1d51492b0c48b1cbb192948181c2096626e588b42ad5848cd2e83661219e129140f10a86517104df1bcf253d46856fde2153d116fb3fc6a6
   languageName: node
   linkType: hard
 
 "@esbuild/freebsd-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/freebsd-x64@npm:0.16.17"
-  conditions: os=freebsd & cpu=x64
+  checksum: 049f3c1218fb6adef111f57c32fee5d315b06a72d4b7dc3954da7adb0f208723d40b68bbea4d82f74ca2a80eaac26f1e033c571958fab377b19d5f435ef1bdf4
   languageName: node
   linkType: hard
 
 "@esbuild/linux-arm64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-arm64@npm:0.16.17"
-  conditions: os=linux & cpu=arm64
+  checksum: 33c4b7bd20a23eb524a68be9b5c3a374866e5074eb45b32bbd05a5d0c774753fc834a0e94f616c8b1da85138bdd5bbbf45e5b8418528638e558542d9872e5be8
   languageName: node
   linkType: hard
 
 "@esbuild/linux-arm@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-arm@npm:0.16.17"
-  conditions: os=linux & cpu=arm
+  checksum: 071cdd2ea1cb1d96a98f360c611d4c63ea224f60ddfa098e43851f9958a05b6ca23b704c7b17c06cb2d63941d9862387df2543c568b9263545acda7ee4438201
   languageName: node
   linkType: hard
 
 "@esbuild/linux-ia32@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-ia32@npm:0.16.17"
-  conditions: os=linux & cpu=ia32
+  checksum: 7ccd3d8024b59d94b5e74cefc8f9a3afe47f661e16eb6bb5fcd2041dac4302cc5cdb57feb2e0c9d2632c5aea5f783e6a1325f6061139d321ae83fa31f186a4b6
   languageName: node
   linkType: hard
 
 "@esbuild/linux-loong64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-loong64@npm:0.16.17"
-  conditions: os=linux & cpu=loong64
+  checksum: 52e3f6fe3e14f0e3c9b6ecdef293f9eedb1d3ab6c3688d30b075e440b67c903e1dc88292e90f3088dcdade5f1b40b6967ddc239b3b2c71bc5d158dda04e1978e
   languageName: node
   linkType: hard
 
 "@esbuild/linux-mips64el@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-mips64el@npm:0.16.17"
-  conditions: os=linux & cpu=mips64el
+  checksum: dee0829c48c0f77b85bd6bb0f7c9b7d3e7c748dfe6b0ed367ad9cc7f4a8e28ed093148ee71743398f02ac8418af31e8f531fbe750cdd196f085d8fde0403c412
   languageName: node
   linkType: hard
 
 "@esbuild/linux-ppc64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-ppc64@npm:0.16.17"
-  conditions: os=linux & cpu=ppc64
+  checksum: 91d0913bbea9d2c0cc8a2c22d4b7864b2433b5899eedbba31c8d066e943492835dfcd52583b847c63f821a94af09794a1f3daf9fbb5a7dd6d1795ceb792354d6
   languageName: node
   linkType: hard
 
 "@esbuild/linux-riscv64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-riscv64@npm:0.16.17"
-  conditions: os=linux & cpu=riscv64
+  checksum: 4affa9307eafe227b8e9ebcdf18b9a84779eb820c4a0bfbf69ad23d6c89355cbf94a7ffab5077ffe449e1a029131a203b7224e268bfdbe547b04d2079da4b9de
   languageName: node
   linkType: hard
 
 "@esbuild/linux-s390x@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-s390x@npm:0.16.17"
-  conditions: os=linux & cpu=s390x
+  checksum: cb5f295c619500ba0b86ba79bf896e59f26367b4a4d79ee06a1e00a50b0d44ad2a83a7c7d7312c664711c692ecb0af79bed0c3593808c5f64339b52aa7979861
   languageName: node
   linkType: hard
 
 "@esbuild/linux-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-x64@npm:0.16.17"
-  conditions: os=linux & cpu=x64
+  checksum: 1ed275c47aba5602c48844dedf95e6ad9097b6c96b8b0b19d141009d1b0583956ee4ba96763528641d2fb7521607c2411f90e0908f61777d56922ba4a95cdb1a
   languageName: node
   linkType: hard
 
 "@esbuild/netbsd-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/netbsd-x64@npm:0.16.17"
-  conditions: os=netbsd & cpu=x64
+  checksum: 27e1c033ce2215847a2f739933db761c0a94d44ec171e01dc57eb6764a42f962d6f72001190b5d99958e3db0006e52b637fc52fa1cb1b46ed6c7a8214abe40fb
   languageName: node
   linkType: hard
 
 "@esbuild/openbsd-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/openbsd-x64@npm:0.16.17"
-  conditions: os=openbsd & cpu=x64
+  checksum: 8cde6cb6154a29b4282b565b5610ea1f0cb9304ce26f3f5b94ff6443409329637745de9f81cdd6cc4a813390bb515546a2ea4acd656843b4cdeb03c05d867b20
   languageName: node
   linkType: hard
 
 "@esbuild/sunos-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/sunos-x64@npm:0.16.17"
-  conditions: os=sunos & cpu=x64
+  checksum: 10dff5b68b6fb879c12c31a36fb40c7a9ab5d4e7d1091539f0d8805be1f000afb5d90f85e51fe1d6d2831a2913b2ab40e0abe2213f8994fe6d561ca1ea4d9488
   languageName: node
   linkType: hard
 
 "@esbuild/win32-arm64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/win32-arm64@npm:0.16.17"
-  conditions: os=win32 & cpu=arm64
+  checksum: 8a156aaf8b1c8a6c4ccab3414727257ab0a38a00606cc2aefac572018fa714c9166e061792daa300d909d4634897992de1277c0ff4ae39dc60fe3d9bf42cbcc5
   languageName: node
   linkType: hard
 
 "@esbuild/win32-ia32@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/win32-ia32@npm:0.16.17"
-  conditions: os=win32 & cpu=ia32
+  checksum: f9e3e08a47926b7f34b94e7808f2c28b510818d0fb9f623e062add4ffac62537b07767af032b515df86add7ee255140630ac8704661f8df39df349af87c5d032
   languageName: node
   linkType: hard
 
 "@esbuild/win32-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/win32-x64@npm:0.16.17"
-  conditions: os=win32 & cpu=x64
+  checksum: 9b9fcd3dee52bbfe711c861cedaecb8163cfeef064f54a84f3702a44917463d42186299c144873d3d3b14660deb0e97ff2645e5ea5814464284ddc9ae894c74c
   languageName: node
   linkType: hard
 
-"@firebase/analytics-compat@npm:0.2.4":
-  version: 0.2.4
-  resolution: "@firebase/analytics-compat@npm:0.2.4"
+"@firebase/analytics-compat@npm:0.2.6":
+  version: 0.2.6
+  resolution: "@firebase/analytics-compat@npm:0.2.6"
   dependencies:
-    "@firebase/analytics": 0.9.4
+    "@firebase/analytics": 0.10.0
     "@firebase/analytics-types": 0.8.0
     "@firebase/component": 0.6.4
     "@firebase/util": 1.9.3
     tslib: ^2.1.0
   peerDependencies:
     "@firebase/app-compat": 0.x
-  checksum: 1f99fa716e20a51a1debcc9ea33981d6c74c0b53e047e2cb35b545a2098e7380224bb0cec77cb54ccc36f8851a7fc635306fa31e80482ddd62f87aa6dee885a8
+  checksum: 6ec53ad2778d379aa98e3013995f65adb87bb8251b329f4dcc27b8bbefaf271539bcd46b895c8158cfd2dbea6d105c3fad9db637b9d8a81a24522e8df27b7976
   languageName: node
   linkType: hard
 
@@ -397,9 +397,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/analytics@npm:0.9.4":
-  version: 0.9.4
-  resolution: "@firebase/analytics@npm:0.9.4"
+"@firebase/analytics@npm:0.10.0":
+  version: 0.10.0
+  resolution: "@firebase/analytics@npm:0.10.0"
   dependencies:
     "@firebase/component": 0.6.4
     "@firebase/installations": 0.6.4
@@ -408,15 +408,15 @@ __metadata:
     tslib: ^2.1.0
   peerDependencies:
     "@firebase/app": 0.x
-  checksum: 0a131d60b5965d5b8a1056838a2941afb8de230ba0ba9de3531ce3fb9e8327e6eaa9adc1d63a34148285dbd4178d6e94a49d3ddf8d1a1cb2159d770165b93ed5
+  checksum: b234481de161da3f85cef04c46d0a38fb495dc3e9bb052b960b1ad73a0e2e5294acbe92db4727d56832512bbf140149370b9c616ed12c43f238c7fd9817a412a
   languageName: node
   linkType: hard
 
-"@firebase/app-check-compat@npm:0.3.4":
-  version: 0.3.4
-  resolution: "@firebase/app-check-compat@npm:0.3.4"
+"@firebase/app-check-compat@npm:0.3.6":
+  version: 0.3.6
+  resolution: "@firebase/app-check-compat@npm:0.3.6"
   dependencies:
-    "@firebase/app-check": 0.6.4
+    "@firebase/app-check": 0.7.0
     "@firebase/app-check-types": 0.5.0
     "@firebase/component": 0.6.4
     "@firebase/logger": 0.4.0
@@ -424,7 +424,7 @@ __metadata:
     tslib: ^2.1.0
   peerDependencies:
     "@firebase/app-compat": 0.x
-  checksum: e9fa728fed601a198e8c7f58163ba5692bfe4b94d9a413d29afe52cd3a42df3fbcac5836a675bfda817248931ebfb8898f9d3211bf69a486ea21ad312fdc0413
+  checksum: 26a8931c351aba566b5fc969d4c8afb547941925878faf3967f4894e5929c0c50732b9402cba182182f7887515bb8ffddc6ab223f784dfbcb827fdd3de654daf
   languageName: node
   linkType: hard
 
@@ -442,9 +442,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/app-check@npm:0.6.4":
-  version: 0.6.4
-  resolution: "@firebase/app-check@npm:0.6.4"
+"@firebase/app-check@npm:0.7.0":
+  version: 0.7.0
+  resolution: "@firebase/app-check@npm:0.7.0"
   dependencies:
     "@firebase/component": 0.6.4
     "@firebase/logger": 0.4.0
@@ -452,20 +452,20 @@ __metadata:
     tslib: ^2.1.0
   peerDependencies:
     "@firebase/app": 0.x
-  checksum: 04b1a84223e86140644ca49f2af5c8de716d30852f4de3cede924487373fe3a0c197fc5459307da14af167b11ded7d6584ed05a824cf44a1a65d47080fe7001f
+  checksum: eeac0143dd39261f7e13679c8bf95f6c2fbafc5caf6319fceba19faa3703fe7a7ead5f92bb62843b21c3784bac637a42e7d48b0155927639fc6bc337588477ca
   languageName: node
   linkType: hard
 
-"@firebase/app-compat@npm:0.2.4":
-  version: 0.2.4
-  resolution: "@firebase/app-compat@npm:0.2.4"
+"@firebase/app-compat@npm:0.2.10":
+  version: 0.2.10
+  resolution: "@firebase/app-compat@npm:0.2.10"
   dependencies:
-    "@firebase/app": 0.9.4
+    "@firebase/app": 0.9.10
     "@firebase/component": 0.6.4
     "@firebase/logger": 0.4.0
     "@firebase/util": 1.9.3
     tslib: ^2.1.0
-  checksum: 5b83f6ce82de9cbafab6575b1bcea17d8c4b5aff7cc8a2d34aaff95fa4e4563b86797d2f99c7bc1e654f6bf66f3bdf6175da1faf4042f677f6ad68381f054f09
+  checksum: c74e656d238c88e2952f67af591491e4670715e5ad409064ff8cd3541bda01de3eea8b1e2052ea1d3e35781acdbdb71079a34ddf13cb06872a68984ec7ffa8fc
   languageName: node
   linkType: hard
 
@@ -476,24 +476,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/app@npm:0.9.4":
-  version: 0.9.4
-  resolution: "@firebase/app@npm:0.9.4"
+"@firebase/app@npm:0.9.10":
+  version: 0.9.10
+  resolution: "@firebase/app@npm:0.9.10"
   dependencies:
     "@firebase/component": 0.6.4
     "@firebase/logger": 0.4.0
     "@firebase/util": 1.9.3
-    idb: 7.0.1
+    idb: 7.1.1
     tslib: ^2.1.0
-  checksum: be00de54fc5857cec9f1f046385caa479659891ff5992beab36f41a266fb63460ad440d88a652485f30de77df825d015b761f149101ba03fb2894bbdba681b92
+  checksum: 70f34431c035c9d257db5d6095797fd5b5c06ca9071297e9fdce57ca497610429d6b04d2b88bf73340970e24649e01d4da29d1b55c679cd1c795c77b35fbed1f
   languageName: node
   linkType: hard
 
-"@firebase/auth-compat@npm:0.3.4":
-  version: 0.3.4
-  resolution: "@firebase/auth-compat@npm:0.3.4"
+"@firebase/auth-compat@npm:0.4.2":
+  version: 0.4.2
+  resolution: "@firebase/auth-compat@npm:0.4.2"
   dependencies:
-    "@firebase/auth": 0.21.4
+    "@firebase/auth": 0.23.2
     "@firebase/auth-types": 0.12.0
     "@firebase/component": 0.6.4
     "@firebase/util": 1.9.3
@@ -501,7 +501,7 @@ __metadata:
     tslib: ^2.1.0
   peerDependencies:
     "@firebase/app-compat": 0.x
-  checksum: f3476f3a4ce2f48b15d7c3a08d9b801fbd1adb6380a64ff361ac850904b1dfbcd519597db7de97dccc39b89d73a4f52356cb48b327a6cee8357f59310c7dd123
+  checksum: f7911e4c1c593d70195c3fe173d22b734cacc6f8c8a3fb3b016ed8c2916dc236c0a1c2675326ed012c532fdd34aeedfeded5b369749558609147af1552fe0a3c
   languageName: node
   linkType: hard
 
@@ -522,9 +522,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/auth@npm:0.21.4":
-  version: 0.21.4
-  resolution: "@firebase/auth@npm:0.21.4"
+"@firebase/auth@npm:0.23.2":
+  version: 0.23.2
+  resolution: "@firebase/auth@npm:0.23.2"
   dependencies:
     "@firebase/component": 0.6.4
     "@firebase/logger": 0.4.0
@@ -533,7 +533,7 @@ __metadata:
     tslib: ^2.1.0
   peerDependencies:
     "@firebase/app": 0.x
-  checksum: 700f6a020376ec4a3b8a083ab6ad04c5ce6e453d22dfe47e620b21c0c1ab0cf1851c249247139e53074601b8c356f731e81c32e9c92404afafa1b9ffaf5f0b50
+  checksum: c5842fc6b8907e938d89886f4bb0008407b132bdcdaede7390f64c052fb48a985ec027eece3d80c23af7e634f4f1d5e7a8e60d9202b31a340721e89604827044
   languageName: node
   linkType: hard
 
@@ -585,18 +585,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/firestore-compat@npm:0.3.4":
-  version: 0.3.4
-  resolution: "@firebase/firestore-compat@npm:0.3.4"
+"@firebase/firestore-compat@npm:0.3.9":
+  version: 0.3.9
+  resolution: "@firebase/firestore-compat@npm:0.3.9"
   dependencies:
     "@firebase/component": 0.6.4
-    "@firebase/firestore": 3.8.4
+    "@firebase/firestore": 3.12.0
     "@firebase/firestore-types": 2.5.1
     "@firebase/util": 1.9.3
     tslib: ^2.1.0
   peerDependencies:
     "@firebase/app-compat": 0.x
-  checksum: fae112ff416ab576d1284a77597b55129d4e7b0bd19eb9d7b50806bd89e9f874f28ca212e26de49180965c7e896a4823519bcef214f0a722a1e13a0e2dc30e3b
+  checksum: e1f539b213779d5d66547715db0d8b472db8c234be7343a917c164df47f24bc59364fa180fbcea2c3610b2529b3d4fe3aa02d64a0f9bc3e8bc5af944b2c71985
   languageName: node
   linkType: hard
 
@@ -610,21 +610,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/firestore@npm:3.8.4":
-  version: 3.8.4
-  resolution: "@firebase/firestore@npm:3.8.4"
+"@firebase/firestore@npm:3.12.0":
+  version: 3.12.0
+  resolution: "@firebase/firestore@npm:3.12.0"
   dependencies:
     "@firebase/component": 0.6.4
     "@firebase/logger": 0.4.0
     "@firebase/util": 1.9.3
-    "@firebase/webchannel-wrapper": 0.9.0
+    "@firebase/webchannel-wrapper": 0.10.0
     "@grpc/grpc-js": ~1.7.0
     "@grpc/proto-loader": ^0.6.13
     node-fetch: 2.6.7
     tslib: ^2.1.0
   peerDependencies:
     "@firebase/app": 0.x
-  checksum: 0fe61de3cec6dd3cce52edbbcfa6291ce2f30dfcf6efb012421f9d0c957d19238acf30d1bf9aa6a22fc4aa8b50b819ff9b7f4636161c725b80be7ef8836b744a
+  checksum: a2cd8cf47df3d36534b685a512f4cd52cf9ee874f232f20a1ee9b84e92f49bbe4add435988ddf53b00c98c96d05e290e96bfea4a8f55432ebcd5dcd4b8d219a4
   languageName: node
   linkType: hard
 
@@ -875,10 +875,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/webchannel-wrapper@npm:0.9.0":
-  version: 0.9.0
-  resolution: "@firebase/webchannel-wrapper@npm:0.9.0"
-  checksum: a4729e974c6c978b0cf533f8e81766849e5f2f11384937e7bf3edf5e9aa16e27f38891b5790e2637caff32adb5ac444d9477298bb8a7e8d20304c94ca8090c52
+"@firebase/webchannel-wrapper@npm:0.10.0":
+  version: 0.10.0
+  resolution: "@firebase/webchannel-wrapper@npm:0.10.0"
+  checksum: 631b979c6fac727f9a7f7d05c10f1e9811bdaf20427c51dc6a706c8553a4f9c60deaa28861eb9d5004f6fb1b40e827f152e26ba8a75bb30a507449fb107ce332
   languageName: node
   linkType: hard
 
@@ -1153,91 +1153,91 @@ __metadata:
 "@next/swc-android-arm-eabi@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-android-arm-eabi@npm:13.2.3"
-  conditions: os=android & cpu=arm
+  checksum: ad557f994ad071149484e3d7c93cef862c8a113bf5e34b257d1f5a6106a3ceadbd0175b015b7fb65ffcbdc00f94a79bff9cef6c2d4a006fadea9080883a4aced
   languageName: node
   linkType: hard
 
 "@next/swc-android-arm64@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-android-arm64@npm:13.2.3"
-  conditions: os=android & cpu=arm64
+  checksum: 9235ed3a9bb68721060a6c58ff790c406aae79d3b81a951168a6bbc44a5716b85a6bc7633ba539151a57cfefe1057388400b2d0e2945855a07bbdcf4f87d6c0a
   languageName: node
   linkType: hard
 
 "@next/swc-darwin-arm64@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-darwin-arm64@npm:13.2.3"
-  conditions: os=darwin & cpu=arm64
+  checksum: 0439d9797efbdb3f621b03a02a4554b84ddd20a70888a8420796a7500944738a981b174cfb0b569162952ccd79b735993df71fd92720764ac8bffef1962a245c
   languageName: node
   linkType: hard
 
 "@next/swc-darwin-x64@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-darwin-x64@npm:13.2.3"
-  conditions: os=darwin & cpu=x64
+  checksum: d7651f2e006268dadb17d12d5a0b0e4a332f15e26ec9d51271a80b75956c1a8dcaf99776b5066b102db74621889e7ae376e3173490a111ffe61a8f1b4aa8167a
   languageName: node
   linkType: hard
 
 "@next/swc-freebsd-x64@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-freebsd-x64@npm:13.2.3"
-  conditions: os=freebsd & cpu=x64
+  checksum: ba7f12188d17f45c38556458604639f4bd295c30c127b276e979b606aa3fc7c522601ca77b77d88ad3efac4c49e8a5e3f90086ac3712962b023bcca3d81c8a7d
   languageName: node
   linkType: hard
 
 "@next/swc-linux-arm-gnueabihf@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-linux-arm-gnueabihf@npm:13.2.3"
-  conditions: os=linux & cpu=arm
+  checksum: b10323100fd77d86c1d317df750177bb291fe3007b8c8964c8e4059d8f9a8964c9a7587bdfcd2a1190384e06a19f3ca7cc96dd4a0b81a1833ca5826208600a1c
   languageName: node
   linkType: hard
 
 "@next/swc-linux-arm64-gnu@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-linux-arm64-gnu@npm:13.2.3"
-  conditions: os=linux & cpu=arm64 & libc=glibc
+  checksum: 576818a6c4686f1a1abc7718778e90e99ea79ff7785df95b275e182a246c0721d2a2ee6d300b5924e5c7b6fd372d0b931ea2b757bf3ec93a0a8b84ffb7de599c
   languageName: node
   linkType: hard
 
 "@next/swc-linux-arm64-musl@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-linux-arm64-musl@npm:13.2.3"
-  conditions: os=linux & cpu=arm64 & libc=musl
+  checksum: 001ca7352e21f1be52241b20e9e695e2ea2713d19aa36984dbc193b9a41e319f4bca87263a4b3b2b7e709e5f732de718e63f4e76f721701527d4c4f8341b1770
   languageName: node
   linkType: hard
 
 "@next/swc-linux-x64-gnu@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-linux-x64-gnu@npm:13.2.3"
-  conditions: os=linux & cpu=x64 & libc=glibc
+  checksum: 4779b23ffa684e5e92d0a56c7fef6f8a1cd47396c1ec783d8ccb04278f9d5a4fbbd786e4b5ea7fff4b3d665f3daf30f8996c9fa84a7f4263a5c4d1df9eb40e3f
   languageName: node
   linkType: hard
 
 "@next/swc-linux-x64-musl@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-linux-x64-musl@npm:13.2.3"
-  conditions: os=linux & cpu=x64 & libc=musl
+  checksum: 1e1d7e9c5c0a203c8d1177d821dfcb06b7750dacec8cc0fe3c2166d77904434f6b70ca02327a4aec97926b7508d305bc4404fba0d5c4b2c729ccca8b5e5b27e9
   languageName: node
   linkType: hard
 
 "@next/swc-win32-arm64-msvc@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-win32-arm64-msvc@npm:13.2.3"
-  conditions: os=win32 & cpu=arm64
+  checksum: 2cbbd6d16aad8e8981bda900dfe844ef838495afd6cf31b30e14e6b01474aea5c5712c83ec8cc574afaa002cdb3c77306f39588fa185a513ba87457f01dddf32
   languageName: node
   linkType: hard
 
 "@next/swc-win32-ia32-msvc@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-win32-ia32-msvc@npm:13.2.3"
-  conditions: os=win32 & cpu=ia32
+  checksum: e4734310de534fe9b7d7e2958fa2be6ace3ee2775a80ca9d23386f51338534264237f5239294ed207a4410d9faaaabde5ee87edb33529415b4670915afca3a5f
   languageName: node
   linkType: hard
 
 "@next/swc-win32-x64-msvc@npm:13.2.3":
   version: 13.2.3
   resolution: "@next/swc-win32-x64-msvc@npm:13.2.3"
-  conditions: os=win32 & cpu=x64
+  checksum: 3165334f466283730b076a7c45cd08d1bd86c769c833355de24158b7e8262c2783dd89b98eebb98050596de87d58abfe28993da412736f40243813c2058a08f8
   languageName: node
   linkType: hard
 
@@ -3221,23 +3221,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"firebase@npm:^9.17.2":
-  version: 9.17.2
-  resolution: "firebase@npm:9.17.2"
+"firebase@npm:^9.22.0":
+  version: 9.22.0
+  resolution: "firebase@npm:9.22.0"
   dependencies:
-    "@firebase/analytics": 0.9.4
-    "@firebase/analytics-compat": 0.2.4
-    "@firebase/app": 0.9.4
-    "@firebase/app-check": 0.6.4
-    "@firebase/app-check-compat": 0.3.4
-    "@firebase/app-compat": 0.2.4
+    "@firebase/analytics": 0.10.0
+    "@firebase/analytics-compat": 0.2.6
+    "@firebase/app": 0.9.10
+    "@firebase/app-check": 0.7.0
+    "@firebase/app-check-compat": 0.3.6
+    "@firebase/app-compat": 0.2.10
     "@firebase/app-types": 0.9.0
-    "@firebase/auth": 0.21.4
-    "@firebase/auth-compat": 0.3.4
+    "@firebase/auth": 0.23.2
+    "@firebase/auth-compat": 0.4.2
     "@firebase/database": 0.14.4
     "@firebase/database-compat": 0.3.4
-    "@firebase/firestore": 3.8.4
-    "@firebase/firestore-compat": 0.3.4
+    "@firebase/firestore": 3.12.0
+    "@firebase/firestore-compat": 0.3.9
     "@firebase/functions": 0.9.4
     "@firebase/functions-compat": 0.3.4
     "@firebase/installations": 0.6.4
@@ -3251,7 +3251,7 @@ __metadata:
     "@firebase/storage": 0.11.2
     "@firebase/storage-compat": 0.3.2
     "@firebase/util": 1.9.3
-  checksum: 0c23f0a42463ad834b8f4f957feee24f515658b343dad613b490af316bcd608324df7586385699d21672489a9de7bbc8749cc777671dde56dbcbc0d151ff2bf4
+  checksum: 72687312334da54226ec9816d12120a5eff8d85e2793330bba01fc931fafb62dcde2f83ac2cbcb416d0d3d7eded41c7f47cd3bb907d0d7fe7b091543966579c0
   languageName: node
   linkType: hard
 
@@ -3282,10 +3282,10 @@ __metadata:
 
 "fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=1cc4b2"
   dependencies:
     node-gyp: latest
-  conditions: os=darwin
+  checksum: 78db9daf1f6526a49cefee3917cc988f62dc7f25b5dd80ad6de4ffc4af7f0cab7491ac737626ff53e482a111bc53aac9e411fe3602458eca36f6a003ecf69c16
   languageName: node
   linkType: hard
 
@@ -3295,7 +3295,6 @@ fsevents@~2.3.2:
   dependencies:
     node-gyp: latest
   checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
-  conditions: os=darwin
   languageName: node
   linkType: hard
 
@@ -3740,6 +3739,13 @@ fsevents@~2.3.2:
   version: 7.0.1
   resolution: "idb@npm:7.0.1"
   checksum: 61526789562cc3518a1a030c7a06cc98edfcd62795700ff28c701d6f84c178aee4e98bedfc79e6c394ba26084aa4667d6594b1728e5868f305f9b34148662679
+  languageName: node
+  linkType: hard
+
+"idb@npm:7.1.1":
+  version: 7.1.1
+  resolution: "idb@npm:7.1.1"
+  checksum: 1973c28d53c784b177bdef9f527ec89ec239ec7cf5fcbd987dae75a16c03f5b7dfcc8c6d3285716fd0309dd57739805390bd9f98ce23b1b7d8849a3b52de8d56
   languageName: node
   linkType: hard
 
@@ -5457,40 +5463,40 @@ resolve@^2.0.0-next.4:
 
 "resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>":
   version: 1.22.1
-  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=00b1ff"
   dependencies:
     is-core-module: ^2.9.0
     path-parse: ^1.0.7
     supports-preserve-symlinks-flag: ^1.0.0
   bin:
     resolve: bin/resolve
-  checksum: 5656f4d0bedcf8eb52685c1abdf8fbe73a1603bb1160a24d716e27a57f6cecbe2432ff9c89c2bd57542c3a7b9d14b1882b73bfe2e9d7849c9a4c0b8b39f02b8b
+  checksum: d45553550a85af4c6c310a4d9790b60f1fcbdbb1b7ca93f1ad8e06424d69aa6782d59bd93a4c085777baf6159ecc1dbe432299a6027c4837de4db5851a5d3435
   languageName: node
   linkType: hard
 
 "resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.0#~builtin<compat/resolve>":
   version: 1.22.0
-  resolution: "resolve@patch:resolve@npm%3A1.22.0#~builtin<compat/resolve>::version=1.22.0&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A1.22.0#~builtin<compat/resolve>::version=1.22.0&hash=00b1ff"
   dependencies:
     is-core-module: ^2.8.1
     path-parse: ^1.0.7
     supports-preserve-symlinks-flag: ^1.0.0
   bin:
     resolve: bin/resolve
-  checksum: c79ecaea36c872ee4a79e3db0d3d4160b593f2ca16e031d8283735acd01715a203607e9ded3f91f68899c2937fa0d49390cddbe0fb2852629212f3cda283f4a7
+  checksum: b63b73ecbb7928e71c30e231f6adc380fca66bd5819a1b1324d3dcae573c726d9923df06eef3ac50be52b1dcea67272f3b6f12ba2e87ec8a9d3ebdf8454103bb
   languageName: node
   linkType: hard
 
 "resolve@patch:resolve@^2.0.0-next.4#~builtin<compat/resolve>":
   version: 2.0.0-next.4
-  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.4#~builtin<compat/resolve>::version=2.0.0-next.4&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.4#~builtin<compat/resolve>::version=2.0.0-next.4&hash=00b1ff"
   dependencies:
     is-core-module: ^2.9.0
     path-parse: ^1.0.7
     supports-preserve-symlinks-flag: ^1.0.0
   bin:
     resolve: bin/resolve
-  checksum: 4bf9f4f8a458607af90518ff73c67a4bc1a38b5a23fef2bb0ccbd45e8be89820a1639b637b0ba377eb2be9eedfb1739a84cde24fe4cd670c8207d8fea922b011
+  checksum: 6813d545fa80defd71142e2b472676bf9d71d7cddd6cacb4bd8a91e952c07cc435f31833862b819961ad1067143891dce29e64873cfa844a4c69e011ae4c1ec7
   languageName: node
   linkType: hard
 
@@ -6553,7 +6559,7 @@ resolve@^2.0.0-next.4:
     browser-image-compression: ^2.0.2
     dayjs: ^1.11.7
     eslint-config-next: 13.2.4
-    firebase: ^9.17.2
+    firebase: ^9.22.0
     msw: ^1.1.0
     next: ^13.2.3
     react: ^18.2.0
