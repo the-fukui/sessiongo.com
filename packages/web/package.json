@@ -36,7 +36,7 @@
     "eslint-config-next": "13.2.4",
     "msw": "^1.1.0",
     "sass": "^1.58.3",
-    "type-fest": "^3.6.1",
+    "type-fest": "^3.11.1",
     "vite-tsconfig-paths": "^4.0.7",
     "vitest": "^0.29.3"
   },
