@@ -18,11 +18,10 @@ jobs:
           output: swagger-ui
           spec-file: docs/openapi.yml
 
-      #upload swagger-ui
-      - name: Upload swagger-ui
+      - name: Upload Swagger UI
         uses: actions/upload-pages-artifact@v1
         with:
-          path: docs
+          path: swagger-ui
 
   deploy:
     runs-on: ubuntu-latest
