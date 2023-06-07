@@ -3,7 +3,7 @@ name: Swagger UI
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -17,7 +17,8 @@ jobs:
         uses: Legion2/swagger-ui-action@v1
         with:
           output: swagger-ui
-          spec-file: openapi.json
+          spec-file: docs/openapi.yml
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
