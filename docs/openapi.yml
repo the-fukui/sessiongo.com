@@ -2,12 +2,21 @@ openapi: 3.0.0
 info:
   title: SessionGO API
   version: 0.1.0
+basePath: /api/v1
 paths:
   /users:
     $ref: './users.yml'
+    tags:
+      - users
   /events:
     $ref: './events.yml'
+    tags:
+      - events
   /events/{id}:
     $ref: './events_id.yml'
+    tags:
+      - events
   /users/{id}/events:
     $ref: './users_id_events.yml'
+    tags:
+      - events
