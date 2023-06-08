@@ -1,0 +1,33 @@
+get:
+  summary: 特定のイベントの詳細情報取得
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+put:
+  summary: 特定のイベントの情報更新
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+delete:
+  summary: 特定のイベントの削除
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK

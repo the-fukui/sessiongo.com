@@ -1,0 +1,11 @@
+get:
+  summary: 特定のユーザーが投稿したイベントの一覧取得
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK

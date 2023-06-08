@@ -4,76 +4,10 @@ info:
   version: 0.1.0
 paths:
   /users:
-    post:
-      summary: ユーザーの新規登録
-      responses:
-        '200':
-          description: OK
+    $ref: './users.yaml'
   /events:
-    post:
-      summary: 新規イベントの投稿
-      responses:
-        '200':
-          description: OK
-    get:
-      summary: イベントの一覧取得、または特定の期間内のイベントの一覧取得
-      parameters:
-        - name: start_date
-          in: query
-          schema:
-            type: string
-            format: date
-        - name: end_date
-          in: query
-          schema:
-            type: string
-            format: date
-      responses:
-        '200':
-          description: OK
+    $ref: './events.yaml'
   /events/{id}:
-    get:
-      summary: 特定のイベントの詳細情報取得
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-    put:
-      summary: 特定のイベントの情報更新
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-    delete:
-      summary: 特定のイベントの削除
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
+    $ref: './events_id.yaml'
   /users/{id}/events:
-    get:
-      summary: 特定のユーザーが投稿したイベントの一覧取得
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
+    $ref: './users_id_events.yaml'
