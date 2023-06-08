@@ -1,5 +1,7 @@
 get:
   summary: 特定のイベントの詳細情報取得
+  tags:
+    - events
   parameters:
     - name: id
       in: path
@@ -9,8 +11,20 @@ get:
   responses:
     '200':
       description: OK
+      content:
+        application/json:
+          schema:
+            $ref: 'schemas.yml#/EventDetail'
+    '400':
+      $ref: 'error_responses.yml#/BadRequest'
+    '401':
+      $ref: 'error_responses.yml#/Unauthorized'
+    '500':
+      $ref: 'error_responses.yml#/InternalServerError'
 put:
   summary: 特定のイベントの情報更新
+  tags:
+    - events
   parameters:
     - name: id
       in: path
@@ -20,8 +34,16 @@ put:
   responses:
     '200':
       description: OK
+    '400':
+      $ref: 'error_responses.yml#/BadRequest'
+    '401':
+      $ref: 'error_responses.yml#/Unauthorized'
+    '500':
+      $ref: 'error_responses.yml#/InternalServerError'
 delete:
   summary: 特定のイベントの削除
+  tags:
+    - events
   parameters:
     - name: id
       in: path
@@ -31,3 +53,9 @@ delete:
   responses:
     '200':
       description: OK
+    '400':
+      $ref: 'error_responses.yml#/BadRequest'
+    '401':
+      $ref: 'error_responses.yml#/Unauthorized'
+    '500':
+      $ref: 'error_responses.yml#/InternalServerError'

@@ -1,5 +1,7 @@
 get:
   summary: 特定のユーザーが投稿したイベントの一覧取得
+  tags:
+    - events
   parameters:
     - name: id
       in: path
@@ -9,3 +11,13 @@ get:
   responses:
     '200':
       description: OK
+      content:
+        application/json:
+          schema:
+            $ref: 'schemas.yml#/EventList'
+    '400':
+      $ref: 'error_responses.yml#/BadRequest'
+    '401':
+      $ref: 'error_responses.yml#/Unauthorized'
+    '500':
+      $ref: 'error_responses.yml#/InternalServerError'

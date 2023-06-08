@@ -1,0 +1,76 @@
+ErrorResponse:
+  type: object
+  properties:
+    error:
+      type: string
+    message:
+      type: string
+
+EventList:
+  type: array
+  items:
+    $ref: '#/Event'
+Event:
+  type: object
+  properties:
+    ID:
+      type: string
+      description: イベントのID
+    title:
+      type: string
+      description: イベントのタイトル
+    host:
+      type: string
+      description: イベントの主催者
+    type:
+      type: array
+      items:
+        type: integer
+        enum: [0, 1, 2]
+      description: |
+        0: セッション
+        1: ライブ
+        2: その他
+    startAt:
+      type: string
+      format: date-time
+      description: イベントの開始時間（ISO 8601形式のUTC）
+    duration:
+      type: integer
+      description: イベントの持続時間（秒）
+    features:
+      type: array
+      items:
+        type: integer
+        enum: [0, 1, 2, 3, 4, 5, 6]
+      description: |
+        0: 初心者歓迎👋
+        1: 参加者は事前連絡が必要🙋
+        2: 参加者に特別メニュー割引あり🤩
+        3: 店内・開催場所が禁煙🚭
+        4: クローズドセッション🔒
+        5: セッションライブ🎤
+        6: 投げ銭お願いします🙏
+    placeID:
+      type: string
+      description: Google Maps APIのplaceID
+    images:
+      type: array
+      items:
+        type: string
+      description: イベントの画像URLの配列
+EventDetail:
+  allOf:
+    - $ref: '#/Event'
+    - type: object
+      properties:
+        description:
+          type: string
+          description: イベントの詳細説明
+        status:
+          type: integer
+          enum: [0, 1, 2]
+          description: |
+            0: 公開
+            1: 下書き
+            2: 非公開

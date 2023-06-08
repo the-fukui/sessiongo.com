@@ -1,5 +1,7 @@
 post:
   summary: ユーザーの新規登録
+  tags:
+    - users
   responses:
     '200':
       description: OK
