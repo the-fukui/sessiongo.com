@@ -12,13 +12,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Swagger ui action
-        id: swagger-ui-action
-        uses: pjoc-team/swagger-ui-action@v0.0.2
+      - name: Generate Swagger UI
+        uses: Legion2/swagger-ui-action@v1
         with:
-          dir: './docs'
-          pattern: '*.yml'
-          debug: 'true'
+          output: swagger-ui
+          spec-file: docs/openapi.yml
+
+      - name: Copy docs
+        run: |
+          cp -f ./docs/*.yml ./swagger-ui
 
       - name: Upload Swagger UI
         uses: actions/upload-pages-artifact@v1
