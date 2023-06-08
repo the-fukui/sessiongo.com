@@ -4,10 +4,10 @@ info:
   version: 0.1.0
 paths:
   /users:
-    $ref: './users.yaml'
+    $ref: './users.yml'
   /events:
-    $ref: './events.yaml'
+    $ref: './events.yml'
   /events/{id}:
-    $ref: './events_id.yaml'
+    $ref: './events_id.yml'
   /users/{id}/events:
-    $ref: './users_id_events.yaml'
+    $ref: './users_id_events.yml'
