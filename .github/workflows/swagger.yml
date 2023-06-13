@@ -21,7 +21,7 @@ jobs:
       - name: Copy docs
         run: |
           cd ./packages/docs
-          cp -fr --parents ./**/*.yml ./swagger-ui
+          cp -fr --parents ./**/*.yml ../../swagger-ui
 
       - name: Upload Swagger UI
         uses: actions/upload-pages-artifact@v1
