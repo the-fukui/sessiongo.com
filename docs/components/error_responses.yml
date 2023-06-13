@@ -3,16 +3,16 @@ BadRequest:
   content:
     application/json:
       schema:
-        $ref: 'schemas.yml#/ErrorResponse'
+        $ref: '../components/schemas.yml#/ErrorResponse'
 Unauthorized:
   description: このリソースへのアクセスが許可されていません。
   content:
     application/json:
       schema:
-        $ref: 'schemas.yml#/ErrorResponse'
+        $ref: '../components/schemas.yml#/ErrorResponse'
 InternalServerError:
   description: サーバー内部エラーが発生しました。
   content:
     application/json:
       schema:
-        $ref: 'schemas.yml#/ErrorResponse'
+        $ref: '../components/schemas.yml#/ErrorResponse'

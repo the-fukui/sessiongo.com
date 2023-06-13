@@ -6,11 +6,11 @@ post:
     '200':
       description: OK
     '400':
-      $ref: 'error_responses.yml#/BadRequest'
+      $ref: '../components/error_responses.yml#/BadRequest'
     '401':
-      $ref: 'error_responses.yml#/Unauthorized'
+      $ref: '../components/error_responses.yml#/Unauthorized'
     '500':
-      $ref: 'error_responses.yml#/InternalServerError'
+      $ref: '../components/error_responses.yml#/InternalServerError'
 get:
   summary: イベントの一覧取得、または特定の期間内のイベントの一覧取得
   tags:
@@ -34,10 +34,10 @@ get:
       content:
         application/json:
           schema:
-            $ref: 'schemas.yml#/EventList'
+            $ref: '../components/schemas.yml#/EventList'
     '400':
-      $ref: 'error_responses.yml#/BadRequest'
+      $ref: '../components/error_responses.yml#/BadRequest'
     '401':
-      $ref: 'error_responses.yml#/Unauthorized'
+      $ref: '../components/error_responses.yml#/Unauthorized'
     '500':
-      $ref: 'error_responses.yml#/InternalServerError'
+      $ref: '../components/error_responses.yml#/InternalServerError'
