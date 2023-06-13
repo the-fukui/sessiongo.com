@@ -16,11 +16,11 @@ jobs:
         uses: Legion2/swagger-ui-action@v1
         with:
           output: swagger-ui
-          spec-file: docs/openapi.yml
+          spec-file: ./packages/docs/openapi.yml
 
       - name: Copy docs
         run: |
-          cp -f ./docs/*.yml ./swagger-ui
+          cp -f ./packages/docs/*.yml ./swagger-ui
 
       - name: Upload Swagger UI
         uses: actions/upload-pages-artifact@v1
