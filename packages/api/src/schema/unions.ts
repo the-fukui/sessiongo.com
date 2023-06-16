@@ -1,0 +1,10 @@
+export type Status = 'PUBLIC' | 'DRAFT' | 'PRIVATE'
+export type SessionType = 'SESSION' | 'LIVE' | 'OTHER'
+export type Feature =
+	| 'BEGINNERS_ARE_WELCOME'
+	| 'ADVANCED_NOTIFICATION_REQUIRED'
+	| 'SPECIAL_OFFERS_AVAILABLE'
+	| 'NO_SMOKING'
+	| 'CLOSED'
+	| 'SESSION_LIVE'
+	| 'DONATION'

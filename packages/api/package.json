@@ -4,10 +4,13 @@
 	"private": true,
 	"scripts": {
 		"deploy": "wrangler deploy",
-		"dev": "wrangler dev"
+		"dev": "wrangler dev",
+		"migration:generate": "drizzle-kit generate:sqlite --out ./migrations --schema src/schema/index.ts --breakpoints",
+		"migration:apply:local": "wrangler d1 migrations apply sessiongo --local"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20230419.0",
+		"drizzle-kit": "^0.18.1",
 		"itty-router": "^3.0.12",
 		"miniflare": "^3.0.1",
 		"typescript": "^5.0.4",
@@ -17,6 +20,7 @@
 		"extends": "../../package.json"
 	},
 	"dependencies": {
+		"drizzle-orm": "^0.26.5",
 		"hono": "^3.2.5"
 	}
 }
