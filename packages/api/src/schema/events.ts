@@ -20,6 +20,10 @@ export const events = sqliteTable('events', {
 	rruleStartAt: text('rrule_start_at'), // ある月で有効な繰り返しイベントのみをクエリ取得する際に使用する
 	rruleEndAt: text('rrule_end_at'), // ある月で有効な繰り返しイベントのみをクエリ取得する際に使用する
 	placeID: text('place_id'), // google map API placeID
-	features: blob('features').$type<Feature[]>(),
+	/**
+	 * バグでblobのjsonインサートができない
+	 * @see https://github.com/drizzle-team/drizzle-orm/issues/749
+	 */
+	features: blob('features', { mode: 'json' }).$type<Feature[]>(),
 	images: blob('images'), // 画像url set
 })
