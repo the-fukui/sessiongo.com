@@ -2,7 +2,7 @@
  * DBデータモデルのCRUDとDTOの変換を行う
  */
 import type { EventDetail, EventListItem } from '@api/src/entities/event/DTO'
-import type { DBClient } from '@api/src/infrastructures/d1'
+import type { IDBConnection } from '@api/src/interface/database/connection'
 import type { IEventRepository } from '@api/src/interface/repositories/event'
 import type { EventModel } from '@api/src/schema'
 import { events } from '@api/src/schema'
@@ -46,7 +46,7 @@ const convertToEventDetailDTO = (event: EventModel): EventDetail => {
 	}
 }
 
-export const eventRepository = (db: DBClient): IEventRepository => {
+export const eventRepository = (db: IDBConnection): IEventRepository => {
 	const findAll = async () => {
 		const result = await db.select().from(events).all()
 		return result.map(convertToEventListItemDTO)

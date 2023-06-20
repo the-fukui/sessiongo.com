@@ -1,7 +1,7 @@
+import type { IDBConnection } from '@api/src/interface/database/connection'
 import { drizzle } from 'drizzle-orm/d1'
 
-export type DBClient = ReturnType<typeof createDBClient>
-export const createDBClient = (database: D1Database) => {
+export const createDBClient = (database: D1Database): IDBConnection => {
 	const db = drizzle(database)
 	return db
 }
