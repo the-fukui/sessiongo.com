@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "14b6075b-46bc-46af-ba90-47853b532675",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "36256a78-b98f-460b-8705-34f6fe337264",
+  "prevId": "7451ffad-784d-47a6-b900-c413e81fb60c",
   "tables": {
     "events": {
       "name": "events",
@@ -63,15 +63,8 @@
           "name": "start_at",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
-          "default": "(CURRENT_TIMESTAMP)"
-        },
-        "duration": {
-          "name": "duration",
-          "type": "integer",
-          "primaryKey": false,
           "notNull": false,
-          "autoincrement": false
+          "default": "(CURRENT_TIMESTAMP)"
         },
         "rrule": {
           "name": "rrule",
@@ -101,7 +94,8 @@
           "name": "features",
           "type": "blob",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": "()"
         },
         "images": {
           "name": "images",

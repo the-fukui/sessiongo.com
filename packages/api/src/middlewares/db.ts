@@ -1,9 +1,10 @@
+import type { DBClient } from '@api/src/infrastructures/d1'
 import { createDBClient } from '@api/src/infrastructures/d1'
-import type { Context, MiddlewareHandler } from 'hono'
+import type { MiddlewareHandler } from 'hono'
 
 declare module 'hono' {
 	interface ContextVariableMap {
-		db: ReturnType<typeof createDBClient>
+		db: DBClient
 	}
 }
 
