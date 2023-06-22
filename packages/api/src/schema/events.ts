@@ -10,13 +10,9 @@ import { blob, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 export type DBModel = InferModel<typeof events>
 
 export const events = sqliteTable('events', {
-	id: text('id').primaryKey().notNull(),
-	createdAt: text('created_at')
-		.default(sql`CURRENT_TIMESTAMP`)
-		.notNull(),
-	updatedAt: text('updated_at')
-		.default(sql`CURRENT_TIMESTAMP`)
-		.notNull(),
+	id: text('id').primaryKey(),
+	createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
+	updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
 	title: text('title').notNull(),
 	description: text('description').notNull(),
 	host: text('host').notNull(),
@@ -29,13 +25,11 @@ export const events = sqliteTable('events', {
 	rrule: text('rrule'),
 	rruleStartAt: text('rrule_start_at'), // ある月で有効な繰り返しイベントのみをクエリ取得する際に使用する
 	rruleEndAt: text('rrule_end_at'), // ある月で有効な繰り返しイベントのみをクエリ取得する際に使用する
-	placeID: text('place_id'), // google map API placeID
+	placeID: text('place_id').notNull(), // google map API placeID
 	/**
 	 * バグでblobのjsonインサートができない
 	 * @see https://github.com/drizzle-team/drizzle-orm/issues/749
 	 */
-	features: blob('features', { mode: 'json' })
-		.$type<EventFeature[]>()
-		.default([]),
-	images: blob('images', { mode: 'json' }).$type<string[]>().default([]), // 画像url set
+	features: blob('features', { mode: 'json' }).$type<EventFeature[]>(),
+	images: blob('images', { mode: 'json' }).$type<string[]>(), // 画像url set
 })

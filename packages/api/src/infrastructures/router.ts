@@ -1,4 +1,6 @@
+import type { CreateEventDTO } from '@api/src/appplication/dtos/createEventDto'
 import { eventController } from '@api/src/infrastructures/controllers/event'
+import { createRandomEventDTO } from '@api/src/mocks/event'
 import { Hono } from 'hono'
 
 type Env = {
@@ -6,6 +8,15 @@ type Env = {
 }
 
 const router = new Hono<{ Bindings: Env }>()
+
+router.post('/events', async (c) => {
+	const db = c.get('db')
+	// const event = await c.req.json<CreateEventDTO>()
+	const event = createRandomEventDTO()
+	const result = await eventController(db).createEvent(event)
+
+	return c.json(result)
+})
 
 router.get('/events', async (c) => {
 	const db = c.get('db')

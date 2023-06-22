@@ -1,21 +1,29 @@
+import {
+	type CreateEventDTO,
+	convertCreateEventToEvent,
+} from '@api/src/appplication/dtos/createEventDto'
 import type { IEventRepository } from '@api/src/domain/interfaces/repositories/event'
 
-export const findEventUseCase = (eventRepository: IEventRepository) => {
+export const eventUseCase = (eventRepository: IEventRepository) => {
 	/**
 	 * @todo ユースケースを細分化する（カレンダー一覧表示用・検索用...）
 	 * 繰り返しイベントのパースもここで？
 	 */
+
+	const createEvent = async (event: CreateEventDTO) => {
+		return eventRepository.create(convertCreateEventToEvent(event))
+	}
+
 	const getEvents = async () => {
-		const result = await eventRepository.findAll()
-		return result
+		return await eventRepository.findAll()
 	}
 
 	const getEvent = async (id: string) => {
-		const result = await eventRepository.findById(id)
-		return result
+		return eventRepository.findById(id)
 	}
 
 	return {
+		createEvent,
 		getEvents,
 		getEvent,
 	}

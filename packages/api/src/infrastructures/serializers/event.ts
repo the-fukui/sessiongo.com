@@ -8,7 +8,7 @@ import type {
  * 一覧表示用のイベント情報
  */
 export interface EventListItem {
-	id: string
+	id: string | null
 	title: string
 	type: EventType
 	startAt: Date
@@ -43,7 +43,6 @@ export interface EventDetail extends EventListItem {
 export const convertEventToEventListItem = (event: Event): EventListItem => {
 	return {
 		...event,
-		endAt: event.endAt,
 		place: {
 			/**
 			 * @todo 住所情報を取得する
@@ -52,8 +51,6 @@ export const convertEventToEventListItem = (event: Event): EventListItem => {
 			region: '',
 			locality: '',
 		},
-		features: event.features,
-		images: event.images,
 	}
 }
 

@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "7451ffad-784d-47a6-b900-c413e81fb60c",
-  "prevId": "14b6075b-46bc-46af-ba90-47853b532675",
+  "id": "a2a3a39e-e833-4f3a-90b7-86ce309f3ba0",
+  "prevId": "19d7af22-7cf1-4b63-ad3b-7a00cf1a2eb7",
   "tables": {
     "events": {
       "name": "events",
@@ -88,7 +88,7 @@
           "name": "place_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "features": {
           "name": "features",

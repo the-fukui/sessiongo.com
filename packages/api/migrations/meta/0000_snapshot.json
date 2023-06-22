@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "14b6075b-46bc-46af-ba90-47853b532675",
+  "id": "19d7af22-7cf1-4b63-ad3b-7a00cf1a2eb7",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "events": {
@@ -17,14 +17,14 @@
           "name": "created_at",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "default": "(CURRENT_TIMESTAMP)"
         },
         "updated_at": {
           "name": "updated_at",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "default": "(CURRENT_TIMESTAMP)"
         },
         "title": {
@@ -63,15 +63,8 @@
           "name": "start_at",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
-          "default": "(CURRENT_TIMESTAMP)"
-        },
-        "duration": {
-          "name": "duration",
-          "type": "integer",
-          "primaryKey": false,
           "notNull": false,
-          "autoincrement": false
+          "default": "(CURRENT_TIMESTAMP)"
         },
         "rrule": {
           "name": "rrule",

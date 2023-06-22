@@ -2762,6 +2762,7 @@ __metadata:
     hono: ^3.2.5
     itty-router: ^3.0.12
     miniflare: ^3.0.1
+    random-words: ^2.0.0
     typescript: ^5.0.4
     wrangler: ^3.0.0
   languageName: unknown
@@ -8637,6 +8638,15 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"random-words@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "random-words@npm:2.0.0"
+  dependencies:
+    seedrandom: ^3.0.5
+  checksum: d574955cc5f38700a2394d67457673f811866db3dd818431e7f73e31f739f9e1bb2861cc679d83538f7ac87cad95f101a609dbb916019e6c2e18432db220c5eb
+  languageName: node
+  linkType: hard
+
 "rc@npm:1.2.8, rc@npm:^1.2.7, rc@npm:^1.2.8":
   version: 1.2.8
   resolution: "rc@npm:1.2.8"
@@ -9242,6 +9252,13 @@ resolve@^2.0.0-next.3:
   dependencies:
     loose-envify: ^1.1.0
   checksum: d79192eeaa12abef860c195ea45d37cbf2bbf5f66e3c4dcd16f54a7da53b17788a70d109ee3d3dde1a0fd50e6a8fc171f4300356c5aee4fc0171de526bf35f8a
+  languageName: node
+  linkType: hard
+
+"seedrandom@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "seedrandom@npm:3.0.5"
+  checksum: 728b56bc3bc1b9ddeabd381e449b51cb31bdc0aa86e27fcd0190cea8c44613d5bcb2f6bb63ed79f78180cbe791c20b8ec31a9627f7b7fc7f476fd2bdb7e2da9f
   languageName: node
   linkType: hard
 
