@@ -2,17 +2,21 @@ import type {
 	EventFeature,
 	EventStatus,
 	EventType,
-} from '@api/src/entities/event/model'
+} from '@api/src/domain/entities/event'
 import type { InferModel } from 'drizzle-orm'
 import { sql } from 'drizzle-orm'
 import { blob, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 
-export type EventModel = InferModel<typeof events>
+export type DBModel = InferModel<typeof events>
 
 export const events = sqliteTable('events', {
 	id: text('id').primaryKey().notNull(),
-	createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
-	updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
+	createdAt: text('created_at')
+		.default(sql`CURRENT_TIMESTAMP`)
+		.notNull(),
+	updatedAt: text('updated_at')
+		.default(sql`CURRENT_TIMESTAMP`)
+		.notNull(),
 	title: text('title').notNull(),
 	description: text('description').notNull(),
 	host: text('host').notNull(),

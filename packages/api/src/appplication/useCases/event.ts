@@ -1,4 +1,4 @@
-import type { IEventRepository } from '@api/src/interface/repositories/event'
+import type { IEventRepository } from '@api/src/domain/interfaces/repositories/event'
 
 export const findEventUseCase = (eventRepository: IEventRepository) => {
 	/**

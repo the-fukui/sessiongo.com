@@ -1,5 +1,5 @@
-import { createDBClient } from '@api/src/infrastructures/d1'
-import type { IDBConnection } from '@api/src/interface/database/connection'
+import type { IDBConnection } from '@api/src/domain/interfaces/database/connection'
+import { createDBClient } from '@api/src/infrastructures/database'
 import type { MiddlewareHandler } from 'hono'
 
 declare module 'hono' {

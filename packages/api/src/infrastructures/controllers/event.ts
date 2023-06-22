@@ -2,9 +2,9 @@
  * router(infrastructure)とuseCase(application)の橋渡しをする
  * 必要があればselializer(json整形など)を呼び出す
  */
-import type { IDBConnection } from '@api/src/interface/database/connection'
-import { eventRepository } from '@api/src/repositories/event'
-import { findEventUseCase } from '@api/src/useCases/event'
+import { findEventUseCase } from '@api/src/appplication/useCases/event'
+import type { IDBConnection } from '@api/src/domain/interfaces/database/connection'
+import { eventRepository } from '@api/src/infrastructures/repositories/event'
 
 export const eventController = (db: IDBConnection) => {
 	const repository = eventRepository(db)

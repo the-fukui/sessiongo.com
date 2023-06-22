@@ -1,4 +1,4 @@
-import { eventController } from '@api/src/interface/controllers/event'
+import { eventController } from '@api/src/infrastructures/controllers/event'
 import { Hono } from 'hono'
 
 type Env = {
