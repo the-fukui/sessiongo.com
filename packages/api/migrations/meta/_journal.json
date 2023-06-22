@@ -15,6 +15,13 @@
       "when": 1687457506940,
       "tag": "0001_reflective_moon_knight",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1687462275419,
+      "tag": "0002_small_microchip",
+      "breakpoints": true
     }
   ]
 }

@@ -7,7 +7,7 @@ import type { InferModel } from 'drizzle-orm'
 import { sql } from 'drizzle-orm'
 import { blob, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 
-export type DBModel = InferModel<typeof events>
+export type EventDBModel = InferModel<typeof events>
 
 export const events = sqliteTable('events', {
 	id: text('id').primaryKey(),
@@ -22,9 +22,6 @@ export const events = sqliteTable('events', {
 		.default(sql`CURRENT_TIMESTAMP`)
 		.notNull(),
 	endAt: text('start_at').default(sql`CURRENT_TIMESTAMP`),
-	rrule: text('rrule'),
-	rruleStartAt: text('rrule_start_at'), // ある月で有効な繰り返しイベントのみをクエリ取得する際に使用する
-	rruleEndAt: text('rrule_end_at'), // ある月で有効な繰り返しイベントのみをクエリ取得する際に使用する
 	placeID: text('place_id').notNull(), // google map API placeID
 	/**
 	 * バグでblobのjsonインサートができない
