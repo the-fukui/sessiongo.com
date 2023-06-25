@@ -7,7 +7,8 @@ import type { InferModel } from 'drizzle-orm'
 import { sql } from 'drizzle-orm'
 import { blob, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 
-export type EventDBModel = InferModel<typeof events>
+export type EventDBSelectModel = InferModel<typeof events, 'select'>
+export type EventDBInsertModel = InferModel<typeof events, 'insert'>
 
 export const events = sqliteTable('events', {
 	id: text('id').primaryKey(),

@@ -26,7 +26,7 @@ export type EventType = (typeof EVENT_TYPE)[keyof typeof EVENT_TYPE]
 export type EventFeature = (typeof EVENT_FEATURE)[keyof typeof EVENT_FEATURE]
 
 export interface Event {
-	id: string | null
+	id: string
 	createdAt: Date | null
 	updatedAt: Date | null
 	title: string

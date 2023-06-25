@@ -2,7 +2,8 @@ import type { InferModel } from 'drizzle-orm'
 import { sql } from 'drizzle-orm'
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 
-export type EventRRulesDBModel = InferModel<typeof eventRRules>
+export type EventRRulesDBSelectModel = InferModel<typeof eventRRules, 'select'>
+export type EventRRulesDBInsertModel = InferModel<typeof eventRRules, 'insert'>
 
 export const eventRRules = sqliteTable('eventRRules', {
 	id: integer('id').primaryKey({ autoIncrement: true }),

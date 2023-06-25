@@ -1,11 +1,12 @@
 import type { Event } from '@api/src/domain/entities/event'
+import { createUUID } from '@api/src/utils/uuid'
 
 export type CreateEventDTO = Omit<Event, 'id' | 'createdAt' | 'updatedAt'>
 
 export const convertCreateEventToEvent = (event: CreateEventDTO): Event => {
 	return {
 		...event,
-		id: null,
+		id: createUUID(),
 		createdAt: null,
 		updatedAt: null,
 		startAt: new Date(event.startAt),

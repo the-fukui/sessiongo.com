@@ -4,13 +4,23 @@
 import type { Event } from '@api/src/domain/entities/event'
 import type { IDBConnection } from '@api/src/domain/interfaces/database/connection'
 import type { IEventRepository } from '@api/src/domain/interfaces/repositories/event'
-import type { EventDBModel } from '@api/src/schema'
+import type {
+	EventDBInsertModel,
+	EventDBSelectModel,
+	EventRRulesDBSelectModel,
+} from '@api/src/schema'
 import { events } from '@api/src/schema'
 import { eventRRules } from '@api/src/schema'
-import { createUUID } from '@api/src/utils/uuid'
 import { eq } from 'drizzle-orm'
 
-const convertDBToEvent = (event: EventDBModel): Event => {
+type Nullable<T> = {
+	[P in keyof T]: T[P] | null
+}
+
+type EventWithRRuleDBSelectModel = EventDBSelectModel &
+	Nullable<Pick<EventRRulesDBSelectModel, 'rrule'>>
+
+const convertDBToEvent = (event: EventWithRRuleDBSelectModel): Event => {
 	return {
 		...event,
 		createdAt: event.createdAt ? new Date(event.createdAt) : null,
@@ -22,10 +32,10 @@ const convertDBToEvent = (event: EventDBModel): Event => {
 	}
 }
 
-const convertEventToDB = (event: Event): EventDBModel => {
+const convertEventToDB = (event: Event): EventDBInsertModel => {
 	return {
 		...event,
-		id: createUUID(),
+		id: event.id,
 		createdAt: event.createdAt ? event.createdAt.toISOString() : null,
 		updatedAt: event.updatedAt ? event.updatedAt.toISOString() : null,
 		startAt: event.startAt.toISOString(),
@@ -40,9 +50,8 @@ export const eventRepository = (db: IDBConnection): IEventRepository => {
 		return db
 			.insert(events)
 			.values(convertEventToDB(event))
-			.returning()
-			.get()
-			.then(convertDBToEvent)
+			.run()
+			.then(() => event.id)
 	}
 
 	const findAll = () => {
