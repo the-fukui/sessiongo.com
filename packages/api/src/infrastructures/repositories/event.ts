@@ -3,22 +3,21 @@
  */
 import type { Event } from '@api/src/domain/entities/event'
 import type { IDBConnection } from '@api/src/domain/interfaces/database/connection'
-import type { IEventRepository } from '@api/src/domain/interfaces/repositories/event'
+import type {
+	FindAllQuery,
+	IEventRepository,
+} from '@api/src/domain/interfaces/repositories/event'
 import type {
 	EventDBInsertModel,
 	EventDBSelectModel,
 	EventRRulesDBSelectModel,
 } from '@api/src/schema'
 import { events } from '@api/src/schema'
-import { eventRRules } from '@api/src/schema'
-import { eq } from 'drizzle-orm'
+import { eq, like, or, sql } from 'drizzle-orm'
 
-type Nullable<T> = {
-	[P in keyof T]: T[P] | null
+type EventWithRRuleDBSelectModel = EventDBSelectModel & {
+	rrule: EventRRulesDBSelectModel
 }
-
-type EventWithRRuleDBSelectModel = EventDBSelectModel &
-	Nullable<Pick<EventRRulesDBSelectModel, 'rrule'>>
 
 const convertDBToEvent = (event: EventWithRRuleDBSelectModel): Event => {
 	return {
@@ -27,6 +26,7 @@ const convertDBToEvent = (event: EventWithRRuleDBSelectModel): Event => {
 		updatedAt: event.updatedAt ? new Date(event.updatedAt) : null,
 		startAt: new Date(event.startAt),
 		endAt: event.endAt ? new Date(event.endAt) : null,
+		rrule: event.rrule.rrule,
 		features: event.features || [],
 		images: event.images || [],
 	}
@@ -54,31 +54,67 @@ export const eventRepository = (db: IDBConnection): IEventRepository => {
 			.then(() => event.id)
 	}
 
-	const findAll = () => {
-		const { _, ..._events } = events
-		return db
-			.select({
-				..._events,
-				rrule: eventRRules.rrule,
+	const findAll = (query?: FindAllQuery) => {
+		/**
+		 * クエリ内容はcountにも反映すること
+		 */
+		const count = _count()
+		const entities = db.query.events
+			.findMany({
+				with: {
+					rrule: true,
+				},
+				limit: query?.limit || 10,
+				offset: query?.offset || 0,
+				/**
+				 * @todo featuresの絞り込み
+				 */
+				where: query?.search
+					? or(
+							like(events.title, `%${query.search}%`),
+							like(events.description, `%${query.search}%`),
+							like(events.host, `%${query.search}%`),
+					  )
+					: undefined,
 			})
-			.from(events)
-			.leftJoin(eventRRules, eq(events.id, eventRRules.eventId))
-			.all()
-			.then((result) => result.map(convertDBToEvent))
+			.then((results) => results.map(convertDBToEvent))
+
+		return Promise.all([count, entities]).then(([count, entities]) => ({
+			count,
+			entities,
+		}))
 	}
 
 	const findById = async (id: string) => {
-		const { _, ..._events } = events
+		return db.query.events
+			.findFirst({
+				where: eq(events.id, id),
+				with: {
+					rrule: true,
+				},
+			})
+			.then((result) => (result ? convertDBToEvent(result) : null))
+	}
+
+	const _count = async (query?: FindAllQuery) => {
 		return db
 			.select({
-				..._events,
-				rrule: eventRRules.rrule,
+				count: sql<number>`count(*)`,
 			})
 			.from(events)
-			.leftJoin(eventRRules, eq(events.id, eventRRules.eventId))
-			.where(eq(events.id, id))
+			.limit(query?.limit || 10)
+			.offset(query?.offset || 0)
+			.where(
+				query?.search
+					? or(
+							like(events.title, `%${query.search}%`),
+							like(events.description, `%${query.search}%`),
+							like(events.host, `%${query.search}%`),
+					  )
+					: undefined,
+			)
 			.get()
-			.then((result) => (result ? convertDBToEvent(result) : null))
+			.then((result) => result.count)
 	}
 
 	return {

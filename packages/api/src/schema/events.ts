@@ -22,7 +22,7 @@ export const events = sqliteTable('events', {
 	startAt: text('start_at')
 		.default(sql`CURRENT_TIMESTAMP`)
 		.notNull(),
-	endAt: text('start_at').default(sql`CURRENT_TIMESTAMP`),
+	endAt: text('end_at'),
 	placeID: text('place_id').notNull(), // google map API placeID
 	/**
 	 * バグでblobのjsonインサートができない

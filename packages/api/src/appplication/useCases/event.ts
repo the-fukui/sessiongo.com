@@ -15,7 +15,7 @@ export const eventUseCase = (eventRepository: IEventRepository) => {
 	}
 
 	const getEvents = async () => {
-		return await eventRepository.findAll()
+		return eventRepository.findAll()
 	}
 
 	const getEvent = async (id: string) => {

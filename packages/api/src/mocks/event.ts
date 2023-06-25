@@ -3,6 +3,18 @@ import type { EventFeature } from '@api/src/domain/entities/event'
 import { EVENT_FEATURE } from '@api/src/domain/entities/event'
 import { generate } from 'random-words'
 
+const generateRandomFeatures = () =>
+	Array.from(
+		new Set(
+			Array.from(
+				{
+					length: Math.floor(Math.random() * Object.keys(EVENT_FEATURE).length),
+				},
+				() => Math.floor(Math.random() * Object.keys(EVENT_FEATURE).length),
+			) as EventFeature[],
+		),
+	)
+
 export const createRandomEventDTO = (): CreateEventDTO => {
 	return {
 		title: generate({ join: ' ', exactly: 5 }),
@@ -14,10 +26,7 @@ export const createRandomEventDTO = (): CreateEventDTO => {
 		endAt: new Date(),
 		rrule: null,
 		placeID: generate({ join: '', exactly: 3 }),
-		features: Array.from(
-			{ length: Math.floor(Math.random() * Object.keys(EVENT_FEATURE).length) },
-			() => Math.floor(Math.random() * Object.keys(EVENT_FEATURE).length),
-		) as EventFeature[],
+		features: generateRandomFeatures(),
 		images: [],
 	}
 }

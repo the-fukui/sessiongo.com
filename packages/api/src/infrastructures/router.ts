@@ -22,7 +22,8 @@ router.get('/events', async (c) => {
 	const db = c.get('db')
 	const results = await eventController(db).getEvents()
 
-	return c.json(results)
+	c.header('X-Total-Count', results.count.toString())
+	return c.json(results.entities)
 })
 
 router.get('/events/:id', async (c) => {
