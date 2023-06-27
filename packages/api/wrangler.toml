@@ -7,6 +7,10 @@ binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "sessiongo"
 database_id = "e44dae81-093f-49d8-bffd-761e29dd4217"
 
+[[r2_buckets]]
+binding = 'STORAGE' # <~ valid JavaScript variable name
+bucket_name = '<YOUR_BUCKET_NAME>'
+
 # # KV Namespace binding - For more information: https://developers.cloudflare.com/workers/runtime-apis/kv
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"

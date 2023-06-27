@@ -2,7 +2,7 @@
  * DBデータモデルのCRUDとDTOの変換を行う
  */
 import type { Event } from '@api/src/domain/entities/event'
-import type { IDBConnection } from '@api/src/domain/interfaces/database/connection'
+import type { IDBClient } from '@api/src/domain/interfaces/database'
 import type {
 	FindAllQuery,
 	IEventRepository,
@@ -44,7 +44,7 @@ const convertEventToDB = (event: Event): EventDBInsertModel => {
 		images: event.images,
 	}
 }
-export const eventRepository = (db: IDBConnection): IEventRepository => {
+export const eventRepository = (db: IDBClient): IEventRepository => {
 	const create = (event: Event) => {
 		console.log(convertEventToDB(event))
 		return db

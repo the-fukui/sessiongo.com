@@ -1,10 +1,10 @@
-import type { IDBConnection } from '@api/src/domain/interfaces/database/connection'
+import type { IDBClient } from '@api/src/domain/interfaces/database'
 import { createDBClient } from '@api/src/infrastructures/database'
 import type { MiddlewareHandler } from 'hono'
 
 declare module 'hono' {
 	interface ContextVariableMap {
-		db: IDBConnection
+		db: IDBClient
 	}
 }
 
