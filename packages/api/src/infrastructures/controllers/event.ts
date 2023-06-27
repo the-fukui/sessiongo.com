@@ -10,7 +10,7 @@ import { eventRepository } from '@api/src/infrastructures/repositories/event'
 
 export const eventController = (db: IDBClient, storage: IStorageClient) => {
 	const repository = eventRepository(db)
-	const useCase = eventUseCase(repository)
+	const useCase = eventUseCase(repository, storage)
 
 	const createEvent = async (event: CreateEventDTO) => {
 		return useCase.createEvent(event)
@@ -24,9 +24,14 @@ export const eventController = (db: IDBClient, storage: IStorageClient) => {
 		return useCase.getEvent(id)
 	}
 
+	const uploadImage = async (image: ReadableStream) => {
+		return useCase.uploadImage(image)
+	}
+
 	return {
 		createEvent,
 		getEvents,
 		getEvent,
+		uploadImage,
 	}
 }

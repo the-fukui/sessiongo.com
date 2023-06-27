@@ -21,6 +21,19 @@ router.post('/events', async (c) => {
 	return c.json(result)
 })
 
+router.post('/events/image', async (c) => {
+	const db = c.get('db')
+	const storage = c.env.STORAGE
+
+	const image = c.req.body
+
+	if (!image) return c.json({ message: 'image is required' }, 400)
+
+	const result = await eventController(db, storage).uploadImage(image)
+
+	return c.json(result)
+})
+
 router.get('/events', async (c) => {
 	const db = c.get('db')
 	const storage = c.env.STORAGE
