@@ -29,7 +29,7 @@ export const eventUseCase = (
 
 	const uploadImage = async (image: ReadableStream) => {
 		const storage = imageStorage(storageClient)
-		storage.upload(image)
+		return storage.upload(image)
 	}
 
 	return {

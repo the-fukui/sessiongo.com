@@ -2,8 +2,6 @@ name = "api"
 main = "src/index.ts"
 compatibility_date = "2023-06-15"
 
-[vars]
-R2_PUBLIC_BUCKET_URL = "https://example.com"
 
 [[ d1_databases ]]
 binding = "DB" # i.e. available in your Worker on env.DB
@@ -12,4 +10,5 @@ database_id = "e44dae81-093f-49d8-bffd-761e29dd4217"
 
 [[r2_buckets]]
 binding = 'STORAGE' # <~ valid JavaScript variable name
-bucket_name = '<YOUR_BUCKET_NAME>'
+bucket_name = 'sessiongo'
+preview_bucket_name= 'sessiongo-preview'
