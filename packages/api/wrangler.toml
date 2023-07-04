@@ -2,6 +2,7 @@ name = "api"
 main = "src/index.ts"
 compatibility_date = "2023-06-15"
 
+account_id = "16f8e12d2a44b13afb75f5f965c9c047"
 
 [[ d1_databases ]]
 binding = "DB" # i.e. available in your Worker on env.DB

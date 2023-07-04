@@ -27,16 +27,16 @@ export type EventFeature = (typeof EVENT_FEATURE)[keyof typeof EVENT_FEATURE]
 
 export interface Event {
 	id: string
-	createdAt: Date | null
-	updatedAt: Date | null
+	createdAt?: Date
+	updatedAt?: Date
 	title: string
 	description: string
 	host: string
 	status: EventStatus
 	type: EventType
 	startAt: Date
-	endAt: Date | null
-	rrule: string | null
+	endAt?: Date
+	rrule?: string
 	placeID: string
 	features: EventFeature[]
 	images: string[]

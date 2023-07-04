@@ -12,8 +12,12 @@ export type EventDBInsertModel = InferModel<typeof events, 'insert'>
 
 export const events = sqliteTable('events', {
 	id: text('id').primaryKey(),
-	createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
-	updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
+	createdAt: text('created_at')
+		.default(sql`CURRENT_TIMESTAMP`)
+		.notNull(),
+	updatedAt: text('updated_at')
+		.default(sql`CURRENT_TIMESTAMP`)
+		.notNull(),
 	title: text('title').notNull(),
 	description: text('description').notNull(),
 	host: text('host').notNull(),

@@ -22,10 +22,10 @@ type EventWithRRuleDBSelectModel = EventDBSelectModel & {
 const convertDBToEvent = (event: EventWithRRuleDBSelectModel): Event => {
 	return {
 		...event,
-		createdAt: event.createdAt ? new Date(event.createdAt) : null,
-		updatedAt: event.updatedAt ? new Date(event.updatedAt) : null,
+		createdAt: new Date(event.createdAt),
+		updatedAt: new Date(event.updatedAt),
 		startAt: new Date(event.startAt),
-		endAt: event.endAt ? new Date(event.endAt) : null,
+		endAt: event.endAt ? new Date(event.endAt) : undefined,
 		rrule: event.rrule.rrule,
 		features: event.features || [],
 		images: event.images || [],
@@ -36,8 +36,8 @@ const convertEventToDB = (event: Event): EventDBInsertModel => {
 	return {
 		...event,
 		id: event.id,
-		createdAt: event.createdAt ? event.createdAt.toISOString() : null,
-		updatedAt: event.updatedAt ? event.updatedAt.toISOString() : null,
+		createdAt: event.createdAt ? event.createdAt.toISOString() : undefined,
+		updatedAt: event.updatedAt ? event.updatedAt.toISOString() : undefined,
 		startAt: event.startAt.toISOString(),
 		endAt: event.endAt ? event.endAt.toISOString() : null,
 		features: event.features,

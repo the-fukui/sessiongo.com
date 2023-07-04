@@ -1,7 +1,11 @@
 import type { CreateEventDTO } from '@api/src/appplication/dtos/createEventDto'
+import { createEventDTOSchema } from '@api/src/appplication/dtos/createEventDto'
 import { eventController } from '@api/src/infrastructures/controllers/event'
 import { createRandomEventDTO } from '@api/src/mocks/event'
+import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
+import { HTTPException } from 'hono/http-exception'
+import { z } from 'zod'
 
 type Env = {
 	DB: D1Database
@@ -10,11 +14,11 @@ type Env = {
 
 const router = new Hono<{ Bindings: Env }>()
 
-router.post('/events', async (c) => {
+router.post('/events', zValidator('json', createEventDTOSchema), async (c) => {
 	const db = c.get('db')
 	const storage = c.env.STORAGE
 
-	// const event = await c.req.json<CreateEventDTO>()
+	// const event = c.req.valid('json')
 	const event = createRandomEventDTO()
 	const result = await eventController(db, storage).createEvent(event)
 
@@ -27,7 +31,7 @@ router.post('/events/image', async (c) => {
 
 	const image = c.req.body
 
-	if (!image) return c.json({ message: 'image is required' }, 400)
+	if (!image) throw new HTTPException(400, { message: 'image is required' })
 
 	const result = await eventController(db, storage).uploadImage(image)
 
