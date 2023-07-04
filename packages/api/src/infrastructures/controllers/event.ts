@@ -7,6 +7,10 @@ import { eventUseCase } from '@api/src/appplication/useCases/event'
 import type { IDBClient } from '@api/src/domain/interfaces/database'
 import type { IStorageClient } from '@api/src/domain/interfaces/storage'
 import { eventRepository } from '@api/src/infrastructures/repositories/event'
+import {
+	convertEventToEventDetail,
+	convertEventToEventListItem,
+} from '@api/src/infrastructures/serializers/event'
 
 export const eventController = (db: IDBClient, storage: IStorageClient) => {
 	const repository = eventRepository(db)
@@ -17,11 +21,16 @@ export const eventController = (db: IDBClient, storage: IStorageClient) => {
 	}
 
 	const getEvents = async () => {
-		return useCase.getEvents()
+		return useCase.getEvents().then((events) => ({
+			...events,
+			entities: events.entities.map(convertEventToEventListItem),
+		}))
 	}
 
 	const getEvent = async (id: string) => {
-		return useCase.getEvent(id)
+		return useCase
+			.getEvent(id)
+			.then((event) => event && convertEventToEventDetail(event))
 	}
 
 	const uploadImage = async (image: ReadableStream) => {

@@ -8,11 +8,11 @@ import type {
  * 一覧表示用のイベント情報
  */
 export interface EventListItem {
-	id: string | null
+	id: string
 	title: string
 	type: EventType
 	startAt: Date
-	endAt: Date | null
+	endAt?: Date
 	place: {
 		name: string
 		region: string // 広域名（道府県名）
@@ -42,7 +42,11 @@ export interface EventDetail extends EventListItem {
  */
 export const convertEventToEventListItem = (event: Event): EventListItem => {
 	return {
-		...event,
+		id: event.id,
+		title: event.title,
+		type: event.type,
+		startAt: event.startAt,
+		endAt: event.endAt,
 		place: {
 			/**
 			 * @todo 住所情報を取得する
@@ -51,14 +55,20 @@ export const convertEventToEventListItem = (event: Event): EventListItem => {
 			region: '',
 			locality: '',
 		},
+		features: event.features,
+		images: event.images,
 	}
 }
 
 export const convertEventToEventDetail = (event: Event): EventDetail => {
 	return {
-		...event,
-		description: '',
-		host: '',
+		id: event.id,
+		title: event.title,
+		description: event.description,
+		host: event.host,
+		type: event.type,
+		startAt: event.startAt,
+		endAt: event.endAt,
 		place: {
 			/**
 			 * @todo 住所情報を取得する
@@ -67,7 +77,9 @@ export const convertEventToEventDetail = (event: Event): EventDetail => {
 			region: '',
 			locality: '',
 			address: '',
-			placeID: '',
+			placeID: event.placeID,
 		},
+		features: event.features,
+		images: event.images,
 	}
 }
