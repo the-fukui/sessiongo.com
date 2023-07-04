@@ -10,10 +10,13 @@ import type {
 import type {
 	EventDBInsertModel,
 	EventDBSelectModel,
+	EventRRulesDBInsertModel,
 	EventRRulesDBSelectModel,
 } from '@api/src/schema'
-import { events } from '@api/src/schema'
+import { eventRRules, events } from '@api/src/schema'
+import { getRRuleEndAt, getRRuleStartAt } from '@api/src/utils/rrule'
 import { eq, like, or, sql } from 'drizzle-orm'
+import type { SetRequired } from 'type-fest'
 
 type EventWithRRuleDBSelectModel = EventDBSelectModel & {
 	rrule?: EventRRulesDBSelectModel
@@ -32,8 +35,12 @@ const convertDBToEvent = (event: EventWithRRuleDBSelectModel): Event => {
 	}
 }
 
-const convertEventToDB = (event: Event): EventDBInsertModel => {
+const convertEventToDB = (_event: Event): EventDBInsertModel => {
+	// rruleを除去
+	// クローンしないとdeleteで元のeventオブジェクトが変更されてしまい、後続の処理に影響が出る
+	const event = structuredClone(_event)
 	delete event.rrule
+
 	return {
 		...event,
 		id: event.id,
@@ -45,13 +52,31 @@ const convertEventToDB = (event: Event): EventDBInsertModel => {
 		images: event.images,
 	}
 }
+
+const convertEventRRuleToDB = (
+	event: SetRequired<Event, 'rrule'>,
+): EventRRulesDBInsertModel => {
+	return {
+		eventId: event.id,
+		rrule: event.rrule,
+		rruleStartAt: getRRuleStartAt(event.rrule).toISOString(),
+		rruleEndAt: getRRuleEndAt(event.rrule).toISOString(),
+	}
+}
 export const eventRepository = (db: IDBClient): IEventRepository => {
-	const create = (event: Event) => {
-		return db
-			.insert(events)
-			.values(convertEventToDB(event))
-			.run()
-			.then(() => event.id)
+	const create = async (event: Event) => {
+		// rruleを持っているかのtype guard
+		const hasRRule = (x: Event): x is SetRequired<Event, 'rrule'> =>
+			'rrule' in x
+
+		return db.transaction(async (tx) => {
+			await tx.insert(events).values(convertEventToDB(event)).run()
+			if (hasRRule(event)) {
+				await tx.insert(eventRRules).values(convertEventRRuleToDB(event)).run()
+			}
+
+			return event.id
+		})
 	}
 
 	const findAll = (query?: FindAllQuery) => {
