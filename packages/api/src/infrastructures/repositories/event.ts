@@ -16,7 +16,7 @@ import { events } from '@api/src/schema'
 import { eq, like, or, sql } from 'drizzle-orm'
 
 type EventWithRRuleDBSelectModel = EventDBSelectModel & {
-	rrule: EventRRulesDBSelectModel
+	rrule?: EventRRulesDBSelectModel
 }
 
 const convertDBToEvent = (event: EventWithRRuleDBSelectModel): Event => {
@@ -26,13 +26,14 @@ const convertDBToEvent = (event: EventWithRRuleDBSelectModel): Event => {
 		updatedAt: new Date(event.updatedAt),
 		startAt: new Date(event.startAt),
 		endAt: event.endAt ? new Date(event.endAt) : undefined,
-		rrule: event.rrule.rrule,
+		rrule: event.rrule ? event.rrule.rrule : undefined,
 		features: event.features || [],
 		images: event.images || [],
 	}
 }
 
 const convertEventToDB = (event: Event): EventDBInsertModel => {
+	delete event.rrule
 	return {
 		...event,
 		id: event.id,
@@ -46,7 +47,6 @@ const convertEventToDB = (event: Event): EventDBInsertModel => {
 }
 export const eventRepository = (db: IDBClient): IEventRepository => {
 	const create = (event: Event) => {
-		console.log(convertEventToDB(event))
 		return db
 			.insert(events)
 			.values(convertEventToDB(event))

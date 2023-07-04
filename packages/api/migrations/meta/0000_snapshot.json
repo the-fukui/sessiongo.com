@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "19d7af22-7cf1-4b63-ad3b-7a00cf1a2eb7",
+  "id": "96914c80-4d0a-496d-854d-93b67112dd3c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "events": {
@@ -63,23 +63,11 @@
           "name": "start_at",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "default": "(CURRENT_TIMESTAMP)"
         },
-        "rrule": {
-          "name": "rrule",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "rrule_start_at": {
-          "name": "rrule_start_at",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "rrule_end_at": {
-          "name": "rrule_end_at",
+        "end_at": {
+          "name": "end_at",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -88,23 +76,88 @@
           "name": "place_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "features": {
           "name": "features",
-          "type": "blob",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
         "images": {
           "name": "images",
-          "type": "blob",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
+      "compositePrimaryKeys": {}
+    },
+    "eventRRules": {
+      "name": "eventRRules",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "(CURRENT_TIMESTAMP)"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "(CURRENT_TIMESTAMP)"
+        },
+        "event_id": {
+          "name": "event_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rrule": {
+          "name": "rrule",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rrule_start_at": {
+          "name": "rrule_start_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rrule_end_at": {
+          "name": "rrule_end_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "eventRRules_event_id_events_id_fk": {
+          "name": "eventRRules_event_id_events_id_fk",
+          "tableFrom": "eventRRules",
+          "tableTo": "events",
+          "columnsFrom": [
+            "event_id"
+          ],
+          "columnsTo": [
+            "id"
+          ]
+        }
+      },
       "compositePrimaryKeys": {}
     }
   },
