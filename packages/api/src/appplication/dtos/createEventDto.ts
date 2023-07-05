@@ -25,7 +25,7 @@ export const createEventDTOSchema = z.object({
 	description: z.string().min(1).max(1000),
 	host: z.string().min(1).max(100),
 	status: z.nativeEnum(EVENT_STATUS),
-	rrule: z.string().min(1).max(100),
+	// rrule: z.string().min(1).max(100),
 	type: z.nativeEnum(EVENT_TYPE),
 	placeID: z.string().min(1).max(100),
 	startAt: z.date().min(new Date()),

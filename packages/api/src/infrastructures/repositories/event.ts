@@ -9,37 +9,46 @@ import type {
 } from '@api/src/domain/interfaces/repositories/event'
 import type {
 	EventDBInsertModel,
-	EventDBSelectModel,
-	EventRRulesDBInsertModel,
-	EventRRulesDBSelectModel,
+	EventDBSelectModel, // EventRRulesDBInsertModel,
+	// EventRRulesDBSelectModel,
 } from '@api/src/schema'
-import { eventRRules, events } from '@api/src/schema'
-import { getRRuleEndAt, getRRuleStartAt } from '@api/src/utils/rrule'
+import {
+	// eventRRules,
+	events,
+} from '@api/src/schema'
+// import { getRRuleEndAt, getRRuleStartAt } from '@api/src/utils/rrule'
 import { eq, like, or, sql } from 'drizzle-orm'
-import type { SetRequired } from 'type-fest'
 
-type EventWithRRuleDBSelectModel = EventDBSelectModel & {
-	rrule?: EventRRulesDBSelectModel
-}
+// import type { SetRequired } from 'type-fest'
 
-const convertDBToEvent = (event: EventWithRRuleDBSelectModel): Event => {
+// type EventWithRRuleDBSelectModel = EventDBSelectModel & {
+// 	rrule?: EventRRulesDBSelectModel
+// }
+
+const convertDBToEvent = (
+	// event: EventWithRRuleDBSelectModel
+	event: EventDBSelectModel,
+): Event => {
 	return {
 		...event,
 		createdAt: new Date(event.createdAt),
 		updatedAt: new Date(event.updatedAt),
 		startAt: new Date(event.startAt),
 		endAt: event.endAt ? new Date(event.endAt) : undefined,
-		rrule: event.rrule ? event.rrule.rrule : undefined,
+		// rrule: event.rrule ? event.rrule.rrule : undefined,
 		features: event.features || [],
 		images: event.images || [],
 	}
 }
 
-const convertEventToDB = (_event: Event): EventDBInsertModel => {
-	// rruleを除去
-	// クローンしないとdeleteで元のeventオブジェクトが変更されてしまい、後続の処理に影響が出る
-	const event = structuredClone(_event)
-	delete event.rrule
+const convertEventToDB = (
+	// _event: Event
+	event: Event,
+): EventDBInsertModel => {
+	// // rruleを除去
+	// // クローンしないとdeleteで元のeventオブジェクトが変更されてしまい、後続の処理に影響が出る
+	// const event = structuredClone(_event)
+	// delete event.rrule
 
 	return {
 		...event,
@@ -53,30 +62,38 @@ const convertEventToDB = (_event: Event): EventDBInsertModel => {
 	}
 }
 
-const convertEventRRuleToDB = (
-	event: SetRequired<Event, 'rrule'>,
-): EventRRulesDBInsertModel => {
-	return {
-		eventId: event.id,
-		rrule: event.rrule,
-		rruleStartAt: getRRuleStartAt(event.rrule).toISOString(),
-		rruleEndAt: getRRuleEndAt(event.rrule).toISOString(),
-	}
-}
+// const convertEventRRuleToDB = (
+// 	event: SetRequired<Event, 'rrule'>,
+// ): EventRRulesDBInsertModel => {
+// 	return {
+// 		eventId: event.id,
+// 		rrule: event.rrule,
+// 		rruleStartAt: getRRuleStartAt(event.rrule).toISOString(),
+// 		rruleEndAt: getRRuleEndAt(event.rrule).toISOString(),
+// 	}
+// }
 export const eventRepository = (db: IDBClient): IEventRepository => {
 	const create = async (event: Event) => {
-		// rruleを持っているかのtype guard
-		const hasRRule = (x: Event): x is SetRequired<Event, 'rrule'> =>
-			'rrule' in x
+		// // rruleを持っているかのtype guard
+		// const hasRRule = (x: Event): x is SetRequired<Event, 'rrule'> =>
+		// 	'rrule' in x
 
-		return db.transaction(async (tx) => {
-			await tx.insert(events).values(convertEventToDB(event)).run()
-			if (hasRRule(event)) {
-				await tx.insert(eventRRules).values(convertEventRRuleToDB(event)).run()
-			}
+		// return db.transaction(async (tx) => {
+		// 	await tx.insert(events).values(convertEventToDB(event)).run()
+		// 	if (hasRRule(event)) {
+		// 		await tx.insert(eventRRules).values(convertEventRRuleToDB(event)).run()
+		// 	}
 
-			return event.id
-		})
+		// 	return event.id
+		// })
+
+		return db
+			.insert(events)
+			.values(convertEventToDB(event))
+			.run()
+			.then(() => {
+				return event.id
+			})
 	}
 
 	const findAll = (query?: FindAllQuery) => {

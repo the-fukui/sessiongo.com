@@ -2,7 +2,8 @@ import type { CreateEventDTO } from '@api/src/appplication/dtos/createEventDto'
 import type { EventFeature } from '@api/src/domain/entities/event'
 import { EVENT_FEATURE } from '@api/src/domain/entities/event'
 import { generate } from 'random-words'
-import { RRule } from 'rrule'
+
+// import { RRule } from 'rrule'
 
 const generateRandomFeatures = () =>
 	Array.from(
@@ -16,16 +17,16 @@ const generateRandomFeatures = () =>
 		),
 	)
 
-const generateRnadomRRule = () => {
-	const rrule = new RRule({
-		freq: RRule.WEEKLY,
-		dtstart: new Date(),
-		count: 30,
-		byweekday: [RRule.TU, RRule.SA],
-	})
+// const generateRnadomRRule = () => {
+// 	const rrule = new RRule({
+// 		freq: RRule.WEEKLY,
+// 		dtstart: new Date(),
+// 		count: 30,
+// 		byweekday: [RRule.TU, RRule.SA],
+// 	})
 
-	return rrule.toString()
-}
+// 	return rrule.toString()
+// }
 
 export const createRandomEventDTO = (): CreateEventDTO => {
 	return {
@@ -37,7 +38,7 @@ export const createRandomEventDTO = (): CreateEventDTO => {
 		startAt: new Date(),
 		endAt: new Date(),
 		placeID: generate({ join: '', exactly: 3 }),
-		rrule: generateRnadomRRule(),
+		// rrule: generateRnadomRRule(),
 		features: generateRandomFeatures(),
 		images: [],
 	}

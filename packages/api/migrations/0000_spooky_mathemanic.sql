@@ -13,14 +13,3 @@ CREATE TABLE `events` (
 	`features` text,
 	`images` text
 );
---> statement-breakpoint
-CREATE TABLE `eventRRules` (
-	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
-	`created_at` text DEFAULT (CURRENT_TIMESTAMP),
-	`updated_at` text DEFAULT (CURRENT_TIMESTAMP),
-	`event_id` text,
-	`rrule` text NOT NULL,
-	`rrule_start_at` text NOT NULL,
-	`rrule_end_at` text NOT NULL,
-	FOREIGN KEY (`event_id`) REFERENCES `events`(`id`)
-);

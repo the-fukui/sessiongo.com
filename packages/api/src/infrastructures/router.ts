@@ -45,7 +45,10 @@ router.get('/events', async (c) => {
 	const storage = c.env.STORAGE
 	const results = await eventController(db, storage).getEvents()
 
-	c.header('X-Total-Count', results.count.toString())
+	/**
+	 * @todo  繰り返しイベントのカウントどうするか
+	 */
+	// c.header('X-Total-Count', results.count.toString())
 	return c.json(results.entities)
 })
 

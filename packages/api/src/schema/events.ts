@@ -6,7 +6,7 @@ import type {
 import type { InferModel } from 'drizzle-orm'
 import { sql } from 'drizzle-orm'
 import {
-	blob,
+	// blob,
 	customType,
 	integer,
 	sqliteTable,

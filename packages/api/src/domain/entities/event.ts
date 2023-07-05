@@ -36,7 +36,7 @@ export interface Event {
 	type: EventType
 	startAt: Date
 	endAt?: Date
-	rrule?: string
+	// rrule?: string
 	placeID: string
 	features: EventFeature[]
 	images: string[]

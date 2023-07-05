@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "96914c80-4d0a-496d-854d-93b67112dd3c",
+  "id": "1594ec7d-c946-45df-b955-726b2fda2170",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "events": {
@@ -93,71 +93,6 @@
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {}
-    },
-    "eventRRules": {
-      "name": "eventRRules",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "integer",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": true
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "default": "(CURRENT_TIMESTAMP)"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "default": "(CURRENT_TIMESTAMP)"
-        },
-        "event_id": {
-          "name": "event_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "rrule": {
-          "name": "rrule",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "rrule_start_at": {
-          "name": "rrule_start_at",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "rrule_end_at": {
-          "name": "rrule_end_at",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "eventRRules_event_id_events_id_fk": {
-          "name": "eventRRules_event_id_events_id_fk",
-          "tableFrom": "eventRRules",
-          "tableTo": "events",
-          "columnsFrom": [
-            "event_id"
-          ],
-          "columnsTo": [
-            "id"
-          ]
-        }
-      },
       "compositePrimaryKeys": {}
     }
   },
