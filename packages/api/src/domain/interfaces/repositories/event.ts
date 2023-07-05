@@ -6,6 +6,8 @@ export type FindAllQuery = {
 	filter?: {
 		features?: EventFeature[]
 	}
+	startAfter?: Date
+	startBefore?: Date
 	search?: string
 }
 

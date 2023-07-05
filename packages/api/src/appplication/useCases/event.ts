@@ -23,6 +23,13 @@ export const eventUseCase = (
 		return eventRepository.findAll()
 	}
 
+	const getMonthlyEvents = async (year: number, month: number) => {
+		return eventRepository.findAll({
+			startAfter: new Date(year, month - 1),
+			startBefore: new Date(year, month),
+		})
+	}
+
 	const getEvent = async (id: string) => {
 		return eventRepository.findById(id)
 	}
@@ -35,6 +42,7 @@ export const eventUseCase = (
 	return {
 		createEvent,
 		getEvents,
+		getMonthlyEvents,
 		getEvent,
 		uploadImage,
 	}

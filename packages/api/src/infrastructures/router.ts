@@ -1,7 +1,9 @@
-import { createEventDTOSchema } from '@api/src/appplication/dtos/createEventDto'
 import { eventController } from '@api/src/infrastructures/controllers/event'
+import {
+	validateCreateEventBody,
+	validateMonthAndYear,
+} from '@api/src/infrastructures/middlewares/validator'
 import { createRandomEventDTO } from '@api/src/mocks/event'
-import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { HTTPException } from 'hono/http-exception'
 
@@ -12,21 +14,23 @@ type Env = {
 
 const router = new Hono<{ Bindings: Env }>()
 
-router.post(
-	'/events',
-	// zValidator('json', createEventDTOSchema),
-	async (c) => {
-		const db = c.get('db')
-		const storage = c.env.STORAGE
+/**
+ * イベント作成
+ */
+router.post('/events', validateCreateEventBody(), async (c) => {
+	const db = c.get('db')
+	const storage = c.env.STORAGE
 
-		// const event = c.req.valid('json')
-		const event = createRandomEventDTO()
-		const result = await eventController(db, storage).createEvent(event)
+	// const event = c.req.valid('json')
+	const event = createRandomEventDTO()
+	const result = await eventController(db, storage).createEvent(event)
 
-		return c.json(result)
-	},
-)
+	return c.json(result)
+})
 
+/**
+ * イベント画像アップロード
+ */
 router.post('/events/image', async (c) => {
 	const db = c.get('db')
 	const storage = c.env.STORAGE
@@ -40,18 +44,50 @@ router.post('/events/image', async (c) => {
 	return c.json(result)
 })
 
+/**
+ * イベント一覧取得
+ */
 router.get('/events', async (c) => {
 	const db = c.get('db')
 	const storage = c.env.STORAGE
 	const results = await eventController(db, storage).getEvents()
 
 	/**
-	 * @todo  繰り返しイベントのカウントどうするか
+	 * @todo  繰り返しイベント実装時のカウントどうするか
 	 */
-	// c.header('X-Total-Count', results.count.toString())
+	c.header('X-Total-Count', results.count.toString())
 	return c.json(results.entities)
 })
 
+/**
+ * 指定月のイベント一覧取得
+ */
+router.get(
+	'/events/year/:year{[0-9]{4}}/month/:month{[0-9]{1,2}}',
+	validateMonthAndYear(),
+	async (c) => {
+		const db = c.get('db')
+		const storage = c.env.STORAGE
+
+		const year = parseInt(c.req.valid('param').year)
+		const month = parseInt(c.req.valid('param').month)
+
+		const results = await eventController(db, storage).getMonthlyEvents(
+			year,
+			month,
+		)
+
+		/**
+		 * @todo  繰り返しイベント実装時のカウントどうするか
+		 */
+		c.header('X-Total-Count', results.count.toString())
+		return c.json(results.entities)
+	},
+)
+
+/**
+ * イベント詳細取得
+ */
 router.get('/events/:id', async (c) => {
 	const db = c.get('db')
 	const storage = c.env.STORAGE

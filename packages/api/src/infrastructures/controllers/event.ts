@@ -27,6 +27,13 @@ export const eventController = (db: IDBClient, storage: IStorageClient) => {
 		}))
 	}
 
+	const getMonthlyEvents = async (year: number, month: number) => {
+		return useCase.getMonthlyEvents(year, month).then((events) => ({
+			...events,
+			entities: events.entities.map(convertEventToEventListItem),
+		}))
+	}
+
 	const getEvent = async (id: string) => {
 		return useCase
 			.getEvent(id)
@@ -40,6 +47,7 @@ export const eventController = (db: IDBClient, storage: IStorageClient) => {
 	return {
 		createEvent,
 		getEvents,
+		getMonthlyEvents,
 		getEvent,
 		uploadImage,
 	}

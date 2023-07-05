@@ -17,7 +17,7 @@ import {
 	events,
 } from '@api/src/schema'
 // import { getRRuleEndAt, getRRuleStartAt } from '@api/src/utils/rrule'
-import { eq, like, or, sql } from 'drizzle-orm'
+import { and, eq, gte, like, lte, or, sql } from 'drizzle-orm'
 
 // import type { SetRequired } from 'type-fest'
 
@@ -99,25 +99,32 @@ export const eventRepository = (db: IDBClient): IEventRepository => {
 	const findAll = (query?: FindAllQuery) => {
 		/**
 		 * クエリ内容はcountにも反映すること
+		 * @todo featuresの絞り込み
 		 */
+
+		const searchQuery = query?.search
+			? or(
+					like(events.title, `%${query.search}%`),
+					like(events.description, `%${query.search}%`),
+					like(events.host, `%${query.search}%`),
+			  )
+			: undefined
+		const startAfterQuery = query?.startAfter
+			? gte(events.startAt, query.startAfter.toISOString())
+			: undefined
+		const startBeforeQuery = query?.startBefore
+			? lte(events.startAt, query.startBefore.toISOString())
+			: undefined
+
 		const count = _count()
 		const entities = db.query.events
 			.findMany({
 				with: {
-					rrule: true,
+					// rrule: true,
 				},
 				limit: query?.limit || 10,
 				offset: query?.offset || 0,
-				/**
-				 * @todo featuresの絞り込み
-				 */
-				where: query?.search
-					? or(
-							like(events.title, `%${query.search}%`),
-							like(events.description, `%${query.search}%`),
-							like(events.host, `%${query.search}%`),
-					  )
-					: undefined,
+				where: and(searchQuery, startAfterQuery, startBeforeQuery),
 			})
 			.then((results) => results.map(convertDBToEvent))
 
@@ -132,7 +139,7 @@ export const eventRepository = (db: IDBClient): IEventRepository => {
 			.findFirst({
 				where: eq(events.id, id),
 				with: {
-					rrule: true,
+					// rrule: true,
 				},
 			})
 			.then((result) => (result ? convertDBToEvent(result) : null))
