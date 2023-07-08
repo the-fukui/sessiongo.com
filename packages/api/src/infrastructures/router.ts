@@ -1,7 +1,7 @@
 import { eventController } from '@api/src/infrastructures/controllers/event'
 import {
-	validateCreateEventBody,
-	validateMonthAndYear,
+	createEventBodyValidator,
+	getMonthlyEventsValidator,
 } from '@api/src/infrastructures/middlewares/validator'
 import { createRandomEventDTO } from '@api/src/mocks/event'
 import { Hono } from 'hono'
@@ -17,16 +17,21 @@ const router = new Hono<{ Bindings: Env }>()
 /**
  * イベント作成
  */
-router.post('/events', validateCreateEventBody(), async (c) => {
-	const db = c.get('db')
-	const storage = c.env.STORAGE
+router.post(
+	'/events',
+	// @ts-expect-error
+	createEventBodyValidator,
+	async (c) => {
+		const db = c.get('db')
+		const storage = c.env.STORAGE
 
-	// const event = c.req.valid('json')
-	const event = createRandomEventDTO()
-	const result = await eventController(db, storage).createEvent(event)
+		// const event = c.req.valid('json')
+		const event = createRandomEventDTO()
+		const result = await eventController(db, storage).createEvent(event)
 
-	return c.json(result)
-})
+		return c.json(result)
+	},
+)
 
 /**
  * イベント画像アップロード
@@ -64,13 +69,13 @@ router.get('/events', async (c) => {
  */
 router.get(
 	'/events/year/:year{[0-9]{4}}/month/:month{[0-9]{1,2}}',
-	validateMonthAndYear(),
+	// @ts-expect-error
+	getMonthlyEventsValidator,
 	async (c) => {
 		const db = c.get('db')
 		const storage = c.env.STORAGE
 
-		const year = parseInt(c.req.valid('param').year)
-		const month = parseInt(c.req.valid('param').month)
+		const { year, month } = c.req.valid('param')
 
 		const results = await eventController(db, storage).getMonthlyEvents(
 			year,
