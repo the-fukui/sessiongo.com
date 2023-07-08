@@ -1,7 +1,9 @@
 import { eventController } from '@api/src/infrastructures/controllers/event'
 import {
-	createEventBodyValidator,
+	createEventValidator,
+	deleteEventValidator,
 	getMonthlyEventsValidator,
+	updateEventValidator,
 } from '@api/src/infrastructures/middlewares/validator'
 import { createRandomEventDTO } from '@api/src/mocks/event'
 import { Hono } from 'hono'
@@ -20,7 +22,7 @@ const router = new Hono<{ Bindings: Env }>()
 router.post(
 	'/events',
 	// @ts-expect-error
-	createEventBodyValidator,
+	createEventValidator,
 	async (c) => {
 		const db = c.get('db')
 		const storage = c.env.STORAGE
@@ -104,5 +106,41 @@ router.get('/events/:id', async (c) => {
 
 	return c.json(result)
 })
+
+/**
+ * イベント更新
+ */
+router.put(
+	'/events/:id',
+	// @ts-expect-error
+	updateEventValidator,
+	async (c) => {
+		const db = c.get('db')
+		const storage = c.env.STORAGE
+
+		const event = c.req.valid('json')
+		const result = await eventController(db, storage).updateEvent(event)
+
+		return c.json(result)
+	},
+)
+
+/**
+ * イベント削除
+ */
+router.delete(
+	'/events/:id',
+	// @ts-expect-error
+	deleteEventValidator,
+	async (c) => {
+		const db = c.get('db')
+		const storage = c.env.STORAGE
+
+		const { id } = c.req.valid('param')
+		const result = await eventController(db, storage).removeEvent(id)
+
+		return c.json(result)
+	},
+)
 
 export default router

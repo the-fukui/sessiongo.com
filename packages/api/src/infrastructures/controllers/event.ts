@@ -3,6 +3,10 @@
  * 必要があればselializer(json整形など)を呼び出す
  */
 import type { CreateEventDTO } from '@api/src/appplication/dtos/createEventDto'
+import {
+	type UpdateEventDTO,
+	convertUpdateEventToEvent,
+} from '@api/src/appplication/dtos/updateEventDTO'
 import { eventUseCase } from '@api/src/appplication/useCases/event'
 import type { IDBClient } from '@api/src/domain/interfaces/database'
 import type { IStorageClient } from '@api/src/domain/interfaces/storage'
@@ -44,11 +48,21 @@ export const eventController = (db: IDBClient, storage: IStorageClient) => {
 		return useCase.uploadImage(image)
 	}
 
+	const updateEvent = async (event: UpdateEventDTO) => {
+		return useCase.updateEvent(convertUpdateEventToEvent(event))
+	}
+
+	const removeEvent = async (id: string) => {
+		return useCase.removeEvent(id)
+	}
+
 	return {
 		createEvent,
 		getEvents,
 		getMonthlyEvents,
 		getEvent,
 		uploadImage,
+		updateEvent,
+		removeEvent,
 	}
 }

@@ -166,9 +166,36 @@ export const eventRepository = (db: IDBClient): IEventRepository => {
 			.then((result) => result.count)
 	}
 
+	const update = async (event: Event) => {
+		// createdAt, updatedAtは更新しない
+		delete event.createdAt
+		delete event.updatedAt
+
+		return db
+			.update(events)
+			.set(convertEventToDB(event))
+			.where(eq(events.id, event.id))
+			.run()
+			.then(() => {
+				return
+			})
+	}
+
+	const remove = async (id: string) => {
+		return db
+			.delete(events)
+			.where(eq(events.id, id))
+			.run()
+			.then(() => {
+				return
+			})
+	}
+
 	return {
 		create,
 		findAll,
 		findById,
+		update,
+		remove,
 	}
 }

@@ -2,6 +2,10 @@ import {
 	type CreateEventDTO,
 	convertCreateEventToEvent,
 } from '@api/src/appplication/dtos/createEventDto'
+import {
+	type UpdateEventDTO,
+	convertUpdateEventToEvent,
+} from '@api/src/appplication/dtos/updateEventDTO'
 import type { IEventRepository } from '@api/src/domain/interfaces/repositories/event'
 import type { IStorageClient } from '@api/src/domain/interfaces/storage'
 import { imageStorage } from '@api/src/infrastructures/storage'
@@ -39,11 +43,21 @@ export const eventUseCase = (
 		return storage.upload(image)
 	}
 
+	const updateEvent = async (event: UpdateEventDTO) => {
+		return eventRepository.update(convertUpdateEventToEvent(event))
+	}
+
+	const removeEvent = async (id: string) => {
+		return eventRepository.remove(id)
+	}
+
 	return {
 		createEvent,
 		getEvents,
 		getMonthlyEvents,
 		getEvent,
 		uploadImage,
+		updateEvent,
+		removeEvent,
 	}
 }
