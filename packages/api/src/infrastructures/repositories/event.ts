@@ -181,6 +181,9 @@ export const eventRepository = (db: IDBClient): IEventRepository => {
 			})
 	}
 
+	/**
+	 * @TODO 削除対象が存在しない場合の挙動
+	 */
 	const remove = async (id: string) => {
 		return db
 			.delete(events)

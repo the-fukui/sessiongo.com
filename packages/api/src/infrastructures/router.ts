@@ -1,8 +1,11 @@
 import { eventController } from '@api/src/infrastructures/controllers/event'
+import { userController } from '@api/src/infrastructures/controllers/user'
 import {
 	createEventValidator,
+	createUserValidator,
 	deleteEventValidator,
 	getMonthlyEventsValidator,
+	getUserValidator,
 	updateEventValidator,
 } from '@api/src/infrastructures/middlewares/validator'
 import { createRandomEventDTO } from '@api/src/mocks/event'
@@ -127,6 +130,7 @@ router.put(
 
 /**
  * イベント削除
+ * @TODO 削除対象が存在しない場合の挙動
  */
 router.delete(
 	'/events/:id',
@@ -143,4 +147,73 @@ router.delete(
 	},
 )
 
-export default router
+/**
+ * ユーザー作成
+ */
+router.post(
+	'/users',
+	// @ts-expect-error
+	createUserValidator,
+	async (c) => {
+		const db = c.get('db')
+
+		const user = c.req.valid('json')
+		const result = await userController(db).createUser(user)
+
+		return c.json(result)
+	},
+)
+
+/**
+ * ユーザー詳細取得
+ */
+router.get(
+	'/users/:id',
+	// @ts-expect-error
+	getUserValidator,
+	async (c) => {
+		const db = c.get('db')
+
+		const { id } = c.req.valid('param')
+		const result = await userController(db).getUser(id)
+
+		if (!result) throw new HTTPException(404, { message: 'user not found' })
+
+		return c.json(result)
+	},
+)
+
+/**
+ * ユーザー更新
+ */
+router.put(
+	'/users/:id',
+	// @ts-expect-error
+	updateEventValidator,
+	async (c) => {
+		const db = c.get('db')
+
+		const user = c.req.valid('json')
+		const result = await userController(db).updateUser(user)
+
+		return c.json(result)
+	},
+)
+
+/**
+ * ユーザー削除
+ * @TODO 削除対象が存在しない場合の挙動
+ */
+router.delete(
+	'/users/:id',
+	// @ts-expect-error
+	deleteEventValidator,
+	async (c) => {
+		const db = c.get('db')
+
+		const { id } = c.req.valid('param')
+		const result = await userController(db).removeUser(id)
+
+		return c.json(result)
+	},
+)

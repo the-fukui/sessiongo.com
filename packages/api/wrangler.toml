@@ -4,6 +4,10 @@ compatibility_date = "2023-06-15"
 
 account_id = "16f8e12d2a44b13afb75f5f965c9c047"
 
+[vars]
+FIREBASE_AUTH_EMULATOR_HOST = "localhost:9099"
+PROJECT_ID = "default"
+
 [[ d1_databases ]]
 binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "sessiongo"

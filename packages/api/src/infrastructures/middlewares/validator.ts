@@ -60,6 +60,24 @@ const deleteEventSchema = z.object({
 	id: z.string().min(1).max(100),
 })
 
+const createUserSchema = z.object({
+	id: z.string().min(1).max(100),
+	name: z.string().min(1).max(100).optional(),
+})
+
+const getUserSchema = z.object({
+	id: z.string().min(1).max(100),
+})
+
+const updateUserSchema = z.object({
+	id: z.string().min(1).max(100),
+	name: z.string().min(1).max(100),
+})
+
+const deleteUserSchema = z.object({
+	id: z.string().min(1).max(100),
+})
+
 export const createEventValidator = zValidator('json', createEventDTOSchema)
 
 export const getMonthlyEventsValidator = zValidator(
@@ -70,3 +88,11 @@ export const getMonthlyEventsValidator = zValidator(
 export const updateEventValidator = zValidator('json', updateEventDTOSchema)
 
 export const deleteEventValidator = zValidator('param', deleteEventSchema)
+
+export const createUserValidator = zValidator('json', createUserSchema)
+
+export const getUserValidator = zValidator('param', getUserSchema)
+
+export const updateUserValidator = zValidator('json', updateUserSchema)
+
+export const deleteUserValidator = zValidator('param', deleteUserSchema)
