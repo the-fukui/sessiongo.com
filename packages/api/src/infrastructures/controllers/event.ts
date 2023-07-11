@@ -2,12 +2,12 @@
  * router(infrastructure)とuseCase(application)の橋渡しをする
  * 必要があればselializer(json整形など)を呼び出す
  */
-import type { CreateEventDTO } from '@api/src/appplication/dtos/createEventDto'
+import type { CreateEventDTO } from '@api/src/application/dtos/createEventDto'
 import {
 	type UpdateEventDTO,
 	convertUpdateEventToEvent,
-} from '@api/src/appplication/dtos/updateEventDTO'
-import { eventUseCase } from '@api/src/appplication/useCases/event'
+} from '@api/src/application/dtos/updateEventDTO'
+import { eventUseCase } from '@api/src/application/useCases/event'
 import type { IDBClient } from '@api/src/domain/interfaces/database'
 import type { IStorageClient } from '@api/src/domain/interfaces/storage'
 import { eventRepository } from '@api/src/infrastructures/repositories/event'

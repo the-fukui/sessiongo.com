@@ -1,3 +1,5 @@
-declare global {
-	const R2_PUBLIC_BUCKET_URL: string
+declare type WorkersEnv = {
+	DB: D1Database
+	STORAGE: R2Bucket
+	FIREBASE_JWK_CACHE_KV: KVNamespace
 }

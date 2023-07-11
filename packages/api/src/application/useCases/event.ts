@@ -1,11 +1,11 @@
 import {
 	type CreateEventDTO,
 	convertCreateEventToEvent,
-} from '@api/src/appplication/dtos/createEventDto'
+} from '@api/src/application/dtos/createEventDto'
 import {
 	type UpdateEventDTO,
 	convertUpdateEventToEvent,
-} from '@api/src/appplication/dtos/updateEventDTO'
+} from '@api/src/application/dtos/updateEventDTO'
 import type { IEventRepository } from '@api/src/domain/interfaces/repositories/event'
 import type { IStorageClient } from '@api/src/domain/interfaces/storage'
 import { imageStorage } from '@api/src/infrastructures/storage'

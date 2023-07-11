@@ -11,7 +11,8 @@ declare module 'hono' {
 /**
  * Honoのcontextにdrizzle clientをinjectする
  */
-export const injectDBClient = (): MiddlewareHandler => async (c, next) => {
-	c.set('db', createDBClient(c.env.DB))
-	await next()
-}
+export const injectDBClient =
+	(): MiddlewareHandler<{ Bindings: WorkersEnv }> => async (c, next) => {
+		c.set('db', createDBClient(c.env.DB))
+		await next()
+	}

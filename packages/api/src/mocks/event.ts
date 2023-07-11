@@ -1,4 +1,4 @@
-import type { CreateEventDTO } from '@api/src/appplication/dtos/createEventDto'
+import type { CreateEventDTO } from '@api/src/application/dtos/createEventDto'
 import type { EventFeature } from '@api/src/domain/entities/event'
 import { EVENT_FEATURE } from '@api/src/domain/entities/event'
 import { generate } from 'random-words'

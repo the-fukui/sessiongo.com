@@ -1,5 +1,6 @@
 import { eventController } from '@api/src/infrastructures/controllers/event'
 import { userController } from '@api/src/infrastructures/controllers/user'
+import { verifyFirebaseAuthenticationToken } from '@api/src/infrastructures/middlewares/firebaseAuthentication'
 import {
 	createEventValidator,
 	createUserValidator,
@@ -7,17 +8,13 @@ import {
 	getMonthlyEventsValidator,
 	getUserValidator,
 	updateEventValidator,
+	updateUserValidator,
 } from '@api/src/infrastructures/middlewares/validator'
 import { createRandomEventDTO } from '@api/src/mocks/event'
 import { Hono } from 'hono'
 import { HTTPException } from 'hono/http-exception'
 
-type Env = {
-	DB: D1Database
-	STORAGE: R2Bucket
-}
-
-const router = new Hono<{ Bindings: Env }>()
+const router = new Hono<{ Bindings: WorkersEnv }>()
 
 /**
  * イベント作成
@@ -149,16 +146,19 @@ router.delete(
 
 /**
  * ユーザー作成
+ * Firebase Authenticationに登録後、ブラウザから呼び出すので、この段階でJTWトークンを持っている
  */
 router.post(
 	'/users',
+	verifyFirebaseAuthenticationToken(),
 	// @ts-expect-error
 	createUserValidator,
 	async (c) => {
 		const db = c.get('db')
+		const id = c.get('uid')
 
 		const user = c.req.valid('json')
-		const result = await userController(db).createUser(user)
+		const result = await userController(db).createUser({ ...user, id })
 
 		return c.json(result)
 	},
@@ -188,13 +188,15 @@ router.get(
  */
 router.put(
 	'/users/:id',
+	verifyFirebaseAuthenticationToken(),
 	// @ts-expect-error
-	updateEventValidator,
+	updateUserValidator,
 	async (c) => {
 		const db = c.get('db')
+		const id = c.get('uid')
 
 		const user = c.req.valid('json')
-		const result = await userController(db).updateUser(user)
+		const result = await userController(db).updateUser({ ...user, id })
 
 		return c.json(result)
 	},
@@ -204,16 +206,13 @@ router.put(
  * ユーザー削除
  * @TODO 削除対象が存在しない場合の挙動
  */
-router.delete(
-	'/users/:id',
-	// @ts-expect-error
-	deleteEventValidator,
-	async (c) => {
-		const db = c.get('db')
+router.delete('/users/:id', verifyFirebaseAuthenticationToken(), async (c) => {
+	const db = c.get('db')
+	const id = c.get('uid')
 
-		const { id } = c.req.valid('param')
-		const result = await userController(db).removeUser(id)
+	const result = await userController(db).removeUser(id)
 
-		return c.json(result)
-	},
-)
+	return c.json(result)
+})
+
+export default router

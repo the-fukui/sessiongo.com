@@ -1,5 +1,5 @@
-import type { CreateEventDTO } from '@api/src/appplication/dtos/createEventDto'
-import type { UpdateEventDTO } from '@api/src/appplication/dtos/updateEventDTO'
+import type { CreateEventDTO } from '@api/src/application/dtos/createEventDto'
+import type { UpdateEventDTO } from '@api/src/application/dtos/updateEventDTO'
 import {
 	EVENT_FEATURE,
 	EVENT_STATUS,
@@ -61,7 +61,6 @@ const deleteEventSchema = z.object({
 })
 
 const createUserSchema = z.object({
-	id: z.string().min(1).max(100),
 	name: z.string().min(1).max(100).optional(),
 })
 
@@ -70,12 +69,7 @@ const getUserSchema = z.object({
 })
 
 const updateUserSchema = z.object({
-	id: z.string().min(1).max(100),
 	name: z.string().min(1).max(100),
-})
-
-const deleteUserSchema = z.object({
-	id: z.string().min(1).max(100),
 })
 
 export const createEventValidator = zValidator('json', createEventDTOSchema)
@@ -94,5 +88,3 @@ export const createUserValidator = zValidator('json', createUserSchema)
 export const getUserValidator = zValidator('param', getUserSchema)
 
 export const updateUserValidator = zValidator('json', updateUserSchema)
-
-export const deleteUserValidator = zValidator('param', deleteUserSchema)
