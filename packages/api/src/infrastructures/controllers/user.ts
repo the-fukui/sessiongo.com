@@ -2,6 +2,7 @@ import { userUseCase } from '@api/src/application/useCases/user'
 import type { User } from '@api/src/domain/entities/user'
 import type { IDBClient } from '@api/src/domain/interfaces/database'
 import type { IUserRepository } from '@api/src/domain/interfaces/repositories/user'
+import { userRepository } from '@api/src/infrastructures/repositories/user'
 
 export const userController = (db: IDBClient) => {
 	const repository = userRepository(db) as IUserRepository

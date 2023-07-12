@@ -167,9 +167,10 @@ export const eventRepository = (db: IDBClient): IEventRepository => {
 	}
 
 	const update = async (event: Event) => {
-		// createdAt, updatedAtは更新しない
+		// createdAtは更新しない
 		delete event.createdAt
-		delete event.updatedAt
+		// updatedAtは自動更新
+		event.updatedAt = undefined
 
 		return db
 			.update(events)
