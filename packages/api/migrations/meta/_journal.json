@@ -8,6 +8,13 @@
       "when": 1688580029521,
       "tag": "0000_spooky_mathemanic",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1689171177902,
+      "tag": "0001_magical_alice",
+      "breakpoints": true
     }
   ]
 }

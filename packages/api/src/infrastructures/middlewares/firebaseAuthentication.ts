@@ -24,14 +24,21 @@ export const verifyFirebaseAuthenticationToken =
 				message: 'Authorization header is required',
 			})
 
-		const FIREBASE_JWK_CACHE_KV = c.env.FIREBASE_JWK_CACHE_KV
+		/**
+		 * @todo テスト時のminiflare環境ではc.envにバインドされない??
+		 */
+		// @ts-ignore
+		const _FIREBASE_JWK_CACHE_KV = globalThis.MINIFLARE
+			? // @ts-ignore
+			  FIREBASE_JWK_CACHE_KV
+			: c.env.FIREBASE_JWK_CACHE_KV
 
 		const jwt = authorization.replace(/Bearer\s+/i, '')
 		const auth = Auth.getOrInitialize(
 			FIREBASE_PROJECT_ID,
 			WorkersKVStoreSingle.getOrInitialize(
 				FIREBASE_PUBLIC_JWK_CACHE_KEY,
-				FIREBASE_JWK_CACHE_KV,
+				_FIREBASE_JWK_CACHE_KV,
 			),
 		)
 
@@ -45,5 +52,5 @@ export const verifyFirebaseAuthenticationToken =
 		const { uid } = firebaseToken
 
 		c.set('uid', uid)
-		next()
+		await next()
 	}
