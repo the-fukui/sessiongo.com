@@ -1,0 +1,7 @@
+{
+  "name": "hasura",
+  "packageManager": "yarn@3.4.1",
+  "scripts": {
+    "dev": "docker compose up -d && hasura console && docker compose down"
+  }
+}
