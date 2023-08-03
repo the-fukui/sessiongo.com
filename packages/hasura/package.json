@@ -2,6 +2,7 @@
   "name": "hasura",
   "packageManager": "yarn@3.4.1",
   "scripts": {
-    "dev": "docker compose up -d && hasura console && docker compose down"
+    "dev": "sh ./dev.sh",
+    "clean": "docker volume rm -f hasura_db_data"
   }
 }

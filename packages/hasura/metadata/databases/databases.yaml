@@ -1,8 +1,9 @@
-- name: PRD
+- name: default
   kind: postgres
   configuration:
     connection_info:
-      database_url: postgresql://postgres:tyv0APG-vef.zrg-eau@db.hqbeqfmzlgkndjhfckwx.supabase.co:5432/postgres
+      database_url:
+        from_env: PG_DATABASE_URL
       isolation_level: read-committed
       use_prepared_statements: false
-  tables: "!include PRD/tables/tables.yaml"
+  tables: '!include default/tables/tables.yaml'
