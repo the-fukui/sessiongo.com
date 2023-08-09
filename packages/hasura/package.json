@@ -1,0 +1,8 @@
+{
+  "name": "hasura",
+  "packageManager": "yarn@3.4.1",
+  "scripts": {
+    "dev": "sh ./dev.sh",
+    "clean": "docker volume rm -f hasura_db_data"
+  }
+}

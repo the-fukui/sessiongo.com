@@ -1,0 +1,6 @@
+- "!include public_event_features.yaml"
+- "!include public_event_participant_status.yaml"
+- "!include public_event_participants.yaml"
+- "!include public_event_status.yaml"
+- "!include public_events.yaml"
+- "!include public_users.yaml"

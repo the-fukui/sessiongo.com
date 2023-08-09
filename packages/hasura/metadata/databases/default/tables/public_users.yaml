@@ -1,0 +1,27 @@
+table:
+  name: users
+  schema: public
+configuration:
+  column_config: {}
+  custom_column_names: {}
+  custom_root_fields:
+    select_aggregate:
+      comment: ""
+      name: null
+array_relationships:
+  - name: createdEvents
+    using:
+      foreign_key_constraint_on:
+        column: authorId
+        table:
+          name: events
+          schema: public
+  - name: entriedEvents
+    using:
+      manual_configuration:
+        column_mapping:
+          id: userId
+        insertion_order: null
+        remote_table:
+          name: event_participants
+          schema: public

@@ -1,0 +1,36 @@
+table:
+  name: events
+  schema: public
+object_relationships:
+  - name: author
+    using:
+      foreign_key_constraint_on: authorId
+array_relationships:
+  - name: participants
+    using:
+      manual_configuration:
+        column_mapping:
+          id: eventId
+        insertion_order: null
+        remote_table:
+          name: event_participants
+          schema: public
+select_permissions:
+  - role: public
+    permission:
+      columns:
+        - createdAt
+        - description
+        - endAt
+        - features
+        - host
+        - id
+        - images
+        - placeId
+        - startAt
+        - status
+        - title
+        - updatedAt
+      filter:
+        status:
+          _eq: PUBLIC
