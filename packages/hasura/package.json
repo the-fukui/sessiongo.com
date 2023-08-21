@@ -4,5 +4,8 @@
   "scripts": {
     "dev": "sh ./dev.sh",
     "clean": "docker volume rm -f hasura_db_data"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

@@ -1,0 +1,49 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.0.2",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest --reporter=verbose"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@googlemaps/js-api-loader": "^1.15.1",
+    "@mantine/core": "^6.0.6",
+    "@mantine/dates": "^6.0.5",
+    "@mantine/form": "^6.0.6",
+    "@mantine/hooks": "^6.0.6",
+    "@mantine/next": "^6.0.4",
+    "browser-image-compression": "^2.0.2",
+    "dayjs": "^1.11.7",
+    "firebase": "^9.17.2",
+    "next": "^13.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "rrule": "^2.7.2"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.52.5",
+    "@types/node": "18.14.6",
+    "@types/react": "18.0.33",
+    "@types/react-dom": "18.0.11",
+    "eslint-config-next": "13.2.4",
+    "msw": "^1.1.0",
+    "sass": "^1.58.3",
+    "type-fest": "^3.6.1",
+    "vite-tsconfig-paths": "^4.0.7",
+    "vitest": "^0.29.3"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  },
+  "msw": {
+    "workerDirectory": "public"
+  }
+}
